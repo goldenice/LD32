@@ -1,22 +1,26 @@
 local bump       = require 'bump'
 local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
-margin = 0.001
+require 'bullet'
+require 'player'
 scroll= -100
+zoom = 2
 require 'gamestate'
+require 'enemy'
 local instructions = [[
-  bump.lua simple demo
+bump.lua simple demo
 
-    arrows: move
-    tab: toggle debug info
-    delete: run garbage collector
+arrows: move
+tab: toggle debug info
+delete: run garbage collector
 ]]
-
+levels = {"maps/testmap2","maps/kutwindows"}
+cur = 1
 local cols_len = 0 -- how many collisions are happening
 
 -- World creation
-local gamestate = resetgamestate("testmap")
-
+gamestate = resetgamestate(levels[1])
+current_state = "G"
 
 -- Message/debug functions
 local function drawMessage()
@@ -58,62 +62,6 @@ local function drawBox(box, r,g,b)
 end
 
 
-
--- Player functions
-
-local function updatePlayer(dt)
-  local speed = gamestate.player.speed
-
-  local dx, dy = 0, 0
-  --if love.keyboard.isDown('right') or joystick:isGamepadDown("dpright") then
---
-  --  gamestate.player.r = gamestate.player.r + dt
-  --elseif love.keyboard.isDown('left') or joystick:isGamepadDown("dpleft") then
-  --  gamestate.player.r=gamestate.player.r -dt
---
---  end
-  --if love.keyboard.isDown('down') or joystick:isGamepadDown("dpdown")  then
-  --  dx = -speed *math.cos(gamestate.player.r) *dt
---    dy = -speed *math.sin(gamestate.player.r) *dt
-  --elseif love.keyboard.isDown('up') or joystick:isGamepadDown("dpup") then
-  --  dx = speed *math.cos(gamestate.player.r)* dt
-  --  dy = speed *math.sin(gamestate.player.r) *dt
-  --end
-  dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
-  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
-  moved = true
-  if dx*dx < margin then
-    dx = 0
-    moved = false
-  end
-  if dy*dy < margin then
-    dy = 0
-    moved = false
-  end
-  if moved then
-  --gamestate.player.r = math.atan2(dy,dx)
-  end
-  dy = dy + dt*scroll
-  if dx ~= 0 or dy ~= 0 then
-    local cols
-    gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy)
-    for i=1, cols_len do
-      local col = cols[i]
-      if col.other.ctype == "death" then
-        resetGame()
-      else
-        consolePrint(("col.type = %s"):format(col.other.type))
-      end
-      consolePrint(("col.other = %s, col.type = %s, col.normal = %d,%d"):format(col.other, col.type, col.normal.x, col.normal.y))
-    end
-  end
-end
-
-local function drawEnemies()
-  for _, enemy in ipairs(gamestate.enemies) do
-    love.graphics.draw(hamster, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, enemy.r, 1, 1, width / 2, height / 2)
-  end
-end
 local function drawPlayer()
   love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
 end
@@ -125,13 +73,37 @@ local blocks = {}
 
 
 local function drawBlocks()
-  for _,block in ipairs(gamestate.blocks) do
+  for _,block in pairs(gamestate.blocks) do
     drawBox(block, 255,0,0)
   end
   drawBox(gamestate.player,255,0,0)
 end
 function resetGame()
-  gamestate = resetgamestate("testmap")
+  gamestate = reload_upon_death()
+  bullets = {}
+  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+  gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
+  height = hamster:getHeight()
+  collectgarbage("collect")
+end
+function nextLevel()
+  cur = cur + 1
+  if cur > #levels then
+    current_state = "F"
+  else
+    gamestate = resetgamestate(levels[cur])
+    bullets = {}
+    gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+    gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
+    height = hamster:getHeight()
+    collectgarbage("collect")
+  end
+end
+
+function loadmap(mapname)
+  gamestate = resetgamestate(mapname)
+  bullets = {}
+
   gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
   hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
   width = hamster:getWidth()
@@ -140,59 +112,64 @@ function resetGame()
   height = hamster:getHeight()
   collectgarbage("collect")
 end
-function loadmap(mapname)
-  gamestate = resetgamestate()
-  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
-  width = hamster:getWidth()
-  height = hamster:getHeight()
-  addBlock(0,       0,     800, 32) -- x,y,w,h
-  addBlock(0,      32,      32, 600-32*2)
-  addBlock(800-32, 32,      32, 600-32*2)
-  addBlock(0,      600-32, 800, 32)
-
-  collectgarbage("collect")
-end
 
 
 -- Main LÖVE functions
 
 function love.load()
+  loadmap(levels[cur])
+  loadbullets()
+
+
   windowWith = love.graphics.getWidth()
   windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
   joystick = joysticks[1]
-  resetGame()
+  buttons = joystick:getButtonCount( joystick )
 end
 
 
 function love.update(dt)
-  cols_len = 0
-  updatePlayer(dt)
-  aienemy(gamestate,dt)
-  gamestate.scroll = gamestate.scroll   - dt*scroll
+  if current_state == "G" then
+    cols_len = 0
+    updatePlayer( dt)
+    move_bullets(dt)
+    aienemy(dt)
+    gamestate.scroll = gamestate.scroll   - dt*scroll
+  end
 end
 
 function love.draw()
-  zoom = 2
-  love.graphics.scale(zoom, zoom)
+  if current_state == "G" then
 
-  tx = 0
-  ty = gamestate.scroll
-  local w = windowWith
-  local h = windowHeight
-  love.graphics.translate(tx, ty)
+    love.graphics.scale(zoom, zoom)
+    tx = 0
 
-  gamestate.map:setDrawRange(tx, ty, w, h)
-  gamestate.map:draw()
-  -- Draw only the tiles on screen
-  drawPlayer()
-  drawEnemies()
-  if shouldDrawDebug then
-    drawBlocks()
+    ty = gamestate.scroll
+    local w = windowWith
+    local h = windowHeight
+    love.graphics.translate(tx, ty)
+
+    gamestate.map:setDrawRange(tx, ty, w, h)
+    gamestate.map:draw()
+    -- Draw only the tiles on screen
+    drawPlayer()
+    drawEnemies()
+    draw_bullets()
+    if shouldDrawDebug then
+      drawBlocks()
+    end
+    drawMessage()
+    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
+  else
+    local w = windowWith
+    local h = windowHeight
+    love.graphics.translate(tx, ty)
+
+    gamestate.map:setDrawRange(0, 0, w, h)
+    love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
+
   end
-  drawMessage()
-  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( ).."scroll:"..gamestate.scroll), 10, 10-gamestate.scroll)
 end
 
 -- Non-player keypresses
