@@ -14,12 +14,19 @@ arrows: move
 tab: toggle debug info
 delete: run garbage collector
 ]]
-levels = {"maps/testmap2","maps/kutwindows"}
+levels = {"maps/testmap2","maps/testmap2"}
+background1_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
+background_1 = {}
+background2_url = {"assets/tiles/collectible_tiles.png", "assets/tiles/collectible_tiles.png"}
+background_2 = {}
+add_scroll_1 = 0.2
+add_scroll_2 = 0.4
+
 cur = 1
 local cols_len = 0 -- how many collisions are happening
 
 -- World creation
-gamestate = resetgamestate(levels[1])
+gamestate = {}
 current_state = "G"
 
 -- Message/debug functions
@@ -117,9 +124,16 @@ end
 -- Main LÖVE functions
 
 function love.load()
+
+
+  for i,bg in ipairs(background1_url) do
+    background_1[i] = love.graphics.newImage(bg)
+  end
+  for i,bg in ipairs(background2_url) do
+    background_2[i] = love.graphics.newImage(bg)
+  end
   loadmap(levels[cur])
   loadbullets()
-
 
   windowWith = love.graphics.getWidth()
   windowHeight = love.graphics.getHeight()
@@ -151,6 +165,9 @@ function love.draw()
     love.graphics.translate(tx, ty)
 
     gamestate.map:setDrawRange(tx, ty, w, h)
+    love.graphics.draw(gamestate.bg_image1, gamestate.bg_quad1, 0, add_scroll_1*gamestate.scroll,0, 1, 1, width / 2, height / 2)
+    love.graphics.draw(gamestate.bg_image2, gamestate.bg_quad2, 0, add_scroll_2*gamestate.scroll,0, 1, 1, width / 2, height / 2)
+
     gamestate.map:draw()
     -- Draw only the tiles on screen
     drawPlayer()
