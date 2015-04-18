@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="city_tiles" tilewidth="16" tileheight="16">
+  <image source="../assets/tiles/city_tiles.png" width="256" height="256"/>
+ </tileset>
+ <layer name="collision" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEOgDAMQ9HelfvfATEwRlUhjevoP6kr2AJSYAwAAIC+rmA5iTI7dZnldOiykvHUPl9yndTl7zOs7pI5gxQ9ds3QqutSsQfsPnblPZx5HuX+mzEz1LPjdUqODJ16dOjSoQcd9Lrkd+zgnP3hnL8ye+Z3hPodJ/pPs7IAAAAAYOYGLRMnEA==
+  </data>
+ </layer>
+</map>
