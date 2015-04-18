@@ -12,5 +12,6 @@ function resetgamestate(mname)
     s.world = bump.newWorld()
     s.map = sti.new("maps/testmap2")
     s.collisiontiles = findSolidTiles(s)
+    s.scroll = 0
     return s
 end
