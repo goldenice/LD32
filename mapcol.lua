@@ -11,13 +11,13 @@ function findSolidTiles(gamestate)
     local map = gamestate.map
     local collidable_tiles = {}
     local layer = map.layers["collision"]
-    for x = 1, #layer.data do
-    	for y = 1, #layer.data[x] do
+    print("ik ben hier"..#layer.data)
+    for y = 1, map.height do
+    	for x = 1, map.width do
     		print(layer.data[y][x])
         print(y..":"..x)
         if layer.data[y][x] then
-
-          collidable_tiles[#collidable_tiles] = addBlock((x)*tile_width,(y)*tile_height,tile_width,tile_height,gamestate)
+          collidable_tiles[#collidable_tiles] = addBlock((x-1)*tile_width,(y-1)*tile_height,tile_width,tile_height,gamestate)
         end
       end
     end
