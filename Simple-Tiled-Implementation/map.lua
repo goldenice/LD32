@@ -1004,7 +1004,7 @@ function Map:getTileProperties(layer, x, y)
 
 	return tile.properties
 end
-
+ -- Object = object name
 function Map:getObjectProperties(layer, object)
 	local o = self.layers[layer].objects
 
