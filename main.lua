@@ -63,7 +63,7 @@ end
 
 
 local function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r+math.rad(180), 1, 1, width / 2, height / 2)
 end
 
 -- Block functions

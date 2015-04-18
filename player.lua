@@ -83,5 +83,5 @@ function playerfilter(item, other)
 end
 
 function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, 180, 1, 1, gamestate.player.width / 2, gamestate.player.height / 2)
 end
