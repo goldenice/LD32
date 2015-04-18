@@ -3,7 +3,7 @@ local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
 require 'bullet'
 require 'player'
-scroll= -100
+scroll= -180
 zoom = 2
 require 'gamestate'
 require 'enemy'
