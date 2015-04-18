@@ -99,7 +99,7 @@ local function updatePlayer(dt)
     gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy)
     for i=1, cols_len do
       local col = cols[i]
-      if col.other.type == "death" then
+      if col.other.ctype == "death" then
         resetGame()
       else
         consolePrint(("col.type = %s"):format(col.other.type))
@@ -109,6 +109,11 @@ local function updatePlayer(dt)
   end
 end
 
+local function drawEnemies()
+  for _, enemy in ipairs(gamestate.enemies) do
+    love.graphics.draw(hamster, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, enemy.r, 1, 1, width / 2, height / 2)
+  end
+end
 local function drawPlayer()
   love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
 end
@@ -164,6 +169,7 @@ end
 function love.update(dt)
   cols_len = 0
   updatePlayer(dt)
+  aienemy(gamestate,dt)
   gamestate.scroll = gamestate.scroll   - dt*scroll
 end
 
@@ -181,6 +187,7 @@ function love.draw()
   gamestate.map:draw()
   -- Draw only the tiles on screen
   drawPlayer()
+  drawEnemies()
   if shouldDrawDebug then
     drawBlocks()
   end
