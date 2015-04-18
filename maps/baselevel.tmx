@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="3">
+ <tileset firstgid="1" name="city_tiles" tilewidth="16" tileheight="16">
+  <image source="../assets/tiles/city_tiles.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tilelaag 1" width="32" height="750">
+  <data encoding="base64" compression="zlib">
+   eJzt1dltwzAQBUDX4NZSgitSx/kNDHJJibv0kRngAbGS6PGSfLsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8nx8RERERERGRF+RI+nw8JaO/db+oP3v+rXvv6j+Cn7PXv/W/o+ujcWXMf2VfqvtH57Kyv/f5yv6/U3rnbbQ+WfNt3Wf2+XxVf+Z+j851a87Z/b1rvXPx2NDfm3f2+RMREREREREREZHvyP3C9Xvw+8r+v71ZY7janzWGmZ7oenZ/tL+t9a/o373/rbnsWv8zc+n1Zz2LV8e5cwyz56hqDyrXdWYMFeN8fq6isVWd/979ovtXvINm3gOjNVvp761HNK7q/tH33o75nzmTZ7tn5jZ6Rlb7o+dr9L232r/695/+7hcREfkP+QXVTteF
+  </data>
+ </layer>
+ <layer name="collision" width="32" height="750">
+  <data encoding="base64" compression="zlib">
+   eJztzUENAAAIBKDrYP+uVvDndFCABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADghlq+/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/vn/wAAAAAAADfNElxIRs=
+  </data>
+ </layer>
+ <objectgroup name="enemies">
+  <object id="1" gid="18" x="398.976" y="10643.3" rotation="-42.3458">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="10624"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="2" gid="18" x="569" y="10368"/>
+ </objectgroup>
+ <layer name="endlevel" width="32" height="750">
+  <data encoding="base64" compression="zlib">
+   eJztyrENADAIwDBu4P9juYCBBSrVlrIlAgAAYEceBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8KJsmrxbAQAAAAAAAAAAAAAAAAAAAADwpwL9OwTt
+  </data>
+ </layer>
+</map>
