@@ -1,4 +1,4 @@
-deadzone = 0.30
+deadzone = 0.3
 
 -- Player functions
 
@@ -6,25 +6,19 @@ function updatePlayer( dt)
   local speed = gamestate.player.speed
 
   local dx, dy = 0, 0
-  --if love.keyboard.isDown('right') or joystick:isGamepadDown("dpright") then
---
-  --  gamestate.player.r = gamestate.player.r + dt
-  --elseif love.keyboard.isDown('left') or joystick:isGamepadDown("dpleft") then
-  --  gamestate.player.r=gamestate.player.r -dt
---
---  end
-  --if love.keyboard.isDown('down') or joystick:isGamepadDown("dpdown")  then
-  --  dx = -speed *math.cos(gamestate.player.r) *dt
---    dy = -speed *math.sin(gamestate.player.r) *dt
-  --elseif love.keyboard.isDown('up') or joystick:isGamepadDown("dpup") then
-  --  dx = speed *math.cos(gamestate.player.r)* dt
-  --  dy = speed *math.sin(gamestate.player.r) *dt
-  --end
+
   dx = 0
   dy = 0
+  gamestate.shoot_time =     gamestate.shoot_time + dt
+  if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
+    gamestate.shoot_time = 0
+    add_bullet(gamestate.player.x, gamestate.player.y ,0, "standard", "player")
+  end
   dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
   dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
   moved = true
+
+
   if math.abs(dx) < math.abs(deadzone) then
     dx = 0
     moved = false
@@ -46,7 +40,7 @@ function updatePlayer( dt)
     end
   end
   if moved then
-  --gamestate.player.r = math.atan2(dy,dx)
+    --gamestate.player.r = math.atan2(dy,dx)
   end
   dy = dy + dt*scroll
 
@@ -61,24 +55,33 @@ function updatePlayer( dt)
     end
     for i=1, cols_len do
       local col = cols[i]
+      if col.other.isEnemy then
+        print("honorable death")
+        resetGame()
+        return
+      end
       if col.other.ctype == "death" then
+        print("stupid death")
         resetGame()
         return
       end
       if col.other.ctype == "end" then
         nextLevel()
-
       end
     end
   end
 end
 
-local playerfilter = function(item, other)
-  if     other.isUpgrade   then return 'cross'
+function playerfilter(item, other)
+  if     other.isBullet   then return 'cross'
   elseif other.isWall   then return 'slide'
-  elseif other.isEnd   then return 'touch'
+  elseif other.isUpgrade   then return 'cross'
   elseif other.isSpring then return 'bounce'
   else return 'slide'
   end
   -- else return nil
+end
+
+function drawPlayer()
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
 end

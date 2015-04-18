@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="3">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="11">
  <tileset firstgid="1" name="city_tiles" tilewidth="16" tileheight="16">
   <image source="../assets/tiles/city_tiles.png" width="256" height="256"/>
  </tileset>
@@ -14,19 +14,94 @@
   </data>
  </layer>
  <objectgroup name="enemies">
-  <object id="1" gid="18" x="398.976" y="10643.3" rotation="-42.3458">
+  <object id="1" gid="18" x="-82.0239" y="10146.3" width="24" height="53" rotation="45">
    <properties>
     <property name="ctype" value="death"/>
     <property name="rotation" value=""/>
-    <property name="scroll" value="10624"/>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
     <property name="type" value="lane"/>
    </properties>
   </object>
-  <object id="2" gid="18" x="569" y="10368"/>
+  <object id="2" gid="18" x="-67.25" y="10413.5" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10624"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="3" gid="18" x="-65" y="10339" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10624"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="4" gid="18" x="-62" y="10287" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10624"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="5" gid="18" x="-59" y="10226" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10624"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="6" gid="18" x="-100.488" y="9923.77" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="7" gid="18" x="-72.1961" y="9886.02" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="8" gid="18" x="-86.4881" y="9806.1" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="9" gid="18" x="-75.0286" y="9831.37" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
+  <object id="10" gid="18" x="-87.3456" y="9769.55" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="lane"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="endlevel" width="32" height="750">
   <data encoding="base64" compression="zlib">
-   eJztyrENADAIwDBu4P9juYCBBSrVlrIlAgAAYEceBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8KJsmrxbAQAAAAAAAAAAAAAAAAAAAADwpwL9OwTt
+   eJztyqENAAAIwDBu4P9juQCBAUSbzC0CAABgRx4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX2TT5N0KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAVG4E7Q==
   </data>
  </layer>
 </map>

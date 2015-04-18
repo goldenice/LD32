@@ -2,7 +2,9 @@ tile_width =16
 tile_height=16
 local function addBlock(x,y,w,h,gamestate)
   local block = {x=x,y=y,w=w,h=h,ctype="death"}
-  gamestate.blocks[#gamestate.blocks+1] = block
+  gamestate.n_blocks =gamestate.n_blocks +1
+
+  gamestate.blocks["a"..gamestate.n_blocks] = block
   gamestate.world:add(block, x,y,w,h)
   return block
 end
@@ -24,8 +26,10 @@ function findSolidTiles(gamestate)
 end
 
 local function addEndBlock(x,y,w,h,gamestate)
+  gamestate.n_blocks =gamestate.n_blocks +1
+
   local block = {x=x,y=y,w=w,h=h,isEnd, ctype ="end"}
-  gamestate.blocks[#gamestate.blocks+1] = block
+  gamestate.blocks["a"..gamestate.n_blocks] = block
   gamestate.world:add(block, x,y,w,h)
   return block
 end
