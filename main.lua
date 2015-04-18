@@ -2,6 +2,7 @@ local bump       = require 'bump'
 local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
 margin = 0.001
+scroll=100
 require 'gamestate'
 local instructions = [[
   bump.lua simple demo
@@ -90,9 +91,9 @@ local function updatePlayer(dt)
     moved = false
   end
   if moved then
-  gamestate.player.r = math.atan2(dy,dx)
+  --gamestate.player.r = math.atan2(dy,dx)
   end
-
+  dy = dy + dt*scroll
   if dx ~= 0 or dy ~= 0 then
     local cols
     gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy)
@@ -155,6 +156,8 @@ end
 -- Main LÖVE functions
 
 function love.load()
+  windowWith = love.graphics.getWidth()
+  windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
   joystick = joysticks[1]
   resetGame()
@@ -164,16 +167,22 @@ end
 function love.update(dt)
   cols_len = 0
   updatePlayer(dt)
-  gamestate.scroll = gamestate.scroll -  dt*50
-
+  gamestate.scroll = gamestate.scroll   - dt*scroll
 end
 
 function love.draw()
   zoom = 2
   love.graphics.scale(zoom, zoom)
-  gamestate.map.viewY = gamestate.scroll
-  gamestate.map:draw()
 
+  tx = 0
+  ty = gamestate.scroll
+  local w = windowWith
+  local h = windowHeight
+  love.graphics.translate(tx, ty)
+
+  gamestate.map:setDrawRange(tx, ty, w, h)
+  gamestate.map:draw()
+  -- Draw only the tiles on screen
   drawPlayer()
   if shouldDrawDebug then
     drawBlocks()
