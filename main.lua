@@ -2,7 +2,7 @@ local bump       = require 'bump'
 local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
 margin = 0.001
-scroll=100
+scroll= -100
 require 'gamestate'
 local instructions = [[
   bump.lua simple demo
@@ -79,8 +79,8 @@ local function updatePlayer(dt)
   --  dx = speed *math.cos(gamestate.player.r)* dt
   --  dy = speed *math.sin(gamestate.player.r) *dt
   --end
-  dx = joystick:getGamepadAxis("leftx") * dt * 100
-  dy = joystick:getGamepadAxis("lefty") * dt * 100
+  dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
+  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
   moved = true
   if dx*dx < margin then
     dx = 0
@@ -110,28 +110,25 @@ local function updatePlayer(dt)
 end
 
 local function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width,  gamestate.player.y+0.5*height, gamestate.player.r, 1, 1, width / 2, height / 2)
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
 end
 
 -- Block functions
 
 local blocks = {}
 
-local function addBlock(x,y,w,h)
-  local block = {x=x,y=y,w=w,h=h,type="death"}
-  gamestate.blocks[#gamestate.blocks+1] = block
-  gamestate.world:add(block, x,y,w,h)
-end
+
 
 local function drawBlocks()
   for _,block in ipairs(gamestate.blocks) do
     drawBox(block, 255,0,0)
   end
+  drawBox(gamestate.player,255,0,0)
 end
 function resetGame()
   gamestate = resetgamestate("testmap")
   gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  hamster = love.graphics.newImage("hamster.png")
+  hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
   width = hamster:getWidth()
   gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
 
@@ -141,7 +138,7 @@ end
 function loadmap(mapname)
   gamestate = resetgamestate()
   gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  hamster = love.graphics.newImage("hamster.png")
+  hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
   width = hamster:getWidth()
   height = hamster:getHeight()
   addBlock(0,       0,     800, 32) -- x,y,w,h
@@ -188,7 +185,7 @@ function love.draw()
     drawBlocks()
   end
   drawMessage()
-  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( ).."scroll:"..gamestate.scroll), 10, 10)
+  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( ).."scroll:"..gamestate.scroll), 10, 10-gamestate.scroll)
 end
 
 -- Non-player keypresses
