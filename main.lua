@@ -3,8 +3,13 @@ local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
 require 'bullet'
 require 'player'
+require 'effect'
+anim8 = require 'anim8'
+
 scroll= -180
 zoom = 2
+shadow_x = -16
+shadow_y = -16
 require 'gamestate'
 require 'enemy'
 local instructions = [[
@@ -15,12 +20,12 @@ tab: toggle debug info
 delete: run garbage collector
 ]]
 levels = {"maps/testmap2","maps/testmap2"}
-background1_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
+background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
 background_1 = {}
-background2_url = {"assets/tiles/collectible_tiles.png", "assets/tiles/collectible_tiles.png"}
+background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
 background_2 = {}
-add_scroll_1 = 0.2
-add_scroll_2 = 0.4
+add_scroll_1 = 0.1
+add_scroll_2 = 0.65
 
 cur = 1
 local cols_len = 0 -- how many collisions are happening
@@ -70,8 +75,20 @@ end
 
 
 local function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r+math.rad(180), 1, 1, width / 2, height / 2)
+  if gamestate.shadow then
+    love.graphics.setShader(bw_shader)
+    love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
+
+    love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset+shadow_x,  gamestate.player.y+0.5*height-gamestate.player.yoffset+shadow_y, gamestate.player.r, 1, 1, width / 2, height / 2)
+
+    love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
+    love.graphics.setShader()
+  end
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+
+
 end
+
 
 -- Block functions
 
@@ -112,7 +129,7 @@ function loadmap(mapname)
   bullets = {}
 
   gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
+  hamster = love.graphics.newImage("assets/entity/ships/ship_003.png")
   width = hamster:getWidth()
   gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
 
@@ -124,7 +141,14 @@ end
 -- Main LÖVE functions
 
 function love.load()
-
+  bw_shader = love.graphics.newShader[[
+  vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords )
+{
+  vec4 c = Texel(texture, texture_coords); // This reads a color from our texture at the coordinates LOVE gave us (0-1, 0-1)
+  return vec4(vec3(0,0,0), c.a*0.1
+  ); // This just returns a white color that's modulated by the brightest color channel at the given pixel in the texture. Nothing too complex, and not exactly the prettiest way to do B&W :P
+}
+  ]]
 
   for i,bg in ipairs(background1_url) do
     background_1[i] = love.graphics.newImage(bg)
@@ -134,7 +158,8 @@ function love.load()
   end
   loadmap(levels[cur])
   loadbullets()
-
+  fill_effect_table()
+  get_effect_anims()
   windowWith = love.graphics.getWidth()
   windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
@@ -148,6 +173,7 @@ function love.update(dt)
     cols_len = 0
     updatePlayer( dt)
     move_bullets(dt)
+    update_effects(dt)
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
   end
@@ -173,6 +199,7 @@ function love.draw()
     drawPlayer()
     drawEnemies()
     draw_bullets()
+    draw_effects()
     if shouldDrawDebug then
       drawBlocks()
     end

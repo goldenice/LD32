@@ -16,6 +16,7 @@ function resetgamestate(mname)
   s.n_bullets = 0
   s.n_blocks = 0
   s.n_enemies = 0
+  s.shadow=false
   s.effects = {}
   s.n_effects = 0
   s.world = bump.newWorld()
@@ -27,6 +28,7 @@ function resetgamestate(mname)
   s.player.y = s.player.y - s.scroll
   s.enemies = findEnemies(s)
   s.endStates = findEndLevelTiles(s)
+  s.shadows = findShadowTiles(s)
   s.bg_image1 = background_1[cur]
   s.bg_image1:setWrap("repeat", "repeat")
   s.bg_quad1 = love.graphics.newQuad(0, 0, love.graphics.getWidth()/2+32,2*s.map.height*tile_height, s.bg_image1:getWidth(), s.bg_image1:getHeight())

@@ -14,8 +14,8 @@ function updatePlayer( dt)
     gamestate.shoot_time = 0
     add_bullet(gamestate.player.x, gamestate.player.y ,0, "standard", "player")
   end
-  dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
-  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
+  dx = joystick:getGamepadAxis("rightx") * dt * gamestate.player.speed
+  dy = joystick:getGamepadAxis("righty") * dt * gamestate.player.speed
   moved = true
 
 
@@ -53,12 +53,18 @@ function updatePlayer( dt)
     if gamestate.player.y < -gamestate.scroll then
       gamestate.player.y = -gamestate.scroll
     end
+    gamestate.shadow=false
     for i=1, cols_len do
       local col = cols[i]
       if col.other.isEnemy then
         print("honorable death")
         resetGame()
         return
+      end
+      if col.other.isShadow then
+        print("honorable death")
+        gamestate.shadow=true
+
       end
       if col.other.ctype == "death" then
         print("stupid death")
@@ -74,6 +80,7 @@ end
 
 function playerfilter(item, other)
   if     other.isBullet   then return 'cross'
+  elseif     other.isShadow   then return 'cross'
   elseif other.isWall   then return 'slide'
   elseif other.isUpgrade   then return 'cross'
   elseif other.isSpring then return 'bounce'

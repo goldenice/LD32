@@ -7,6 +7,7 @@ function   loadbullets()
 end
 
 function delete_enemy(enemy)
+  add_effect ("explosion",enemy.x,enemy.y)
   gamestate.blocks["a"..enemy.block] = nil
   gamestate.enemies["a"..enemy.id] = nil
   gamestate.world:remove(enemy)
