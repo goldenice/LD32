@@ -100,6 +100,7 @@ end
 function resetGame()
   gamestate = reload_upon_death()
   reset_local()
+  print("resetting game")
   collectgarbage("collect")
 end
 function nextLevel()
@@ -166,9 +167,7 @@ function love.update(dt)
     updatePlayer( dt)
     move_bullets(dt)
     update_effects(dt)
-
     update_special(dt)
-
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
   end

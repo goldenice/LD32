@@ -47,7 +47,7 @@ function move_bullets(dt)
         bullet.x, bullet.y, cols, cols_len =gamestate.world:move(bullet, bullet.x + dx, bullet.y + dy,bullet_enemy_filter)
         for i=1,cols_len do
           if cols[i].other.isPlayer then
-            resetGame()
+            player_is_hit()
             return
           end
         end

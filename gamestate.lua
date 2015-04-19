@@ -19,6 +19,12 @@ function resetgamestate(mname)
   s.special_loose = false
   s.bullets = {}
   s.n_bullets = 0
+  s.retry = 3
+  s.retry_wait = 0
+  s.retry_max_wait = 2
+  s.retry_wait_tick = 0
+  s.playing = true
+  s.retry_shown = false
   s.n_blocks = 0
   s.n_enemies = 0
   s.shadow=false
