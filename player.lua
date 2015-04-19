@@ -42,9 +42,9 @@ function updatePlayer( dt)
     dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
   else
   if love.keyboard.isDown("right") then
-    dx = 0.5*dt*gamestate.player.speed
+    dx = 1.2*dt*gamestate.player.speed
   elseif love.keyboard.isDown("left") then
-    dx = -0.5*dt*gamestate.player.speed
+    dx = -1.2*dt*gamestate.player.speed
   end
   if love.keyboard.isDown("up") then
     dy = -0.5*dt *1.5*gamestate.player.speed
@@ -107,6 +107,12 @@ end
   else
     gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, crossFilter)
 
+  end
+  if gamestate.player.x  < 24 then
+    gamestate.player.x = 24
+  end
+  if gamestate.player.x > level_width-32 then
+    gamestate.player.x = level_width-32
   end
     if gamestate.player.y > -2*tile_width+windowHeight/zoom-gamestate.scroll then
       gamestate.player.y = -2*tile_width+windowHeight/zoom-gamestate.scroll

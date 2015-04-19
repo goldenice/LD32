@@ -14,12 +14,9 @@ shadow_x = -16
 shadow_y = -16
 require 'gamestate'
 require 'enemy'
+level_width = 640
 local instructions = [[
-bump.lua simple demo
-
-arrows: move
-tab: toggle debug info
-delete: run garbage collector
+Simple game
 ]]
 levels = {"maps/testmap2","maps/testmap2"}
 background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
@@ -147,6 +144,7 @@ function love.load()
   for i,bg in ipairs(background2_url) do
     background_2[i] = love.graphics.newImage(bg)
   end
+  load_ui_elements()
   loadmap(levels[cur])
   loadbullets()
   fill_effect_table()
@@ -196,10 +194,11 @@ function love.draw()
     draw_bullets()
     draw_special()
     draw_effects()
-    draw_ui()
     if shouldDrawDebug then
       drawBlocks()
     end
+    draw_ui()
+
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   else
     local w = windowWith
@@ -207,6 +206,7 @@ function love.draw()
     love.graphics.translate(tx, ty)
 
     gamestate.map:setDrawRange(0, 0, w, h)
+
     love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
 
   end

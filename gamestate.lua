@@ -10,6 +10,7 @@ function resetgamestate(mname)
   print(mname)
   s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 450,xoffset = 17,yoffset = 5, ctype="player",isPlayer=true}
   s.blocks = {}
+  s.score =  0
   s.special_attack = nil
   s.special_triggered = false
   s.n_specials = 0

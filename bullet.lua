@@ -2,14 +2,20 @@ require 'bullet_types'
 sx = 4
 sy = 4
 
-
+--gamestate,x,y,tick,scroll,rotation)
 function delete_enemy(enemy)
+  if enemy.isAsteroid then
+    add_asteroid_small_enemy(gamestate,enemy.x,enemy.y,0,200,0)
+    add_asteroid_small_enemy(gamestate,enemy.x,enemy.y,0,200,0)
+  end
+  gamestate.score =   gamestate.score  + enemy.score
   add_effect ("explosion",enemy.x,enemy.y)
   gamestate.blocks["a"..enemy.block] = nil
   gamestate.enemies["a"..enemy.id] = nil
   gamestate.world:remove(enemy)
 end
 function delete_bullet(bullet)
+
   gamestate.blocks["a"..bullet.block] = nil
   gamestate.bullets["a"..bullet.id] = nil
   gamestate.world:remove(bullet)

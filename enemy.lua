@@ -2,7 +2,8 @@ require 'enemy_line'
 require 'enemy_suicide'
 require 'enemy_tank'
 require 'enemy_rotating_tank'
-
+require 'enemy_asteroid'
+require 'enemy_asteroid_small'
 enemy_parts = {}
 
 function add_enemy_parts()
@@ -11,6 +12,8 @@ function add_enemy_parts()
   enemy_parts["turret_cover"]  =  love.graphics.newImage("assets/entity/enemies/turret_cover.png")
   enemy_parts["turret_base"]  =  love.graphics.newImage("assets/entity/enemies/turret_base.png")
   enemy_parts["turret_guns"]  =  love.graphics.newImage("assets/entity/enemies/turret_guns.png")
+  enemy_parts["asteroid_big"]  =  love.graphics.newImage("prerenders/astroid 2/astroid20004.png")
+  enemy_parts["asteroid_small"]  =  love.graphics.newImage("prerenders/astroid 1/astroid10004.png")
 
 end
 function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,rotation,still,img,draw)
@@ -19,6 +22,7 @@ function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,ro
   local enemy = {}
   enemy.x = x
   enemy.y = y
+  enemy.score = 100
   enemy.tick = tick
   enemy.width = width
   enemy.height = height
@@ -58,6 +62,9 @@ function findEnemies(gamestate)
       end
       if v.properties.type == "tank" then
         add_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
+      if v.properties.type == "asteroid" then
+        add_asteroid_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
       if v.properties.type == "line" then
         add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
