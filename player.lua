@@ -1,4 +1,5 @@
 deadzone = 0.3
+flatout = 0.8
 
 -- Player functions
 
@@ -13,20 +14,22 @@ function updatePlayer( dt)
   if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
     gamestate.shoot_time = 0
     add_bullet(gamestate.player.x, gamestate.player.y ,0, "standard", "player")
+    shoot_effect(0,0)
   end
-  dx = joystick:getGamepadAxis("rightx") * dt * gamestate.player.speed
-  dy = joystick:getGamepadAxis("righty") * dt * gamestate.player.speed
+  dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
+  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
   moved = true
 
+  local multiplier =(1-deadzone)
 
   if math.abs(dx) < math.abs(deadzone) then
     dx = 0
     moved = false
   else
     if dx > 0 then
-      dx = (dx - deadzone*dt * gamestate.player.speed)/(1-deadzone)
+      dx = (dx - deadzone*dt * gamestate.player.speed)/(multiplier)
     else
-      dx = (dx + deadzone*dt * gamestate.player.speed)/(1-deadzone)
+      dx = (dx + deadzone*dt * gamestate.player.speed)/(multiplier)
     end
   end
   if dy*dy < deadzone*deadzone then
@@ -34,9 +37,9 @@ function updatePlayer( dt)
     moved = false
   else
     if dy > 0 then
-      dy = (dy - deadzone*dt * gamestate.player.speed)/(1-deadzone)
+      dy = (dy - deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
     else
-      dy = (dy + deadzone*dt * gamestate.player.speed)/(1-deadzone)
+      dy = (dy + deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
     end
   end
   if moved then
@@ -62,7 +65,6 @@ function updatePlayer( dt)
         return
       end
       if col.other.isShadow then
-        print("honorable death")
         gamestate.shadow=true
 
       end

@@ -1,6 +1,9 @@
 
 effect_table= {}
+sounds = {}
 effects = {images={},animations={}}
+sound_effect_urls = {shoot = "assets/sounds/hit.wav"}
+sound_effects = {}
 function fill_effect_table()
   effect_table["explosion"] = explode_small
 end
@@ -23,13 +26,25 @@ function explode_small(x,y)
   e.y = y
   e.image = effects.images["explosion"]
   e.animation = effects.animations["explosion"]
+  e.life = 0.2
+  return e
+end
+
+function shoot_effect(x,y)
+  local e = {}
+  e.x = x
+  e.y = y
+  local src = love.audio.newSource(sound_effect_urls["shoot"], "static")
+  src:play()
   e.life = 1
   return e
 end
 function draw_effects ()
   for _, effect in pairs(gamestate.effects) do
     if effect.life > 0 then
-      effect.animation:draw(effect.image, effect.x, effect.y)
+      if effect.animation then
+        effect.animation:draw(effect.image, effect.x, effect.y)
+      end
     else
       remove_effect(effect)
     end
@@ -54,5 +69,12 @@ function get_effect_anims()
     effects.animations[name] = anim
 
   end
+
+end
+function get_sound_effects()
+  for name,file in pairs(sound_effect_urls) do
+    sound_effects[name] = love.audio.newSource(file, "static")
+  end
+
 
 end

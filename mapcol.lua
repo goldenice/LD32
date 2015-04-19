@@ -1,7 +1,7 @@
 tile_width =16
 tile_height=16
 local function addBlock(x,y,w,h,gamestate)
-  local block = {x=x,y=y,w=w,h=h,ctype="death"}
+  local block = {x=x,y=y,w=w,h=h,ctype="aa"}
   gamestate.n_blocks =gamestate.n_blocks +1
 
   gamestate.blocks["a"..gamestate.n_blocks] = block
@@ -53,9 +53,6 @@ end
 
 local function addShadowBlock(x,y,w,h,gamestate)
   local block = {x=x,y=y,w=w,h=h,ctype="shadow",isShadow=true}
-  gamestate.n_blocks =gamestate.n_blocks +1
-
-  gamestate.blocks["a"..gamestate.n_blocks] = block
   gamestate.world:add(block, x,y,w,h)
   return block
 end

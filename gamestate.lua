@@ -7,7 +7,7 @@ local sti = require "Simple-Tiled-Implementation"
 function resetgamestate(mname)
   local s = {}
   print(mname)
-  s.player = { x=love.graphics.getWidth()/4,y=2,w=8,h=8,r=0, speed = 450,xoffset = 28,yoffset = 4, ctype="player",isPlayer=true}
+  s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 450,xoffset = 28,yoffset = 4, ctype="player",isPlayer=true}
   s.blocks = {}
 
   s.shoot_timeout = 1/12
@@ -26,7 +26,8 @@ function resetgamestate(mname)
   s.scroll = -s.map.height*tile_height +love.graphics.getHeight()*1.5
   s.startscroll = s.scroll
   s.player.y = s.player.y - s.scroll
-  s.enemies = findEnemies(s)
+  s.enemies = {}
+  findEnemies(s)
   s.endStates = findEndLevelTiles(s)
   s.shadows = findShadowTiles(s)
   s.bg_image1 = background_1[cur]

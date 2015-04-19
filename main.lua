@@ -5,7 +5,7 @@ require 'bullet'
 require 'player'
 require 'effect'
 anim8 = require 'anim8'
-
+loop_around = true
 scroll= -180
 zoom = 2
 shadow_x = -16
@@ -111,7 +111,9 @@ function resetGame()
   collectgarbage("collect")
 end
 function nextLevel()
+  if not loop_around then
   cur = cur + 1
+end
   if cur > #levels then
     current_state = "F"
   else
@@ -160,6 +162,7 @@ function love.load()
   loadbullets()
   fill_effect_table()
   get_effect_anims()
+  get_sound_effects()
   windowWith = love.graphics.getWidth()
   windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
@@ -203,7 +206,6 @@ function love.draw()
     if shouldDrawDebug then
       drawBlocks()
     end
-    drawMessage()
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   else
     local w = windowWith
