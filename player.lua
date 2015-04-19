@@ -5,7 +5,17 @@ flatout = 0.8
 
 function updatePlayer( dt)
   local speed = gamestate.player.speed
+  if not gamestate.playing then
+    gamestate.retry_wait  = gamestate.retry_wait  + dt
+    gamestate.retry_wait_tick= gamestate.retry_wait_tick + dt
+    if gamestate.retry_wait_tick  > 0.5 then
+      gamestate.retry_shown = not  gamestate.retry_shown
 
+    end
+    if gamestate.retry_wait  > gamestate.retry_max_wait then
+      gamestate.playing = true
+    end
+  end
   local dx, dy = 0, 0
 
   dx = 0
@@ -100,17 +110,18 @@ end
       gamestate.player.y = -gamestate.scroll
     end
     gamestate.shadow=false
+    if gamestate.playing then
     for i=1, cols_len do
       local col = cols[i]
       if col.other.isEnemy then
         print("honorable death")
-        resetGame()
+        player_is_hit()
         return
       end
 
       if col.other.ctype == "death" then
         print("stupid death")
-        resetGame()
+        player_is_hit()
         return
       end
       if col.other.ctype == "end" then
@@ -128,6 +139,7 @@ end
       end
     end
   end
+end
 
 
 
@@ -146,6 +158,7 @@ function playerfilter(item, other)
 end
 
 function drawPlayer()
+  if gamestate.playing then
   if gamestate.shadow then
     love.graphics.setShader(bw_shader)
     love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
@@ -156,6 +169,32 @@ function drawPlayer()
     love.graphics.setShader()
   end
   love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+  else
+    if gamestate.retry_shown then
+      love.graphics.setColor(255, 255, 255, 90) -- red, green, blue, opacity (this would be white with 20% opacity
+
+      love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+      love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
 
 
+    end
+  end
+
+
+
+end
+function player_is_hit ()
+  if gamestate.playing then
+  gamestate.retry = gamestate.retry -1
+
+  if gamestate.retry == 0 then
+    resetGame()
+  else
+    gamestate.retry_wait = 0
+    gamestate.retry_max_wait = 2
+    gamestate.retry_wait_tick = 0
+    gamestate.playing = false
+    gamestate.retry_shown = false
+  end
+end
 end
