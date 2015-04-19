@@ -17,7 +17,7 @@ function update_spread(dt)
     gamestate.special.tick = 0
     local rr = (math.random(0,6)-3)*30
     if not rr then
-      rr = 1
+      print("none")
     end
     add_standard_bullet(gamestate.player.x, gamestate.player.y , rr, "player")
     gamestate.special.tock = gamestate.special.tock  + 1
