@@ -23,7 +23,7 @@ function add_bullet(x, y , rotation, type, side)
 
   bullet = {x=x,y=y,w=w,h=h,rotation=rotation,type=type,side=side,isBullet=true, life=2}
 
-  bullet.speed=300
+  bullet.speed=500
   bullet.damage = 1
   gamestate.bullets["a"..gamestate.n_bullets]=bullet
   gamestate.blocks["a"..gamestate.n_blocks] = bullet

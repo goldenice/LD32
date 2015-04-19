@@ -1,5 +1,8 @@
 require 'enemy_line'
 require 'enemy_suicide'
+require 'enemy_tank'
+require 'enemy_rotating_tank'
+
 enemy_parts = {}
 
 function add_enemy_parts()
@@ -50,6 +53,12 @@ function findEnemies(gamestate)
       if v.properties.type == "suicide" then
         add_suicide_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
+      if v.properties.type == "rtank" then
+        add_rotating_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
+      if v.properties.type == "tank" then
+        add_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
       if v.properties.type == "line" then
         add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
@@ -62,24 +71,13 @@ end
 function aienemy(dt)
   remove = {}
   for i,enemy in pairs(gamestate.enemies) do
-    if -gamestate.scroll < tonumber(enemy.scroll) and -gamestate.scroll >  tonumber(enemy.scroll)-windowHeight   then
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  0   then
 
       local dx,dy = enemy["ai"](enemy,dt)
 
       enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
       enemy.tick = enemy.tick + dt
-      for i=1, cols_len do
-        local col = cols[i]
 
-        if col.other.ctype =="player" then
-          resetGame()
-          return
-        end
-
-
-    end
-    if cols_len > 0 then
-    end
   end
 end
 end
@@ -93,8 +91,10 @@ end
 
 function drawEnemies()
   for _, enemy in pairs(gamestate.enemies) do
-    enemy["draw"](enemy)
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight   then
 
+    enemy["draw"](enemy)
+  end
   end
 end
 

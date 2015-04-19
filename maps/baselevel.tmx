@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="303">
  <tileset firstgid="1" name="city_tiles" tilewidth="16" tileheight="16">
   <image source="../assets/tiles/city_tiles.png" width="256" height="256"/>
  </tileset>
@@ -18,20 +18,10 @@
    eJztzUENAAAIBKDrYP+uVvDndFCABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADghlq+/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/vn/wAAAAAAADfNElxIRs=
   </data>
  </layer>
- <objectgroup name="enemies" visible="0">
-  <object id="1" gid="18" x="215.976" y="10284.3" width="24" height="53" rotation="30">
-   <properties>
-    <property name="ctype" value="death"/>
-    <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
+ <objectgroup name="enemies">
   <object id="2" gid="18" x="-90.2976" y="10406.5" width="24" height="53" rotation="85.3565">
    <properties>
-    <property name="scroll" value="10624"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -39,47 +29,23 @@
   </object>
   <object id="3" gid="18" x="-68.3986" y="10335.3" width="24" height="53" rotation="85.3565">
    <properties>
-    <property name="scroll" value="10624"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
    </properties>
   </object>
-  <object id="4" gid="18" x="-51.7349" y="10285.9" width="24" height="53" rotation="70">
+  <object id="5" gid="18" x="235.312" y="10287.9" width="24" height="53" rotation="40">
    <properties>
-    <property name="scroll" value="10624"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="5" gid="18" x="-34.6878" y="10339.9" width="24" height="53" rotation="40">
-   <properties>
-    <property name="scroll" value="10624"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="6" gid="18" x="227.512" y="9943.8" width="24" height="53" rotation="180">
-   <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="line"/>
-   </properties>
-  </object>
-  <object id="7" gid="18" x="198.804" y="10054" width="24" height="53" rotation="30">
-   <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
+    <property name="type" value="rtank"/>
    </properties>
   </object>
   <object id="8" gid="18" x="269.512" y="10040.1" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -87,7 +53,7 @@
   </object>
   <object id="9" gid="18" x="280.971" y="10065.4" width="24" height="53" rotation="-275.185">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -97,7 +63,7 @@
    <properties>
     <property name="ctype" value="death"/>
     <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -105,7 +71,7 @@
   </object>
   <object id="11" gid="18" x="-30.7705" y="10014.2" width="24" height="53" rotation="-275.185">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -113,7 +79,7 @@
   </object>
   <object id="12" gid="18" x="-112.937" y="10002.9" width="24" height="53" rotation="30">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -121,25 +87,7 @@
   </object>
   <object id="13" gid="18" x="-141.229" y="10040.6" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="14" gid="18" x="-42.2295" y="9988.95" width="24" height="53" rotation="70">
-   <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="15" gid="18" x="-43.0875" y="9952.35" width="24" height="53" rotation="91.3172">
-   <properties>
-    <property name="ctype" value="death"/>
-    <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -147,7 +95,7 @@
   </object>
   <object id="16" gid="18" x="641.23" y="10045.2" width="24" height="53" rotation="-275.185">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -155,7 +103,7 @@
   </object>
   <object id="17" gid="18" x="559.062" y="10033.9" width="24" height="53" rotation="30">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -163,7 +111,7 @@
   </object>
   <object id="18" gid="18" x="530.77" y="10071.6" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -171,17 +119,7 @@
   </object>
   <object id="19" gid="18" x="629.77" y="10020" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="20" gid="18" x="628.913" y="9983.35" width="24" height="53" rotation="91.3172">
-   <properties>
-    <property name="ctype" value="death"/>
-    <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -189,7 +127,7 @@
   </object>
   <object id="21" gid="18" x="421.77" y="10033" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -197,7 +135,7 @@
   </object>
   <object id="22" gid="18" x="322.77" y="10084.6" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -205,7 +143,7 @@
   </object>
   <object id="23" gid="18" x="433.23" y="10058.2" width="24" height="53" rotation="-275.185">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -213,7 +151,7 @@
   </object>
   <object id="24" gid="18" x="351.062" y="10046.9" width="24" height="53" rotation="30">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -223,7 +161,7 @@
    <properties>
     <property name="ctype" value="death"/>
     <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -231,23 +169,7 @@
   </object>
   <object id="26" gid="18" x="145.77" y="10045" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="27" gid="18" x="46.7705" y="10096.6" width="24" height="53" rotation="70">
-   <properties>
-    <property name="scroll" value="10200"/>
-    <property name="still" value="1"/>
-    <property name="tick" value="0"/>
-    <property name="type" value="suicide"/>
-   </properties>
-  </object>
-  <object id="28" gid="18" x="157.23" y="10070.2" width="24" height="53" rotation="-275.185">
-   <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -255,7 +177,7 @@
   </object>
   <object id="29" gid="18" x="75.0625" y="10058.9" width="24" height="53" rotation="30">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
@@ -265,26 +187,662 @@
    <properties>
     <property name="ctype" value="death"/>
     <property name="rotation" value=""/>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
     <property name="type" value="suicide"/>
    </properties>
   </object>
-  <object id="32" gid="18" x="276" y="9942.5" width="24" height="53" rotation="180">
+  <object id="138" gid="18" x="-109.187" y="9737.33" width="24" height="53" rotation="85.3565">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="line"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
-  <object id="33" gid="18" x="327" y="9948.5" width="24" height="53" rotation="180">
+  <object id="142" gid="18" x="104.982" y="9447.03" width="24" height="53" rotation="70">
    <properties>
-    <property name="scroll" value="10200"/>
+    <property name="scroll" value="200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="line"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="143" gid="18" x="-71.5589" y="9416.23" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="144" gid="18" x="228.724" y="9442.13" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="145" gid="18" x="104.125" y="9410.43" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="147" gid="18" x="588.125" y="9385.38" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="152" gid="18" x="-153.725" y="9404.93" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="153" gid="18" x="-131.086" y="9808.53" width="24" height="53" rotation="85.3565">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="154" gid="18" x="310.274" y="9448.93" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="155" gid="18" x="392.442" y="9460.23" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="156" gid="18" x="34.2741" y="9460.93" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="157" gid="18" x="-75.4762" y="9741.93" width="24" height="53" rotation="40">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="158" gid="18" x="380.982" y="9435.03" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="160" gid="18" x="-182.017" y="9442.63" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="161" gid="18" x="588.982" y="9422.03" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="164" gid="18" x="380.125" y="9398.38" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="165" gid="18" x="227.866" y="9405.53" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="166" gid="18" x="600.442" y="9447.23" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="167" gid="18" x="-83.0179" y="9390.98" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="168" gid="18" x="240.183" y="9467.43" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="170" gid="18" x="518.274" y="9435.93" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="175" gid="18" x="95.8907" y="8998.55" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="176" gid="18" x="-80.6498" y="8967.75" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="177" gid="18" x="219.633" y="8993.65" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="178" gid="18" x="95.0337" y="8961.95" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="187" gid="18" x="301.183" y="9000.45" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="188" gid="18" x="383.351" y="9011.75" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="189" gid="18" x="25.1832" y="9012.45" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="191" gid="18" x="371.891" y="8986.55" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="193" gid="18" x="-191.108" y="8994.15" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="194" gid="18" x="579.891" y="8973.55" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="197" gid="18" x="371.034" y="8949.9" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="198" gid="18" x="218.775" y="8957.05" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="199" gid="18" x="591.351" y="8998.75" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="203" gid="18" x="509.183" y="8987.45" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="204" gid="18" x="-91.0052" y="8585.82" width="24" height="53" rotation="85.3565">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="208" gid="18" x="123.163" y="8295.52" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="209" gid="18" x="-53.3771" y="8264.72" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="210" gid="18" x="246.905" y="8290.62" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="211" gid="18" x="122.306" y="8258.92" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="220" gid="18" x="328.455" y="8297.42" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="221" gid="18" x="410.623" y="8308.72" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="222" gid="18" x="52.4559" y="8309.42" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="223" gid="18" x="-57.2944" y="8590.42" width="24" height="53" rotation="40">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="224" gid="18" x="399.163" y="8283.52" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="226" gid="18" x="-163.836" y="8291.12" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="227" gid="18" x="607.163" y="8270.52" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="230" gid="18" x="398.306" y="8246.87" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="231" gid="18" x="246.047" y="8254.02" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="232" gid="18" x="618.623" y="8295.72" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="234" gid="18" x="258.364" y="8315.92" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="236" gid="18" x="536.455" y="8284.42" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="241" gid="18" x="120.133" y="8568.24" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="243" gid="18" x="243.875" y="8563.34" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="253" gid="18" x="325.425" y="8570.14" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="254" gid="18" x="407.593" y="8581.44" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="255" gid="18" x="49.4256" y="8582.14" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="257" gid="18" x="396.133" y="8556.24" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="259" gid="18" x="-166.866" y="8563.84" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="262" gid="18" x="505.133" y="8594.84" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="265" gid="18" x="615.593" y="8568.44" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="267" gid="18" x="255.334" y="8588.64" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="274" gid="18" x="89.8301" y="7828.85" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="275" gid="18" x="-86.7104" y="7798.05" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="276" gid="18" x="213.572" y="7823.95" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="277" gid="18" x="88.9731" y="7792.25" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="279" gid="18" x="572.973" y="7767.2" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="284" gid="18" x="-168.877" y="7786.75" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="286" gid="18" x="295.122" y="7830.75" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="288" gid="18" x="19.1226" y="7842.75" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="290" gid="18" x="365.83" y="7816.85" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="292" gid="18" x="-197.169" y="7824.45" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="293" gid="18" x="573.83" y="7803.85" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="296" gid="18" x="364.973" y="7780.2" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="297" gid="18" x="212.714" y="7787.35" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="298" gid="18" x="585.29" y="7829.05" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="299" gid="18" x="-98.1694" y="7772.8" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="302" gid="18" x="503.122" y="7817.75" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
  </objectgroup>

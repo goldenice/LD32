@@ -18,17 +18,25 @@ function updatePlayer( dt)
   end
 
 
-  if joystick:getGamepadAxis("triggerright" ) >0.5 and not gamestate.special_triggered then
-    start_special()
-
-
+  if joystick:isDown(6 )   then
+    if gamestate.special_loose then
+    if start_special() then
+    gamestate.shoot_time = 0
   end
+  end
+
+  elseif not gamestate.special_triggered then
+    gamestate.special_loose=true
+  end
+
 
 
   dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
   dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
   moved = true
-
+  if dy > 0 then
+    dy = dy -scroll * dt
+  end
   local multiplier =(1-deadzone)
 
   if math.abs(dx) < math.abs(deadzone) then

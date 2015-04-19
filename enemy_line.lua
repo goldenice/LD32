@@ -15,7 +15,7 @@ function line_enemy_ai(enemy,dt)
 
 
   if  tonumber(enemy.tick) > 0.5 then
-    add_standard_bullet(enemy.x,enemy.y,180,"enemy")
+    add_standard_enemy_bullet(enemy.x,enemy.y,180,"enemy")
 
     enemy.tick = 0
   end

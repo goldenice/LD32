@@ -13,9 +13,10 @@ function resetgamestate(mname)
   s.special_attack = nil
   s.special_triggered = false
   s.n_specials = 0
-  s.special_attacks = {"wreck","wreck"}
+  s.special_attacks = {"spread","spread"}
   s.shoot_timeout = 1/8
   s.shoot_time = 0
+  s.special_loose = false
   s.bullets = {}
   s.n_bullets = 0
   s.n_blocks = 0
