@@ -23,7 +23,7 @@ end
 function rotating_tank_enemy_ai(enemy,dt)
   enemy.rot  = enemy.rot +  dt*80
     if  tonumber(enemy.tick) > 0.1 then
-      add_standard_enemy_bullet(enemy.x +32- 32*math.sin(math.rad(-enemy.rot)),enemy.y+32 - 32*math.cos(math.rad(-enemy.rot)),enemy.rot,"enemy")
+      add_standard_enemy_bullet(enemy.x +32- 38*math.sin(math.rad(-enemy.rot)),enemy.y+32 - 38*math.cos(math.rad(-enemy.rot)),enemy.rot,"enemy")
       enemy.tick = 0
     end
   return 0,0.8*scroll*dt

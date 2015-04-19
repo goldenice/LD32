@@ -102,9 +102,14 @@ end
 
   if dx ~= 0 or dy ~= 0 then
     local cols
+    if gamestate.playing then
     gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, playerfilter)
-    if gamestate.player.y > -2*tile_width+windowHeight/2-gamestate.scroll then
-      gamestate.player.y = -2*tile_width+windowHeight/2-gamestate.scroll
+  else
+    gamestate.player.x, gamestate.player.y, cols, cols_len = gamestate.world:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, crossFilter)
+
+  end
+    if gamestate.player.y > -2*tile_width+windowHeight/zoom-gamestate.scroll then
+      gamestate.player.y = -2*tile_width+windowHeight/zoom-gamestate.scroll
     end
     if gamestate.player.y < -gamestate.scroll then
       gamestate.player.y = -gamestate.scroll
@@ -157,6 +162,12 @@ function playerfilter(item, other)
   -- else return nil
 end
 
+function crossFilter(item, other)
+
+  return 'cross'
+
+  -- else return nil
+end
 function drawPlayer()
   if gamestate.playing then
   if gamestate.shadow then

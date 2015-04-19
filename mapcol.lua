@@ -1,5 +1,5 @@
-tile_width =16
-tile_height=16
+tile_width =32
+tile_height=32
 local function addBlock(x,y,w,h,gamestate)
   local block = {x=x,y=y,w=w,h=h,ctype="aa"}
   gamestate.n_blocks =gamestate.n_blocks +1

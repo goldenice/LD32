@@ -20,10 +20,10 @@ function resetgamestate(mname)
   s.bullets = {}
   s.n_bullets = 0
   s.retry = 3
-  s.retry_wait = 0
+  s.retry_wait = 2
   s.retry_max_wait = 2
   s.retry_wait_tick = 0
-  s.playing = true
+  gamestate.playing = true
   s.retry_shown = false
   s.n_blocks = 0
   s.n_enemies = 0
@@ -44,11 +44,11 @@ function resetgamestate(mname)
   s.shadows = findShadowTiles(s)
   s.bg_image1 = background_1[cur]
   s.bg_image1:setWrap("repeat", "repeat")
-  s.bg_quad1 = love.graphics.newQuad(0, 0, love.graphics.getWidth()/2+32,2*s.map.height*tile_height, s.bg_image1:getWidth(), s.bg_image1:getHeight())
+  s.bg_quad1 = love.graphics.newQuad(0, 0, love.graphics.getWidth()+64,2*s.map.height*tile_height, s.bg_image1:getWidth(), s.bg_image1:getHeight())
 -- note how the Quad's width and height are larger than the image width and height.
   s.bg_image2 = background_2[cur]
   s.bg_image2:setWrap("repeat", "repeat")
-  s.bg_quad2 = love.graphics.newQuad(0, 0, love.graphics.getWidth()/2+32,2*s.map.height*tile_height, s.bg_image2:getWidth(), s.bg_image2:getHeight())
+  s.bg_quad2 = love.graphics.newQuad(0, 0, love.graphics.getWidth()+64,2*s.map.height*tile_height, s.bg_image2:getWidth(), s.bg_image2:getHeight())
   return s
 end
 function reload_upon_death()

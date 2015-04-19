@@ -4,11 +4,12 @@ local sti = require "Simple-Tiled-Implementation"
 require 'bullet'
 require 'player'
 require 'effect'
+require 'draw_ui'
 require 'special_attack'
 anim8 = require 'anim8'
 loop_around = true
 scroll= -180
-zoom = 2
+zoom = 1
 shadow_x = -16
 shadow_y = -16
 require 'gamestate'
@@ -195,6 +196,7 @@ function love.draw()
     draw_bullets()
     draw_special()
     draw_effects()
+    draw_ui()
     if shouldDrawDebug then
       drawBlocks()
     end
