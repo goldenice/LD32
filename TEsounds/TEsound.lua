@@ -95,6 +95,13 @@ function TEsound.stop(channel, finish)
 	end
 end
 
+-- Sets the next function to be run after the sound ends
+function TEsound.queuenext(channel, finish, func)
+  if type(channel) == "number" then local c = TEsound.channels[channel] c[2] = func if not finish then c[1]:stop() end
+  elseif type(channel) == "string" then for k,v in pairs(TEsound.findTag(channel)) do TEsound.queuenext(v, finish, func) end
+  end
+end
+
 
 -- Utility functions
 
