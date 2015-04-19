@@ -7,7 +7,7 @@ function add_rotating_tank_enemy(gamestate,x,y,tick,scroll,rotation)
   e.img3 =enemy_parts["turret_cover"]
   local dx = gamestate.player.x - e.x
   local dy = gamestate.player.y - e.y
-  e.rot = 0
+  e.rot = 120
   e.xoffset2 = e.xoffset -12
   e.xoffset3 = e.xoffset
   e.yoffset3 = e.yoffset
