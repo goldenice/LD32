@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="500" tilewidth="32" tileheight="32" nextobjectid="93">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="500" tilewidth="32" tileheight="32" nextobjectid="94">
  <tileset firstgid="1" name="hangar_tiles" tilewidth="32" tileheight="32">
   <image source="../assets/tiles/hangar_tiles.png" width="255" height="255"/>
  </tileset>
@@ -28,375 +28,382 @@
    <property name="scroll" value="200"/>
    <property name="type" value="rtank"/>
   </properties>
-  <object id="1" gid="7" x="86" y="14413">
+  <object id="1" gid="7" x="106" y="6424">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="2" gid="7" x="294" y="14415">
+  <object id="2" gid="7" x="314" y="6426">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="3" gid="7" x="475" y="14407">
+  <object id="3" gid="7" x="495" y="6418">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="4" gid="7" x="164" y="14327">
+  <object id="4" gid="7" x="184" y="6338">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="5" gid="7" x="548" y="14343">
+  <object id="5" gid="7" x="568" y="6354">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="6" gid="7" x="367" y="14351">
+  <object id="6" gid="7" x="387" y="6362">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="10" gid="7" x="335" y="14236">
+  <object id="10" gid="7" x="355" y="6247">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="11" gid="7" x="132" y="14212">
+  <object id="11" gid="7" x="152" y="6223">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="12" gid="7" x="59" y="14276">
+  <object id="12" gid="7" x="79" y="6287">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="13" gid="7" x="443" y="14292">
+  <object id="13" gid="7" x="463" y="6303">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="14" gid="7" x="267" y="14278">
+  <object id="14" gid="7" x="287" y="6289">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="15" gid="7" x="524" y="14227">
+  <object id="15" gid="7" x="544" y="6238">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="16" gid="7" x="29" y="14061">
+  <object id="16" gid="7" x="49" y="6072">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="17" gid="7" x="342" y="14114">
+  <object id="17" gid="7" x="362" y="6125">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="18" gid="7" x="318" y="13997">
+  <object id="18" gid="7" x="338" y="6008">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="19" gid="7" x="102" y="13997">
+  <object id="19" gid="7" x="122" y="6008">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="20" gid="7" x="237" y="14063">
+  <object id="20" gid="7" x="257" y="6074">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="21" gid="7" x="499" y="13989">
+  <object id="21" gid="7" x="519" y="6000">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="22" gid="7" x="139" y="14090">
+  <object id="22" gid="7" x="159" y="6101">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="23" gid="7" x="66" y="14154">
+  <object id="23" gid="7" x="86" y="6165">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="24" gid="7" x="458" y="14169">
+  <object id="24" gid="7" x="478" y="6180">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="25" gid="7" x="426" y="14053">
+  <object id="25" gid="7" x="446" y="6064">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="26" gid="7" x="274" y="14156">
+  <object id="26" gid="7" x="294" y="6167">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="27" gid="7" x="531" y="14105">
+  <object id="27" gid="7" x="551" y="6116">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="64" gid="7" x="596" y="13818">
+  <object id="64" gid="7" x="616" y="5829">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="65" gid="7" x="156" y="13602">
+  <object id="65" gid="7" x="176" y="5613">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="66" gid="7" x="370" y="13829">
+  <object id="66" gid="7" x="390" y="5840">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="67" gid="7" x="213" y="13954">
+  <object id="67" gid="7" x="233" y="5965">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="68" gid="7" x="348" y="13594">
+  <object id="68" gid="7" x="368" y="5605">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="69" gid="7" x="421" y="13530">
+  <object id="69" gid="7" x="441" y="5541">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="70" gid="7" x="198" y="13716">
+  <object id="70" gid="7" x="218" y="5727">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="71" gid="7" x="5" y="13952">
+  <object id="71" gid="7" x="25" y="5963">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="72" gid="7" x="264" y="13774">
+  <object id="72" gid="7" x="284" y="5785">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="73" gid="7" x="616" y="13697">
+  <object id="73" gid="7" x="636" y="5708">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="74" gid="7" x="294" y="13888">
+  <object id="74" gid="7" x="314" y="5899">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="75" gid="7" x="-27" y="13837">
+  <object id="75" gid="7" x="-7" y="5848">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="76" gid="7" x="453" y="13645">
+  <object id="76" gid="7" x="473" y="5656">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="77" gid="7" x="229" y="13538">
+  <object id="77" gid="7" x="249" y="5549">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="78" gid="7" x="584" y="13582">
+  <object id="78" gid="7" x="604" y="5593">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="79" gid="7" x="78" y="13888">
+  <object id="79" gid="7" x="98" y="5899">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="80" gid="7" x="543" y="13761">
+  <object id="80" gid="7" x="563" y="5772">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="81" gid="7" x="475" y="13880">
+  <object id="81" gid="7" x="495" y="5891">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="82" gid="7" x="271" y="13652">
+  <object id="82" gid="7" x="291" y="5663">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="83" gid="7" x="369" y="13709">
+  <object id="83" gid="7" x="389" y="5720">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="84" gid="7" x="181" y="13839">
+  <object id="84" gid="7" x="201" y="5850">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="85" gid="7" x="402" y="13944">
+  <object id="85" gid="7" x="422" y="5955">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="86" gid="7" x="511" y="13646">
+  <object id="86" gid="7" x="531" y="5657">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="87" gid="7" x="435" y="13767">
+  <object id="87" gid="7" x="455" y="5778">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="88" gid="7" x="97" y="13673">
+  <object id="88" gid="7" x="117" y="5684">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="89" gid="7" x="24" y="13737">
+  <object id="89" gid="7" x="44" y="5748">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="90" gid="7" x="65" y="13558">
+  <object id="90" gid="7" x="85" y="5569">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="91" gid="7" x="-8" y="13622">
+  <object id="91" gid="7" x="12" y="5633">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="92" gid="7" x="77" y="13794">
+  <object id="92" gid="7" x="97" y="5805">
    <properties>
     <property name="scroll" value="200"/>
     <property name="tick" value="0"/>
     <property name="type" value="asteroid"/>
+   </properties>
+  </object>
+  <object id="93" gid="7" x="283" y="14372">
+   <properties>
+    <property name="scroll" value="200"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="boss"/>
    </properties>
   </object>
  </objectgroup>

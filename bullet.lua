@@ -61,11 +61,32 @@ function move_bullets(dt)
         bullet.x, bullet.y, cols, cols_len =gamestate.world:move(bullet, bullet.x + 2*dx, bullet.y + 2*dy,bullet_player_filter)
         local hit = false
         for i=1,cols_len do
+          if cols[i].other.isShield then
+            hit = true
+          end
+          if cols[i].other.isPart then
+            hit = true
+
+            if cols[i].other.part == "front" then
+              gamestate.boss.first_health = gamestate.boss.first_health -  bullet.damage
+          end
+
+          if cols[i].other.part == "left" then
+            gamestate.boss.left_health = gamestate.boss.left_health -  bullet.damage
+          end
+          if cols[i].other.part == "right" then
+            gamestate.boss.right_health = gamestate.boss.right_health -  bullet.damage
+          end
+        end
           if cols[i].other.isEnemy then
+
             hit = true
             cols[i].other.health = cols[i].other.health  - bullet.damage
             if cols[i].other.health  <= 0 then
               delete_enemy(cols[i].other)
+              if cols[i].other.isBoss then
+                gamestate.finished = true
+              end
             end
 
           end
@@ -91,7 +112,9 @@ function bullet_enemy_filter(item, other)
 end
 
 function bullet_player_filter(item, other)
-
+  if other.isShield then
+    return 'touch'
+  end
   return 'cross'
 
   -- else return nil

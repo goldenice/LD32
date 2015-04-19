@@ -22,6 +22,7 @@ function updatePlayer( dt)
   dy = 0
   gamestate.shoot_time =     gamestate.shoot_time + dt
   if joystick then
+    if not gamestate.boss_intro then
     if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
       gamestate.shoot_time = 0
       add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
@@ -34,7 +35,7 @@ function updatePlayer( dt)
           gamestate.shoot_time = 0
         end
       end
-
+    end
     elseif not gamestate.special_triggered then
       gamestate.special_loose=true
     end
@@ -51,6 +52,7 @@ function updatePlayer( dt)
   elseif love.keyboard.isDown("down") then
     dy = 0.5*dt *1.5*gamestate.player.speed
   end
+  if not gamestate.boss_intro then
   if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout then
     gamestate.shoot_time = 0
     add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
@@ -64,6 +66,7 @@ function updatePlayer( dt)
         gamestate.shoot_time = 0
       end
     end
+  end
   elseif not gamestate.special_triggered then
     gamestate.special_loose=true
   end
@@ -129,7 +132,9 @@ end
         player_is_hit()
         return
       end
-
+      if col.other.isPart then
+        player_is_hit()
+      end
       if col.other.ctype == "death" then
         print("stupid death")
         player_is_hit()

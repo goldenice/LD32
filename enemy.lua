@@ -4,6 +4,8 @@ require 'enemy_tank'
 require 'enemy_rotating_tank'
 require 'enemy_asteroid'
 require 'enemy_asteroid_small'
+require 'enemy_boss'
+
 enemy_parts = {}
 
 function add_enemy_parts()
@@ -63,6 +65,9 @@ function findEnemies(gamestate)
       if v.properties.type == "tank" then
         add_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
+      if v.properties.type == "boss" then
+        add_boss_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
       if v.properties.type == "asteroid" then
         add_asteroid_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
@@ -81,9 +86,11 @@ function aienemy(dt)
     if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  0   then
 
       local dx,dy = enemy["ai"](enemy,dt)
+      if not enemy.isBoss then
+        enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
+        enemy.tick = enemy.tick + dt
 
-      enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
-      enemy.tick = enemy.tick + dt
+      end
 
   end
 end

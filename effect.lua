@@ -77,3 +77,8 @@ function get_sound_effects()
 
 
 end
+
+function add_explosion(x,y)
+  local ex = explode_small(x,y)
+  add_effect (ex,x,y)
+end

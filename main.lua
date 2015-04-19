@@ -105,6 +105,7 @@ function nextLevel()
   if not loop_around then
   cur = cur + 1
   end
+
   if cur > #levels then
     current_state = "F"
   else
@@ -147,6 +148,7 @@ function love.load()
   load_ui_elements()
   loadmap(levels[cur])
   loadbullets()
+  load_boss_resources()
   fill_effect_table()
   get_effect_anims()
   get_sound_effects()
@@ -162,6 +164,12 @@ end
 
 function love.update(dt)
   if current_state == "G" then
+    if gamestate.finished then
+      gamestate.timed = gamestate.timed - dt
+      if gamestate.timed < 0 then
+        current_state="X"
+      end
+    end
     cols_len = 0
     updatePlayer( dt)
     move_bullets(dt)
