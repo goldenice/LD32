@@ -53,7 +53,7 @@ end
 
 local function addShadowBlock(x,y,w,h,gamestate)
   local block = {x=x,y=y,w=w,h=h,ctype="shadow",isShadow=true}
-  gamestate.world:add(block, x,y,w,h)
+  gamestate.shadowworld:add(block, x,y,w,h)
   return block
 end
 function findShadowTiles(gamestate)

@@ -4,13 +4,17 @@ require 'mapcol'
 require 'enemy'
 local sti = require "Simple-Tiled-Implementation"
 
+
 function resetgamestate(mname)
   local s = {}
   print(mname)
-  s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 450,xoffset = 28,yoffset = 4, ctype="player",isPlayer=true}
+  s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 450,xoffset = 17,yoffset = 5, ctype="player",isPlayer=true}
   s.blocks = {}
-
-  s.shoot_timeout = 1/12
+  s.special_attack = nil
+  s.special_triggered = false
+  s.n_specials = 0
+  s.special_attacks = {"wreck","wreck"}
+  s.shoot_timeout = 1/8
   s.shoot_time = 0
   s.bullets = {}
   s.n_bullets = 0
@@ -20,6 +24,7 @@ function resetgamestate(mname)
   s.effects = {}
   s.n_effects = 0
   s.world = bump.newWorld()
+  s.shadowworld = bump.newWorld()
   s.mapname = mname
   s.map = sti.new(mname)
   s.collisiontiles = findSolidTiles(s)

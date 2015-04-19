@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="21">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="750" tilewidth="16" tileheight="16" nextobjectid="34">
  <tileset firstgid="1" name="city_tiles" tilewidth="16" tileheight="16">
   <image source="../assets/tiles/city_tiles.png" width="256" height="256"/>
  </tileset>
  <layer name="Tilelaag 1" width="32" height="750">
   <data encoding="base64" compression="zlib">
-   eJzt1dltwzAQBUDX4NZSgitSx/kNDHJJibv0kRngAbGS6PGSfLsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8nx8RERERERGRF+RI+nw8JaO/db+oP3v+rXvv6j+Cn7PXv/W/o+ujcWXMf2VfqvtH57Kyv/f5yv6/U3rnbbQ+WfNt3Wf2+XxVf+Z+j851a87Z/b1rvXPx2NDfm3f2+RMREREREREREZHvyP3C9Xvw+8r+v71ZY7janzWGmZ7oenZ/tL+t9a/o373/rbnsWv8zc+n1Zz2LV8e5cwyz56hqDyrXdWYMFeN8fq6isVWd/979ovtXvINm3gOjNVvp761HNK7q/tH33o75nzmTZ7tn5jZ6Rlb7o+dr9L232r/695/+7hcREfkP+QXVTteF
+   eJzt1VtOwzAQBdCuoVtjCawoO0biq6rssRPPmJaeI12JBsj1K+ntBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8ui8RERH5zZH0+XhKRn/rflF/9vxb997VfwQ/Z69/639H10fjypj/yr5U94/OZWV/7/OV/X+l9M7baH2y5tu6z+zz+Vf9mfs9OtetOWf39671zsX3hv7evLPPn4iIiIiIiIiIiPyP3C9cvwe/r+x/7M0aw9X+rDHM9ETXs/uj/W2tf0X/7v1vzWXX+p+ZS68/61m8Os6dY5g9R1V7ULmuM2OoGOfzcxWNrer89+4X3b/iHTTzHhit2Up/bz2icVX3j773dsz/zJk82z0zt9EzstofPV+j773V/tW/f/d3v4iIyCfkByofPDg=
   </data>
  </layer>
- <layer name="shadow" width="32" height="750">
+ <layer name="shadow" width="32" height="750" visible="0" opacity="0.69">
   <data encoding="base64" compression="zlib">
-   eJzt1dltwzAQBUDX4NZSgitSx/kNDHJJibv0kRngAbGS6PGSfLsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8nx8RERERERGRF+RI+nw8JaO/db+oP3v+rXvv6j+Cn7PXv/W/o+ujcWXMf2VfqvtH57Kyv/f5yv6/U3rnbbQ+WfNt3Wf2+XxVf+Z+j851a87Z/b1rvXPx2NDfm3f2+RMREREREREREZHvyP3C9Xvw+8r+v71ZY7janzWGmZ7oenZ/tL+t9a/o373/rbnsWv8zc+n1Zz2LV8e5cwyz56hqDyrXdWYMFeN8fq6isVWd/979ovtXvINm3gOjNVvp761HNK7q/tH33o75nzmTZ7tn5jZ6Rlb7o+dr9L232r/695/+7hcREfkP+QXVTteF
+   eJzt1VtOwzAQBdCuoVvLElhRflgv4gMJRR6PScZOgXOkK7WB5vqV9vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALjXu4iIyItkL3q/H1LR37pfr796/p+vt5v690N/1FOx/q3PZtdbr6vn39uX6Nqq/uxczuyP3p/Z/1dKdN6y9amab+s+2fN2d3/lfmfnujXn6v7oWnQu3hb0R/OuPn8iIiIiIiIiIiLyN/I8cf3Z+fvM/u+9VWM42181hpGe3vXq/t7+ttZ/Rv/q/W/NZdX6/2QuUX/Vs3h2nCvHMHqOZu3BzHUdGcOMcX7dc2vc+zi2Wed/6/SPrFtlf/Y9kK3Zlf7j/aLvu96aVfdHv3ur+nv7fnX/W3PJ1r/yGRh5vrLfvav9V///t3/3i4iI/Id8AAuMUEM=
   </data>
  </layer>
  <layer name="collision" width="32" height="750">
@@ -18,7 +18,7 @@
    eJztzUENAAAIBKDrYP+uVvDndFCABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADghlq+/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/v9/v9fr/f7/f7/X6/3+/3+/1+v9/vn/wAAAAAAADfNElxIRs=
   </data>
  </layer>
- <objectgroup name="enemies">
+ <objectgroup name="enemies" visible="0">
   <object id="1" gid="18" x="215.976" y="10284.3" width="24" height="53" rotation="30">
    <properties>
     <property name="ctype" value="death"/>
@@ -26,7 +26,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="2" gid="18" x="-90.2976" y="10406.5" width="24" height="53" rotation="85.3565">
@@ -34,7 +34,7 @@
     <property name="scroll" value="10624"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="3" gid="18" x="-68.3986" y="10335.3" width="24" height="53" rotation="85.3565">
@@ -42,7 +42,7 @@
     <property name="scroll" value="10624"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="4" gid="18" x="-51.7349" y="10285.9" width="24" height="53" rotation="70">
@@ -50,7 +50,7 @@
     <property name="scroll" value="10624"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="5" gid="18" x="-34.6878" y="10339.9" width="24" height="53" rotation="40">
@@ -58,15 +58,15 @@
     <property name="scroll" value="10624"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
-  <object id="6" gid="18" x="170.512" y="10091.8" width="24" height="53" rotation="70">
+  <object id="6" gid="18" x="227.512" y="9943.8" width="24" height="53" rotation="180">
    <properties>
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="line"/>
    </properties>
   </object>
   <object id="7" gid="18" x="198.804" y="10054" width="24" height="53" rotation="30">
@@ -74,7 +74,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="8" gid="18" x="269.512" y="10040.1" width="24" height="53" rotation="70">
@@ -82,7 +82,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="9" gid="18" x="280.971" y="10065.4" width="24" height="53" rotation="-275.185">
@@ -90,7 +90,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="10" gid="18" x="268.654" y="10003.5" width="24" height="53" rotation="91.3172">
@@ -100,7 +100,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="11" gid="18" x="-30.7705" y="10014.2" width="24" height="53" rotation="-275.185">
@@ -108,7 +108,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="12" gid="18" x="-112.937" y="10002.9" width="24" height="53" rotation="30">
@@ -116,7 +116,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="13" gid="18" x="-141.229" y="10040.6" width="24" height="53" rotation="70">
@@ -124,7 +124,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="14" gid="18" x="-42.2295" y="9988.95" width="24" height="53" rotation="70">
@@ -132,7 +132,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="15" gid="18" x="-43.0875" y="9952.35" width="24" height="53" rotation="91.3172">
@@ -142,7 +142,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="16" gid="18" x="641.23" y="10045.2" width="24" height="53" rotation="-275.185">
@@ -150,7 +150,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="17" gid="18" x="559.062" y="10033.9" width="24" height="53" rotation="30">
@@ -158,7 +158,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="18" gid="18" x="530.77" y="10071.6" width="24" height="53" rotation="70">
@@ -166,7 +166,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="19" gid="18" x="629.77" y="10020" width="24" height="53" rotation="70">
@@ -174,7 +174,7 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
    </properties>
   </object>
   <object id="20" gid="18" x="628.913" y="9983.35" width="24" height="53" rotation="91.3172">
@@ -184,7 +184,107 @@
     <property name="scroll" value="10200"/>
     <property name="still" value="1"/>
     <property name="tick" value="0"/>
-    <property name="type" value="lane"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="21" gid="18" x="421.77" y="10033" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="22" gid="18" x="322.77" y="10084.6" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="23" gid="18" x="433.23" y="10058.2" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="24" gid="18" x="351.062" y="10046.9" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="25" gid="18" x="420.913" y="9996.35" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="26" gid="18" x="145.77" y="10045" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="27" gid="18" x="46.7705" y="10096.6" width="24" height="53" rotation="70">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="28" gid="18" x="157.23" y="10070.2" width="24" height="53" rotation="-275.185">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="29" gid="18" x="75.0625" y="10058.9" width="24" height="53" rotation="30">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="30" gid="18" x="144.913" y="10008.4" width="24" height="53" rotation="91.3172">
+   <properties>
+    <property name="ctype" value="death"/>
+    <property name="rotation" value=""/>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="suicide"/>
+   </properties>
+  </object>
+  <object id="32" gid="18" x="276" y="9942.5" width="24" height="53" rotation="180">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="33" gid="18" x="327" y="9948.5" width="24" height="53" rotation="180">
+   <properties>
+    <property name="scroll" value="10200"/>
+    <property name="still" value="1"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,8 +1,16 @@
 require 'enemy_line'
 require 'enemy_suicide'
+enemy_parts = {}
 
-function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,rotation,still,img)
-  print(gamestate)
+function add_enemy_parts()
+  enemy_parts["suicide"] = love.graphics.newImage("assets/entity/ships/enemy_001.png")
+  enemy_parts["line"]  =  love.graphics.newImage("assets/entity/ships/enemy_001.png")
+  enemy_parts["turret_cover"]  =  love.graphics.newImage("assets/entity/enemies/turret_cover.png")
+  enemy_parts["turret_base"]  =  love.graphics.newImage("assets/entity/enemies/turret_base.png")
+  enemy_parts["turret_guns"]  =  love.graphics.newImage("assets/entity/enemies/turret_guns.png")
+
+end
+function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,rotation,still,img,draw)
   gamestate.n_enemies = gamestate.n_enemies + 1
   gamestate.n_blocks = gamestate.n_blocks + 1
   local enemy = {}
@@ -12,19 +20,19 @@ function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,ro
   enemy.width = width
   enemy.height = height
   enemy.w = width
+  enemy.draw = draw
+  enemy.health=1
   enemy.h = height
   enemy.xoffset = xoffset
   enemy.yoffset = yoffset
   enemy.scroll = scroll
-  print(scroll)
   enemy.isEnemy=true
   if still then
   enemy.still = still
-end
+  end
   enemy.rotation = rotation
   enemy.img = img
   gamestate.world:add(enemy,enemy.x,enemy.y,enemy.width,enemy.height)
-  print(gamestate.enemies)
   gamestate.blocks["a"..gamestate.n_blocks] = enemy
   gamestate.enemies["a"..gamestate.n_enemies]  = enemy
   enemy.block =gamestate.n_blocks
@@ -39,8 +47,12 @@ function findEnemies(gamestate)
   for _, v in pairs(o) do
     if  v then
     --  if v.properties.type =="line" then
+      if v.properties.type == "suicide" then
         add_suicide_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
-
+      end
+      if v.properties.type == "line" then
+        add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
     --  end
     end
   end
@@ -48,46 +60,51 @@ function findEnemies(gamestate)
 end
 
 function aienemy(dt)
-  --print("enemy")
   remove = {}
   for i,enemy in pairs(gamestate.enemies) do
-    if -gamestate.scroll < tonumber(enemy.scroll) then
+    if -gamestate.scroll < tonumber(enemy.scroll) and -gamestate.scroll >  tonumber(enemy.scroll)-windowHeight   then
 
-      local do_remove = suicide_enemy_ai(enemy,dt)
-      if do_remove == 3 then
-        return
-      end
-      if do_remove== 1 then
-        gamestate.world:update(enemy,0,-100)
-        delete_enemy(enemy)
+      local dx,dy = enemy["ai"](enemy,dt)
+
+      enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
+      enemy.tick = enemy.tick + dt
+      for i=1, cols_len do
+        local col = cols[i]
+
+        if col.other.ctype =="player" then
+          resetGame()
+          return
+        end
 
 
-      end
     end
     if cols_len > 0 then
     end
   end
 end
-
+end
 function enemyfilter(item, other)
   return 'cross'
 
   -- else return nil
 end
-function add_line_flyer(x,y,tick)
-  local e = {}
-  return e
-end
+
 
 
 function drawEnemies()
   for _, enemy in pairs(gamestate.enemies) do
-    if enemy.still then
-
-      love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, 0 , 1, 1, width / 2, height / 2)
-    else
-      love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, enemy.rotation, 1, 1, width / 2, height / 2)
-    end
+    enemy["draw"](enemy)
 
   end
+end
+
+function std_draw( enemy  )
+
+  if enemy.still then
+
+    love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, 0 , 1, 1, width / 2, height / 2)
+  else
+    love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, enemy.rotation, 1, 1, width / 2, height / 2)
+  end
+
 end

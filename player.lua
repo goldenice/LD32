@@ -13,11 +13,20 @@ function updatePlayer( dt)
   gamestate.shoot_time =     gamestate.shoot_time + dt
   if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
     gamestate.shoot_time = 0
-    add_bullet(gamestate.player.x, gamestate.player.y ,0, "standard", "player")
+    add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
     shoot_effect(0,0)
   end
+
+
+  if joystick:getGamepadAxis("triggerright" ) >0.5 and not gamestate.special_triggered then
+    start_special()
+
+
+  end
+
+
   dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
-  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed
+  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
   moved = true
 
   local multiplier =(1-deadzone)
@@ -64,10 +73,7 @@ function updatePlayer( dt)
         resetGame()
         return
       end
-      if col.other.isShadow then
-        gamestate.shadow=true
 
-      end
       if col.other.ctype == "death" then
         print("stupid death")
         resetGame()
@@ -77,7 +83,21 @@ function updatePlayer( dt)
         nextLevel()
       end
     end
+
+    b,a,cols,cols_len = gamestate.shadowworld:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, playerfilter)
+    for i=1, cols_len do
+      local col = cols[i]
+
+    if col.other.isShadow then
+      gamestate.shadow=true
+
+      end
   end
+  end
+
+
+
+
 end
 
 function playerfilter(item, other)
@@ -92,5 +112,16 @@ function playerfilter(item, other)
 end
 
 function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, 180, 1, 1, gamestate.player.width / 2, gamestate.player.height / 2)
+  if gamestate.shadow then
+    love.graphics.setShader(bw_shader)
+    love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
+
+    love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset+shadow_x,  gamestate.player.y+0.5*height-gamestate.player.yoffset+shadow_y, gamestate.player.r, 1, 1, width / 2, height / 2)
+
+    love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
+    love.graphics.setShader()
+  end
+  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
+
+
 end

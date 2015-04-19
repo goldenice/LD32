@@ -4,6 +4,7 @@ local sti = require "Simple-Tiled-Implementation"
 require 'bullet'
 require 'player'
 require 'effect'
+require 'special_attack'
 anim8 = require 'anim8'
 loop_around = true
 scroll= -180
@@ -74,20 +75,6 @@ local function drawBox(box, r,g,b)
 end
 
 
-local function drawPlayer()
-  if gamestate.shadow then
-    love.graphics.setShader(bw_shader)
-    love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
-
-    love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset+shadow_x,  gamestate.player.y+0.5*height-gamestate.player.yoffset+shadow_y, gamestate.player.r, 1, 1, width / 2, height / 2)
-
-    love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
-    love.graphics.setShader()
-  end
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
-
-
-end
 
 
 -- Block functions
@@ -102,39 +89,38 @@ local function drawBlocks()
   end
   drawBox(gamestate.player,255,0,0)
 end
+function reset_local()
+  bullets = {}
+
+  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+  gamestate.shadowworld:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+
+
+end
 function resetGame()
   gamestate = reload_upon_death()
-  bullets = {}
-  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-  height = hamster:getHeight()
+  reset_local()
   collectgarbage("collect")
 end
 function nextLevel()
   if not loop_around then
   cur = cur + 1
-end
+  end
   if cur > #levels then
     current_state = "F"
   else
     gamestate = resetgamestate(levels[cur])
-    bullets = {}
-    gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-    gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-    height = hamster:getHeight()
+    reset_local()
+
     collectgarbage("collect")
   end
 end
 
 function loadmap(mapname)
   gamestate = resetgamestate(mapname)
-  bullets = {}
-
-  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+  reset_local()
   hamster = love.graphics.newImage("assets/entity/ships/ship_003.png")
   width = hamster:getWidth()
-  gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-
   height = hamster:getHeight()
   collectgarbage("collect")
 end
@@ -151,7 +137,7 @@ function love.load()
   ); // This just returns a white color that's modulated by the brightest color channel at the given pixel in the texture. Nothing too complex, and not exactly the prettiest way to do B&W :P
 }
   ]]
-
+  add_enemy_parts()
   for i,bg in ipairs(background1_url) do
     background_1[i] = love.graphics.newImage(bg)
   end
@@ -177,6 +163,9 @@ function love.update(dt)
     updatePlayer( dt)
     move_bullets(dt)
     update_effects(dt)
+    
+    update_special(dt)
+
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
   end
@@ -202,6 +191,7 @@ function love.draw()
     drawPlayer()
     drawEnemies()
     draw_bullets()
+    draw_special()
     draw_effects()
     if shouldDrawDebug then
       drawBlocks()

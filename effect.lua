@@ -9,8 +9,7 @@ function fill_effect_table()
 end
 function add_effect (effect,x,y)
   gamestate.n_effects = gamestate.n_effects+1
-  print(effect)
-  print(effect_table[effect])
+
   local eff = effect_table[effect](x,y)
   eff.id = gamestate.n_effects
   gamestate.effects["a"..eff.id] = eff
@@ -25,8 +24,9 @@ function explode_small(x,y)
   e.x = x
   e.y = y
   e.image = effects.images["explosion"]
-  e.animation = effects.animations["explosion"]
-  e.life = 0.2
+  local g = effects.animations["explosion"]
+  e.animation =  anim8.newAnimation(g('1-8',1), 0.1)
+  e.life = 0.8
   return e
 end
 
@@ -53,20 +53,19 @@ function draw_effects ()
 end
 function update_effects (dt)
   for _, effect in pairs(gamestate.effects) do
+    effect.animation:update(dt)
     effect.life=effect.life-dt
 
 
   end
 end
 function get_effect_anims()
-  animations = {explosion  ="assets/entity/player/standing_hflip/standing_hflip.png"}
+  animations = {explosion  ="assets/animation/explosion_small_001.png"}
 
   for name,file in pairs(animations) do
     local image = love.graphics.newImage(file)
-    local g = anim8.newGrid(16, 24, image:getWidth(), image:getHeight())
-    local anim = anim8.newAnimation(g('1-10',1), 1/60)
+    effects.animations[name] = anim8.newGrid(image:getHeight(), image:getHeight(), image:getWidth(), image:getHeight())
     effects.images[name] = image
-    effects.animations[name] = anim
 
   end
 

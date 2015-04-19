@@ -1,10 +1,7 @@
+require 'bullet_types'
 sx = 4
 sy = 4
-bullet_types = {}
-function   loadbullets()
-  bullet_types["standard"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_001.png")
 
-end
 
 function delete_enemy(enemy)
   add_effect ("explosion",enemy.x,enemy.y)
@@ -22,9 +19,12 @@ end
 function add_bullet(x, y , rotation, type, side)
   gamestate.n_bullets = gamestate.n_bullets + 1
   gamestate.n_blocks = gamestate.n_blocks + 1
-  w,h = bullet_types[type]:getDimensions()
+  w,h = bullet_type_images["standard"]:getDimensions()
+
   bullet = {x=x,y=y,w=w,h=h,rotation=rotation,type=type,side=side,isBullet=true, life=2}
+
   bullet.speed=300
+  bullet.damage = 1
   gamestate.bullets["a"..gamestate.n_bullets]=bullet
   gamestate.blocks["a"..gamestate.n_blocks] = bullet
   gamestate.world:add(bullet,x,y,sx,sy)
@@ -57,7 +57,11 @@ function move_bullets(dt)
         for i=1,cols_len do
           if cols[i].other.isEnemy then
             hit = true
-            delete_enemy(cols[i].other)
+            cols[i].other.health = cols[i].other.health  - bullet.damage
+            if cols[i].other.health  <= 0 then
+              delete_enemy(cols[i].other)
+            end
+
           end
         end
         if hit then
@@ -70,7 +74,7 @@ end
 
 function draw_bullets()
   for _,bullet in pairs(gamestate.bullets) do
-    love.graphics.draw(bullet_types[bullet.type], bullet.x+0.5*bullet.w,  bullet.y+0.5*bullet.h, math.rad(bullet.rotation), 1, 1,0.5*bullet.w,  0.5*bullet.h)
+    love.graphics.draw(bullet.img, bullet.x+0.5*bullet.w,  bullet.y+0.5*bullet.h, math.rad(bullet.rotation), 1, 1,0.5*bullet.w,  0.5*bullet.h)
   end
 end
 function bullet_enemy_filter(item, other)
