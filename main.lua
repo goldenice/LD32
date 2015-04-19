@@ -3,8 +3,14 @@ local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
 require 'bullet'
 require 'player'
-scroll= -100
+require 'effect'
+require 'special_attack'
+anim8 = require 'anim8'
+loop_around = true
+scroll= -180
 zoom = 2
+shadow_x = -16
+shadow_y = -16
 require 'gamestate'
 require 'enemy'
 local instructions = [[
@@ -14,12 +20,19 @@ arrows: move
 tab: toggle debug info
 delete: run garbage collector
 ]]
-levels = {"maps/testmap2","maps/kutwindows"}
+levels = {"maps/testmap2","maps/testmap2"}
+background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
+background_1 = {}
+background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
+background_2 = {}
+add_scroll_1 = 0.1
+add_scroll_2 = 0.65
+
 cur = 1
 local cols_len = 0 -- how many collisions are happening
 
 -- World creation
-gamestate = resetgamestate(levels[1])
+gamestate = {}
 current_state = "G"
 
 -- Message/debug functions
@@ -62,9 +75,7 @@ local function drawBox(box, r,g,b)
 end
 
 
-local function drawPlayer()
-  love.graphics.draw(hamster, gamestate.player.x+0.5*width-gamestate.player.xoffset,  gamestate.player.y+0.5*height-gamestate.player.yoffset, gamestate.player.r, 1, 1, width / 2, height / 2)
-end
+
 
 -- Block functions
 
@@ -78,37 +89,38 @@ local function drawBlocks()
   end
   drawBox(gamestate.player,255,0,0)
 end
+function reset_local()
+  bullets = {}
+
+  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+  gamestate.shadowworld:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
+
+
+end
 function resetGame()
   gamestate = reload_upon_death()
-  bullets = {}
-  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-  height = hamster:getHeight()
+  reset_local()
   collectgarbage("collect")
 end
 function nextLevel()
+  if not loop_around then
   cur = cur + 1
+  end
   if cur > #levels then
     current_state = "F"
   else
     gamestate = resetgamestate(levels[cur])
-    bullets = {}
-    gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-    gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-    height = hamster:getHeight()
+    reset_local()
+
     collectgarbage("collect")
   end
 end
 
 function loadmap(mapname)
   gamestate = resetgamestate(mapname)
-  bullets = {}
-
-  gamestate.world:add(gamestate.player, gamestate.player.x, gamestate.player.y, gamestate.player.w, gamestate.player.h)
-  hamster = love.graphics.newImage("assets/entity/ships/ship_001.png")
+  reset_local()
+  hamster = love.graphics.newImage("assets/entity/ships/ship_003.png")
   width = hamster:getWidth()
-  gamestate.map:setDrawRange(0,0,love.graphics.getWidth(), love.graphics.getHeight())
-
   height = hamster:getHeight()
   collectgarbage("collect")
 end
@@ -117,15 +129,34 @@ end
 -- Main LÖVE functions
 
 function love.load()
+  math.randomseed(os.time())
+  bw_shader = love.graphics.newShader[[
+  vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords )
+{
+  vec4 c = Texel(texture, texture_coords); // This reads a color from our texture at the coordinates LOVE gave us (0-1, 0-1)
+  return vec4(vec3(0,0,0), c.a*0.1
+  ); // This just returns a white color that's modulated by the brightest color channel at the given pixel in the texture. Nothing too complex, and not exactly the prettiest way to do B&W :P
+}
+  ]]
+  add_enemy_parts()
+  for i,bg in ipairs(background1_url) do
+    background_1[i] = love.graphics.newImage(bg)
+  end
+  for i,bg in ipairs(background2_url) do
+    background_2[i] = love.graphics.newImage(bg)
+  end
   loadmap(levels[cur])
   loadbullets()
-
-
+  fill_effect_table()
+  get_effect_anims()
+  get_sound_effects()
   windowWith = love.graphics.getWidth()
   windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
   joystick = joysticks[1]
+  if joystick then
   buttons = joystick:getButtonCount( joystick )
+  end
 end
 
 
@@ -134,6 +165,10 @@ function love.update(dt)
     cols_len = 0
     updatePlayer( dt)
     move_bullets(dt)
+    update_effects(dt)
+
+    update_special(dt)
+
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
   end
@@ -151,15 +186,19 @@ function love.draw()
     love.graphics.translate(tx, ty)
 
     gamestate.map:setDrawRange(tx, ty, w, h)
+    love.graphics.draw(gamestate.bg_image1, gamestate.bg_quad1, 0, add_scroll_1*gamestate.scroll,0, 1, 1, width / 2, height / 2)
+    love.graphics.draw(gamestate.bg_image2, gamestate.bg_quad2, 0, add_scroll_2*gamestate.scroll,0, 1, 1, width / 2, height / 2)
+
     gamestate.map:draw()
     -- Draw only the tiles on screen
     drawPlayer()
     drawEnemies()
     draw_bullets()
+    draw_special()
+    draw_effects()
     if shouldDrawDebug then
       drawBlocks()
     end
-    drawMessage()
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   else
     local w = windowWith

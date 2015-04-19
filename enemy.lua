@@ -1,90 +1,86 @@
+require 'enemy_line'
+require 'enemy_suicide'
+require 'enemy_tank'
+require 'enemy_rotating_tank'
+
+enemy_parts = {}
+
+function add_enemy_parts()
+  enemy_parts["suicide"] = love.graphics.newImage("assets/entity/ships/enemy_001.png")
+  enemy_parts["line"]  =  love.graphics.newImage("assets/entity/ships/enemy_001.png")
+  enemy_parts["turret_cover"]  =  love.graphics.newImage("assets/entity/enemies/turret_cover.png")
+  enemy_parts["turret_base"]  =  love.graphics.newImage("assets/entity/enemies/turret_base.png")
+  enemy_parts["turret_guns"]  =  love.graphics.newImage("assets/entity/enemies/turret_guns.png")
+
+end
+function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,rotation,still,img,draw)
+  gamestate.n_enemies = gamestate.n_enemies + 1
+  gamestate.n_blocks = gamestate.n_blocks + 1
+  local enemy = {}
+  enemy.x = x
+  enemy.y = y
+  enemy.tick = tick
+  enemy.width = width
+  enemy.height = height
+  enemy.w = width
+  enemy.draw = draw
+  enemy.health=1
+  enemy.h = height
+  enemy.xoffset = xoffset
+  enemy.yoffset = yoffset
+  enemy.scroll = scroll
+  enemy.isEnemy=true
+  if still then
+  enemy.still = still
+  end
+  enemy.rotation = rotation
+  enemy.img = img
+  gamestate.world:add(enemy,enemy.x,enemy.y,enemy.width,enemy.height)
+  gamestate.blocks["a"..gamestate.n_blocks] = enemy
+  gamestate.enemies["a"..gamestate.n_enemies]  = enemy
+  enemy.block =gamestate.n_blocks
+  enemy.id =gamestate.n_enemies
+  return enemy
+end
 function findEnemies(gamestate)
   local layer = gamestate.map.layers["enemies"]
   local map = gamestate.map
-  local enemies = {}
 
   local o = layer.objects
   for _, v in pairs(o) do
     if  v then
-      gamestate.n_enemies = gamestate.n_enemies + 1
-      gamestate.n_blocks = gamestate.n_blocks + 1
-      v.isEnemy=true
-      props =v.properties
-      local type = ""
-      print(#v.properties)
-      local ctype = v.properties.ctype
-      if ctype then
-        --v.ctype = ctype
+    --  if v.properties.type =="line" then
+      if v.properties.type == "suicide" then
+        add_suicide_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
-      local type = v.properties.type
-      if type then
-        v.type = type
+      if v.properties.type == "rtank" then
+        add_rotating_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
-      v.w = v.width
-      v.h = v.height
-      gamestate.world:add(v,v.x,v.y,v.width,v.height)
-      v.xoffset = 20
-      v.yoffset = 0
-      enemies["a"..gamestate.n_enemies] = v
-      gamestate.blocks["a"..gamestate.n_blocks] = v
-
-      v.block =gamestate.n_blocks
-      v.id =gamestate.n_enemies
+      if v.properties.type == "tank" then
+        add_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
+      if v.properties.type == "line" then
+        add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
+    --  end
     end
   end
   return enemies
 end
 
 function aienemy(dt)
-  --print("enemy")
   remove = {}
   for i,enemy in pairs(gamestate.enemies) do
-    if -gamestate.scroll < tonumber(enemy.properties.scroll) then
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  0   then
 
-      local do_remove = laneAI(enemy,dt)
-      if do_remove == 3 then
-        return
-      end
-      if do_remove== 1 then
-        gamestate.world:update(enemy,0,-100)
-        delete_enemy(enemy)
+      local dx,dy = enemy["ai"](enemy,dt)
 
+      enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
+      enemy.tick = enemy.tick + dt
 
-      end
-    end
-    if cols_len > 0 then
-    end
   end
 end
-
-function laneAI(enemy,dt)
-  local velocity = 100
-  local r = math.rad(enemy.rotation)
-  local dx = math.sin(r)* velocity * dt
-  local dy = -math.cos(r)*velocity*dt
-
-  enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
-  enemy.properties.tick = enemy.properties.tick + dt
-  for i=1, cols_len do
-    local col = cols[i]
-
-    if col.other.ctype =="player" then
-      resetGame()
-      return 3
-    end
-
-    return 0
-
-  end
-
-  if  enemy.properties.tick > 0.5 then
-    add_bullet(enemy.x,enemy.y,180,"standard","enemy")
-
-    enemy.properties.tick = 0
-  end
-  return false
 end
-
 function enemyfilter(item, other)
   return 'cross'
 
@@ -95,12 +91,20 @@ end
 
 function drawEnemies()
   for _, enemy in pairs(gamestate.enemies) do
-    if enemy.properties.still then
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight   then
 
-      love.graphics.draw(hamster, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, 0, 1, 1, width / 2, height / 2)
-    else
-      love.graphics.draw(hamster, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, math.rad(enemy.rotation), 1, 1, width / 2, height / 2)
-    end
-
+    enemy["draw"](enemy)
   end
+  end
+end
+
+function std_draw( enemy  )
+
+  if enemy.still then
+
+    love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, 0 , 1, 1, width / 2, height / 2)
+  else
+    love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, enemy.rotation, 1, 1, width / 2, height / 2)
+  end
+
 end
