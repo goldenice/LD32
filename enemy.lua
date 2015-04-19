@@ -74,6 +74,9 @@ function findEnemies(gamestate)
       if v.properties.type == "line" then
         add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
+      if v.properties.type == "test" then
+        add_test_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
     --  end
     end
   end

@@ -1,6 +1,7 @@
 local bump       = require 'bump'
 local bump_debug = require 'bump_debug'
 local sti = require "Simple-Tiled-Implementation"
+require 'TEsounds/TEsound'
 require 'bullet'
 require 'player'
 require 'effect'
