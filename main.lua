@@ -129,6 +129,7 @@ end
 -- Main LÖVE functions
 
 function love.load()
+  math.randomseed(os.time())
   bw_shader = love.graphics.newShader[[
   vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords )
 {
@@ -163,7 +164,7 @@ function love.update(dt)
     updatePlayer( dt)
     move_bullets(dt)
     update_effects(dt)
-    
+
     update_special(dt)
 
     aienemy(dt)

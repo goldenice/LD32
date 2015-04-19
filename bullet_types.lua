@@ -9,6 +9,9 @@ function   loadbullets()
 end
 
 function add_standard_bullet(x, y , rotation, side)
+  if not rotation then
+    print("no rotation")
+  end
   local bullet = add_bullet(x, y , rotation, "standard", side)
   bullet.damage=1
   bullet.img = bullet_type_images["standard"]
