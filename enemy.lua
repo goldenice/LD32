@@ -2,6 +2,7 @@ require 'enemy_line'
 require 'enemy_suicide'
 require 'enemy_tank'
 require 'enemy_rotating_tank'
+require 'enemy_test'
 
 enemy_parts = {}
 
@@ -11,6 +12,7 @@ function add_enemy_parts()
   enemy_parts["turret_cover"]  =  love.graphics.newImage("assets/entity/enemies/turret_cover.png")
   enemy_parts["turret_base"]  =  love.graphics.newImage("assets/entity/enemies/turret_base.png")
   enemy_parts["turret_guns"]  =  love.graphics.newImage("assets/entity/enemies/turret_guns.png")
+  enemy_parts["test"]  =  love.graphics.newImage("assets/entity/ships/enemy_001.png")
 
 end
 function add_enemy (gamestate,x,y,width, height,xoffset,yoffset,  tick,scroll,rotation,still,img,draw)
@@ -61,6 +63,9 @@ function findEnemies(gamestate)
       end
       if v.properties.type == "line" then
         add_line_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+      end
+      if v.properties.type == "test" then
+        add_test_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
     --  end
     end
