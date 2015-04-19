@@ -154,7 +154,9 @@ function love.load()
   windowHeight = love.graphics.getHeight()
   local joysticks = love.joystick.getJoysticks()
   joystick = joysticks[1]
+  if joystick then
   buttons = joystick:getButtonCount( joystick )
+  end
 end
 
 

@@ -11,52 +11,78 @@ function updatePlayer( dt)
   dx = 0
   dy = 0
   gamestate.shoot_time =     gamestate.shoot_time + dt
-  if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
+  if joystick then
+    if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
+      gamestate.shoot_time = 0
+      add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
+      shoot_effect(0,0)
+    end
+
+    if joystick:isDown(6 )   then
+      if gamestate.special_loose then
+        if start_special() then
+          gamestate.shoot_time = 0
+        end
+      end
+
+    elseif not gamestate.special_triggered then
+      gamestate.special_loose=true
+    end
+    dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
+    dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
+  else
+  if love.keyboard.isDown("right") then
+    dx = 0.5*dt*gamestate.player.speed
+  elseif love.keyboard.isDown("left") then
+    dx = -0.5*dt*gamestate.player.speed
+  end
+  if love.keyboard.isDown("up") then
+    dy = -0.5*dt *1.5*gamestate.player.speed
+  elseif love.keyboard.isDown("down") then
+    dy = 0.5*dt *1.5*gamestate.player.speed
+  end
+  if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout then
     gamestate.shoot_time = 0
     add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
     shoot_effect(0,0)
   end
 
 
-  if joystick:isDown(6 )   then
+  if love.keyboard.isDown("lshift")   then
     if gamestate.special_loose then
-    if start_special() then
-    gamestate.shoot_time = 0
-  end
-  end
-
+      if start_special() then
+        gamestate.shoot_time = 0
+      end
+    end
   elseif not gamestate.special_triggered then
     gamestate.special_loose=true
   end
-
-
-
-  dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
-  dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
+end
   moved = true
   if dy > 0 then
     dy = dy -scroll * dt
   end
   local multiplier =(1-deadzone)
-
-  if math.abs(dx) < math.abs(deadzone) then
-    dx = 0
-    moved = false
-  else
-    if dx > 0 then
-      dx = (dx - deadzone*dt * gamestate.player.speed)/(multiplier)
+  if joystick then
+    if math.abs(dx) < math.abs(deadzone) then
+      dx = 0
+      moved = false
     else
-      dx = (dx + deadzone*dt * gamestate.player.speed)/(multiplier)
+      if dx > 0 then
+        dx = (dx - deadzone*dt * gamestate.player.speed)/(multiplier)
+      else
+        dx = (dx + deadzone*dt * gamestate.player.speed)/(multiplier)
+      end
     end
-  end
-  if dy*dy < deadzone*deadzone then
-    dy = 0
-    moved = false
-  else
-    if dy > 0 then
-      dy = (dy - deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
+    if dy*dy < deadzone*deadzone then
+      dy = 0
+      moved = false
     else
-      dy = (dy + deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
+      if dy > 0 then
+        dy = (dy - deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
+      else
+        dy = (dy + deadzone*dt * gamestate.player.speed)/(1-deadzone+flatout)
+      end
     end
   end
   if moved then
@@ -96,11 +122,11 @@ function updatePlayer( dt)
     for i=1, cols_len do
       local col = cols[i]
 
-    if col.other.isShadow then
-      gamestate.shadow=true
+      if col.other.isShadow then
+        gamestate.shadow=true
 
       end
-  end
+    end
   end
 
 
