@@ -18,7 +18,7 @@ shadow_y = -16
 require 'gamestate'
 require 'enemy'
 level_width = 640
-debug = false
+debug = true
 local instructions = [[
 Simple game
 ]]
@@ -131,12 +131,7 @@ function loadmap(mapname)
   width = hamster:getWidth()
   height = hamster:getHeight()
   collectgarbage("collect")
-  if mapname == "maps/final_stage" then
-  playtrack("boss")
-  else
-  playtrack("1")
-  
-  end
+
 end
 
 

@@ -8,7 +8,7 @@ function playtrack(trackid)
     soundIntro = "assets/music/boss_intro.wav"
     soundLoop = "assets/music/boss_loop.wav"
     soundEnd = ""
-    print("1 reached")
+    print("boss reached")
   end
 
   if trackid == "1"
@@ -18,17 +18,31 @@ function playtrack(trackid)
     soundEnd = ""
   end
 
+  if playingtrack ~= trackid then
+    if playingtrack ~= nil
+    then
+      TEsound.stop("music")
+    end
+    func = function(d) TEsound.playLooping(soundLoop, "music", nil, 1, 1) end
+    TEsound.play(soundIntro, "music", 1, 1, func)
+    playingtrack=trackid
+
+  end
+
+end
+
+--[[
   if playingtrack ~= nil
   then
 
     func = function(d) playtrack(trackid) end
-    --[[
+
 
     funcnext = function(d) playtrack(trackid) end
 
     func = function(d) TEsound.play(soundEnd, tags, volume, pitch, funcnext) end
 
---]]
+
 
 
     TEsound.queuenext(1, 1, func)
@@ -40,15 +54,15 @@ function playtrack(trackid)
     func = function(d) TEsound.playLooping(soundLoop, "music", nil, 1, 1) end
 
     TEsound.play(soundIntro, "music", 1, 1, func)
-    --]]
+
     playingtrack=trackid
 
 
   end
-
-
-
-
-
-
 end
+--]]
+
+
+
+
+

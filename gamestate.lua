@@ -54,6 +54,12 @@ function resetgamestate(mname)
   s.endStates = findEndLevelTiles(s)
   s.shadows = findShadowTiles(s)
   s.bg_image1 = background_1[cur]
+   if mname == "maps/final_stage" then
+  playtrack("boss")
+  else
+  playtrack("1")
+  
+  end
   s.bg_image1:setWrap("repeat", "repeat")
   s.bg_quad1 = love.graphics.newQuad(0, 0, love.graphics.getWidth()+64,2*s.map.height*tile_height, s.bg_image1:getWidth(), s.bg_image1:getHeight())
 -- note how the Quad's width and height are larger than the image width and height.
