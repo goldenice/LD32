@@ -21,6 +21,7 @@ function add_standard_bullet(x, y , rotation, side)
   bullet.img = bullet_type_images["standard"]
 end
 
+
 function add_standard_enemy_bullet(x, y , rotation, side)
 
     local bullet = add_bullet(x, y , rotation, "standard", side)

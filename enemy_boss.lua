@@ -281,7 +281,7 @@ end
 -- final
 function boss_enemy_third_final_stage_ai(enemy,dt)
   local velocity = 150
-  enemy.timer_multiplier = 5
+  enemy.timer_multiplier = 3
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_fwd_gun(gamestate,dt)
