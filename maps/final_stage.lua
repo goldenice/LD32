@@ -7,7 +7,7 @@ return {
   height = 500,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 291,
+  nextobjectid = 296,
   properties = {},
   tilesets = {
     {
@@ -1074,7 +1074,7 @@ return {
       width = 20,
       height = 500,
       visible = true,
-      opacity = 0.7,
+      opacity = 1,
       properties = {},
       encoding = "lua",
       data = {
@@ -2445,7 +2445,7 @@ return {
     {
       type = "objectgroup",
       name = "pickups",
-      visible = true,
+      visible = false,
       opacity = 1,
       properties = {},
       objects = {
@@ -2575,6 +2575,70 @@ return {
           visible = true,
           properties = {
             ["type"] = "sides"
+          }
+        },
+        {
+          id = 291,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 87.0303,
+          y = 12481,
+          width = 32,
+          height = 32,
+          rotation = 107.487,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["type"] = "topleft"
+          }
+        },
+        {
+          id = 292,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 90.0606,
+          y = 13790.1,
+          width = 32,
+          height = 32,
+          rotation = 107.487,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["type"] = "topleft"
+          }
+        },
+        {
+          id = 294,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 141.576,
+          y = 5947.64,
+          width = 32,
+          height = 32,
+          rotation = 107.487,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["type"] = "topleft"
+          }
+        },
+        {
+          id = 295,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 356.727,
+          y = 5135.52,
+          width = 32,
+          height = 32,
+          rotation = 107.487,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["type"] = "topleft"
           }
         }
       }

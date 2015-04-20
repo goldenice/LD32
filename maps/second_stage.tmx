@@ -19,7 +19,7 @@
    eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
- <layer name="shadow" width="20" height="500" opacity="0.7">
+ <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
    eJzt18EKgkAUhlFFuGBuxI31/i+agovhMivLtDoHfjCa+ZaRTQMAAAAAAAAAAAAAAAAAAAAAAAAAAADAUeLNd/T09PT09PT09PR+uQcAAPApV38/0tPT09PT09PT09PT09PTO6fXL7tti+J53VC536czkc6Py9ptUTyvmyq9MZ2JdF5PT09PT0/v+3vzsvu2KJ7XPSq9OZ2JdL4rFulzV+nl7/Od0hX/r+n9T4/ztQcsv0Pt2VD08m/unk16enp6enov9szM7Pf3BMQfFlk=
   </data>
@@ -670,11 +670,6 @@
   <object id="324" gid="1" x="174.909" y="11938.5" width="32" height="32">
    <properties>
     <property name="type" value="sides"/>
-   </properties>
-  </object>
-  <object id="325" gid="1" x="505.212" y="14290.1" width="32" height="32">
-   <properties>
-    <property name="type" value="wreck"/>
    </properties>
   </object>
   <object id="326" gid="1" x="300.704" y="14823.3" width="32" height="32" rotation="-12.9469">

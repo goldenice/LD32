@@ -19,7 +19,7 @@
    eJztw7EJAAAIA7D6/9MOfcFFSCAJAAAAAAAAAAAAAEDNcQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhoAVdPABU=
   </data>
  </layer>
- <layer name="shadow" width="20" height="500" opacity="0.7">
+ <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
    eJzt3DEOABAQRUFKNOL+h6XUo8BM8tqfPcGGAAAAAAAAAAAAAABwRpR0bQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/OnED/w0youVaa9uuKnZs2fPnj17i3uSpPfrQV8Hew==
   </data>
@@ -162,7 +162,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="pickups">
+ <objectgroup name="pickups" visible="0">
   <object id="277" gid="1" x="279.5" y="13416.5" width="32" height="32">
    <properties>
     <property name="type" value="circle"/>
@@ -209,11 +209,6 @@
    </properties>
   </object>
   <object id="292" gid="1" x="90.0606" y="13790.1" width="32" height="32" rotation="107.487">
-   <properties>
-    <property name="type" value="topleft"/>
-   </properties>
-  </object>
-  <object id="293" gid="1" x="217.333" y="6459.76" width="32" height="32" rotation="107.487">
    <properties>
     <property name="type" value="topleft"/>
    </properties>

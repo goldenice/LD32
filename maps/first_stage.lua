@@ -1074,7 +1074,7 @@ return {
       width = 20,
       height = 500,
       visible = true,
-      opacity = 0.7,
+      opacity = 1,
       properties = {},
       encoding = "lua",
       data = {
@@ -2097,7 +2097,7 @@ return {
     {
       type = "objectgroup",
       name = "enemies",
-      visible = true,
+      visible = false,
       opacity = 1,
       properties = {
         ["scroll"] = "-400",
@@ -4025,7 +4025,7 @@ return {
     {
       type = "objectgroup",
       name = "pickups",
-      visible = true,
+      visible = false,
       opacity = 1,
       properties = {},
       objects = {
@@ -4075,22 +4075,6 @@ return {
           visible = true,
           properties = {
             ["type"] = "random_fwd"
-          }
-        },
-        {
-          id = 279,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 322,
-          y = 9262,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1,
-          visible = true,
-          properties = {
-            ["type"] = "wreck"
           }
         },
         {

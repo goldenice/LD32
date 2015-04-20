@@ -1074,7 +1074,7 @@ return {
       width = 20,
       height = 500,
       visible = true,
-      opacity = 0.7,
+      opacity = 1,
       properties = {},
       encoding = "lua",
       data = {
@@ -3737,22 +3737,6 @@ return {
           visible = true,
           properties = {
             ["type"] = "sides"
-          }
-        },
-        {
-          id = 325,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 505.212,
-          y = 14290.1,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1,
-          visible = true,
-          properties = {
-            ["type"] = "wreck"
           }
         },
         {
