@@ -45,8 +45,7 @@ function add_boss_enemy(gamestate,x,y,tick,scroll,rotation)
   add_enemy_part(gamestate,e.right_col,e)
   add_enemy_part(gamestate,e.shield_left_col,e)
   add_enemy_part(gamestate,e.shield_right_col,e)
-  print(e.front_col.block)
-  print(e.left_col.block..":"..e.left_col.x..":"..e.x..":"..e.left_col.y..":"..e.y)
+
 
   gamestate.boss = e
   reset_timers (gamestate,e)
@@ -179,9 +178,9 @@ function boss_second_stage_start_ai(enemy,dt)
     else
       dx =  velocity * dt
     end
+    local dy = scroll*dt
+    dx = dx + strafe(enemy,dt)
     enemy.dx = dx
-
-  local dy = scroll*dt
   enemy.left_col.x, enemy.left_col.y, cols, cols_len =gamestate.world:move(enemy.left_col, enemy.left_col.x + dx, enemy.left_col.y + dy,enemyfilter)
   enemy.right_col.x, enemy.right_col.y, cols, cols_len =gamestate.world:move(enemy.right_col, enemy.right_col.x + dx, enemy.right_col.y + dy,enemyfilter)
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
@@ -212,20 +211,19 @@ function boss_second_stage_start_ai(enemy,dt)
 end
 -- no left
 function boss_enemy_third_right_stage_ai(enemy,dt)
-  local velocity = 150
+  local velocity = 130
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_right_cannon(gamestate,dt)
   local dx = 0
-
   if enemy.x > gamestate.player.x-32 then
     dx =  -velocity * dt
   else
     dx =  velocity * dt
   end
-  enemy.dx = dx
-
   local dy = scroll*dt
+  dx = dx + strafe(enemy,dt)
+  enemy.dx = dx
   enemy.right_col.x, enemy.right_col.y, cols, cols_len =gamestate.world:move(enemy.right_col, enemy.right_col.x + dx, enemy.right_col.y + dy,enemyfilter)
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
   if  tonumber(enemy.tick) > 0.5 then
@@ -248,20 +246,19 @@ end
 
 -- no right
 function boss_enemy_third_left_stage_ai(enemy,dt)
-  local velocity = 150
+  local velocity = 130
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_left_cannon(gamestate,dt)
   local dx = 0
-
   if enemy.x > gamestate.player.x-32 then
-    local dx =  -velocity * dt
+    dx =  -velocity * dt
   else
-    local dx =  velocity * dt
+    dx =  velocity * dt
   end
-  enemy.dx = dx
-
   local dy = scroll*dt
+  dx = dx + strafe(enemy,dt)
+  enemy.dx = dx
   enemy.left_col.x, enemy.left_col.y, cols, cols_len =gamestate.world:move(enemy.left_col, enemy.left_col.x + dx, enemy.left_col.y + dy,enemyfilter)
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
   if  tonumber(enemy.tick) > 0.5 then
@@ -283,22 +280,20 @@ end
 
 -- final
 function boss_enemy_third_final_stage_ai(enemy,dt)
-  local velocity = 200
+  local velocity = 150
   enemy.timer_multiplier = 5
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_fwd_gun(gamestate,dt)
   local dx = 0
-
   if enemy.x > gamestate.player.x-32 then
-    local dx =  -velocity * dt
+    dx =  -velocity * dt
   else
-    local dx =  velocity * dt
+    dx =  velocity * dt
   end
+  local dy = scroll*dt
   dx = dx + strafe(enemy,dt)
   enemy.dx = dx
-
-  local dy = scroll*dt
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
   if  tonumber(enemy.tick) > 0.5 then
     add_standard_enemy_bullet(enemy.x,enemy.y,180,"enemy")
