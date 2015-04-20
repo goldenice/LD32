@@ -59,7 +59,12 @@ function move_bullets(dt)
           end
         end
       else
+        if bullet.isWrecking then
+          bullet.x, bullet.y, cols, cols_len =gamestate.world:move(bullet, bullet.x + 2*dx, bullet.y + 2*dy,zero_filter)
+
+        else
         bullet.x, bullet.y, cols, cols_len =gamestate.world:move(bullet, bullet.x + 2*dx, bullet.y + 2*dy,bullet_player_filter)
+      end
         local hit = false
         for i=1,cols_len do
           if cols[i].other.isShield then
@@ -80,8 +85,13 @@ function move_bullets(dt)
           end
         end
           if cols[i].other.isEnemy then
-
+            if bullet.isWrecking then
+              if cols[i].other.isBoss then
+              hit = true
+            end
+            else
             hit = true
+            end
             cols[i].other.health = cols[i].other.health  - bullet.damage
             if cols[i].other.health  <= 0 then
               delete_enemy(cols[i].other)
@@ -93,6 +103,7 @@ function move_bullets(dt)
           end
         end
         if hit then
+
           delete_bullet(bullet)
         end
       end
@@ -102,7 +113,12 @@ end
 
 function draw_bullets()
   for _,bullet in pairs(gamestate.bullets) do
+    if bullet.isWrecking then
+      love.graphics.draw(bullet.img, bullet.x+0.5*bullet.w,  bullet.y+0.5*bullet.h, math.rad(bullet.rotation+90), 1, 1,0.5*bullet.w,  0.5*bullet.h)
+    else
+
     love.graphics.draw(bullet.img, bullet.x+0.5*bullet.w,  bullet.y+0.5*bullet.h, math.rad(bullet.rotation), 1, 1,0.5*bullet.w,  0.5*bullet.h)
+  end
   end
 end
 function bullet_enemy_filter(item, other)
@@ -111,7 +127,14 @@ function bullet_enemy_filter(item, other)
 
   -- else return nil
 end
+function bullet_player_filter(item, other)
+  if other.isBoss then
+    return 'touch'
+  end
+  return 'cross'
 
+  -- else return nil
+end
 function bullet_player_filter(item, other)
   if other.isShield then
     return 'touch'

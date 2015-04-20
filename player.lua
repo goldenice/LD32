@@ -28,13 +28,15 @@ function updatePlayer( dt)
       add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
       shoot_effect(0,0)
     end
-
-    if joystick:isDown(6 )   then
-      if gamestate.special_loose then
-        if start_special() then
-          gamestate.shoot_time = 0
+    if joystick:isDown(5 )   then
+      if not gamestate.special_triggered then
+        if trigger_special() then
         end
       end
+    end
+    if joystick:isDown(6 )   then
+      trigger_special()
+
     end
     elseif not gamestate.special_triggered then
       gamestate.special_loose=true
@@ -59,7 +61,10 @@ function updatePlayer( dt)
     shoot_effect(0,0)
   end
 
+  if love.keyboard.isDown("z")   then
+       trigger_special()
 
+  end
   if love.keyboard.isDown("lshift")   then
     if gamestate.special_loose then
       if start_special() then

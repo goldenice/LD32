@@ -1,10 +1,16 @@
 require 'special_wreck'
 require 'spread_gun'
 require 'special_circle'
+require 'special_sides'
+require 'special_topleft'
+require 'special_topright'
 attacks = {
   wreck = get_wrecked,
   random_fwd = get_spread,
-  circle = get_circle
+  circle = get_circle,
+  topleft = get_topleft,
+  topright = get_topright,
+  sides = get_sides
 
 }
 function draw_special()
@@ -13,6 +19,12 @@ function draw_special()
 end
 
 end
+function trigger_special()
+  if gamestate.special_triggered then
+    gamestate.special.trigger()
+  end
+end
+
 function start_special()
 
   if gamestate.n_specials+1 <=#gamestate.special_attacks and not gamestate.special_triggered then

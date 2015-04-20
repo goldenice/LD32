@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="500" tilewidth="32" tileheight="32" nextobjectid="142">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="500" tilewidth="32" tileheight="32" nextobjectid="281">
  <tileset firstgid="1" name="hangar_tiles" tilewidth="32" tileheight="32">
   <image source="../assets/tiles/hangar_tiles.png" width="255" height="255"/>
   <tile id="21">
@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Tilelaag 1" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJzt2iEOwCAQRcFFFkzT+x+2ogaFgEXQzCRf7gsHIAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA09XkmzLRG93o6enp6ell3gAAAAAAAAAAsE/ZsCu+f4sra13vTnjTo6enp6ent9gzM7P/7wXQFgbJ
+   eJztzLENACAMBLGnZf+Bs0EKlBRIdn+XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC7O9ych1/X+Pn5+fn5TTYAAAAAAAAAAAAAALCtAAfvAD8=
   </data>
  </layer>
  <layer name="collision" width="20" height="500">
@@ -21,15 +21,15 @@
  </layer>
  <layer name="shadow" width="20" height="500" opacity="0.7">
   <data encoding="base64" compression="zlib">
-   eJzt1bEKwjAUhtGKcKG6FJfq+7+oCXQItxmkaQfhHPghQ/KtmSYAAAAAAAAAAAAAAAAAAAAAAAAAAAAArhInv9HT09PT09PT09PT02vNZY9t0Zzrnp33c7oT6f5SdtsWzbnu1ekt6U6k+//cW8veaZ+B3i/T09PT09v3Rqc33uv9iUdX/9L7yQMAAAAAAAAAAAAAuMoXzikLjQ==
+   eJzt2rEKgzAYhVFLIWBdxEX7/i/aBBzC3wzFpEPLOXDBIflWl0wTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN+SBt/R09PT09PT09PT09OrzXmPc6n6Llsa9+dwJoXza97tXKq+y7ZGbw1nUjj/y7097wh7dvQ+mZ6enp7ee693ev291j/x6sq/9D54AAAAAAAAAMB4o94e1ItvGK9sqXoj3khsenp6enp6nT0zM/v/vQCWXxIX
   </data>
  </layer>
- <layer name="endlevel" width="20" height="500">
+ <layer name="endlevel" width="20" height="500" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwzENAAAIA7C5wL9TNCzh4GiTJgAAAAAAAAAAAAAAAAAAwBdzHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6C1VGwHN
   </data>
  </layer>
- <objectgroup name="enemies">
+ <objectgroup name="enemies" visible="0">
   <properties>
    <property name="scroll" value="-400"/>
    <property name="type" value="rtank"/>
@@ -440,56 +440,56 @@
     <property name="type" value="asteroid"/>
    </properties>
   </object>
-  <object id="115" gid="7" x="-164" y="12674" width="32" height="32" rotation="90">
+  <object id="115" gid="7" x="-314" y="12666" width="32" height="32" rotation="90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="116" gid="7" x="-231.333" y="12673.3" width="32" height="32" rotation="90">
+  <object id="116" gid="7" x="-381.333" y="12665.3" width="32" height="32" rotation="90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0.5"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="117" gid="7" x="-310.334" y="12674.4" width="32" height="32" rotation="90">
+  <object id="117" gid="7" x="-460.334" y="12666.4" width="32" height="32" rotation="90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="118" gid="7" x="-377.667" y="12673.6" width="32" height="32" rotation="90">
+  <object id="118" gid="7" x="-527.667" y="12665.6" width="32" height="32" rotation="90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0.5"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="119" gid="7" x="1208.83" y="12270.2" width="32" height="32" rotation="-90">
+  <object id="119" gid="7" x="1130.83" y="12268.2" width="32" height="32" rotation="-90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="120" gid="7" x="995.167" y="12269.8" width="32" height="32" rotation="-90">
+  <object id="120" gid="7" x="917.167" y="12267.8" width="32" height="32" rotation="-90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0.5"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="121" gid="7" x="1062.5" y="12270.6" width="32" height="32" rotation="-90">
+  <object id="121" gid="7" x="984.5" y="12268.6" width="32" height="32" rotation="-90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="122" gid="7" x="1141.5" y="12269.5" width="32" height="32" rotation="-90">
+  <object id="122" gid="7" x="1063.5" y="12267.5" width="32" height="32" rotation="-90">
    <properties>
     <property name="scroll" value="400"/>
     <property name="tick" value="0.5"/>
@@ -524,28 +524,28 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="127" gid="7" x="818.076" y="11980.3" width="32" height="32" rotation="305.017">
+  <object id="127" gid="7" x="1018.08" y="12044.3" width="32" height="32" rotation="305.017">
    <properties>
     <property name="scroll" value="-150"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="128" gid="7" x="697.997" y="11896.7" width="32" height="32" rotation="305.017">
+  <object id="128" gid="7" x="897.997" y="11960.7" width="32" height="32" rotation="305.017">
    <properties>
     <property name="scroll" value="-150"/>
     <property name="tick" value="0"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="129" gid="7" x="872.786" y="12019.6" width="32" height="32" rotation="305.017">
+  <object id="129" gid="7" x="1072.79" y="12083.6" width="32" height="32" rotation="305.017">
    <properties>
     <property name="scroll" value="-150"/>
     <property name="tick" value="0.5"/>
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="130" gid="7" x="752.775" y="11935.8" width="32" height="32" rotation="305.017">
+  <object id="130" gid="7" x="952.775" y="11999.8" width="32" height="32" rotation="305.017">
    <properties>
     <property name="scroll" value="-150"/>
     <property name="tick" value="0.5"/>
@@ -584,16 +584,371 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
+  <object id="166" gid="7" x="-275.442" y="8966.68" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="167" gid="7" x="749.996" y="8797.08" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="168" gid="7" x="785.604" y="8529.08" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="169" gid="7" x="1035.13" y="8613.39" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="170" gid="7" x="963.656" y="8797.48" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="171" gid="7" x="-519.126" y="8779.98" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="172" gid="7" x="971.166" y="8634.43" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="173" gid="7" x="-459.649" y="8748.38" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="174" gid="7" x="896.736" y="8660.93" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="175" gid="7" x="832.733" y="8681.87" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="176" gid="7" x="-331.414" y="8677.88" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="177" gid="7" x="850.909" y="8573.58" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="178" gid="7" x="730.826" y="8489.98" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="179" gid="7" x="920.696" y="8457.34" width="32" height="32" rotation="646.217">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="180" gid="7" x="905.616" y="8612.88" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="181" gid="7" x="817.328" y="8797.88" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="182" gid="7" x="-328.074" y="9025.58" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="183" gid="7" x="856.236" y="8437.77" width="32" height="32" rotation="646.217">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="184" gid="7" x="780.076" y="8416.69" width="32" height="32" rotation="646.217">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="185" gid="7" x="-229.399" y="8917.52" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="186" gid="7" x="-374.195" y="9074.67" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="187" gid="7" x="896.326" y="8796.78" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="188" gid="7" x="-390.843" y="8709.58" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="189" gid="7" x="715.62" y="8397.33" width="32" height="32" rotation="646.217">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="190" gid="22" x="105.9" y="7392.3" width="32" height="32">
+   <properties>
+    <property name="ascroll" value="10"/>
+    <property name="scroll" value="100"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="rtank"/>
+   </properties>
+  </object>
+  <object id="191" gid="22" x="534.1" y="7563.4" width="32" height="32" rotation="-36.1887">
+   <properties>
+    <property name="ascroll" value="200"/>
+    <property name="scroll" value="200"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="rtank"/>
+   </properties>
+  </object>
+  <object id="192" gid="22" x="106.233" y="7570.3" width="32" height="32">
+   <properties>
+    <property name="ascroll" value="200"/>
+    <property name="scroll" value="200"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="rtank"/>
+   </properties>
+  </object>
+  <object id="193" gid="22" x="521.566" y="7389.7" width="32" height="32">
+   <properties>
+    <property name="ascroll" value="10"/>
+    <property name="scroll" value="100"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="rtank"/>
+   </properties>
+  </object>
+  <object id="194" gid="7" x="-467.128" y="7161.98" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="196" gid="7" x="-407.651" y="7130.38" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="197" gid="7" x="1095.13" y="6975.39" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="199" gid="7" x="869.326" y="7179.88" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="201" gid="7" x="-279.416" y="7059.88" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="202" gid="7" x="-338.845" y="7091.58" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="203" gid="7" x="-177.401" y="7299.52" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="205" gid="7" x="965.614" y="6974.88" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="207" gid="7" x="884.731" y="7063.87" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="208" gid="7" x="1015.65" y="7179.48" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="209" gid="7" x="948.324" y="7178.78" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="210" gid="7" x="948.734" y="7042.93" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="211" gid="7" x="-276.076" y="7407.58" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="212" gid="7" x="-322.197" y="7456.67" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="213" gid="7" x="910.907" y="6935.58" width="32" height="32" rotation="305.017">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="214" gid="7" x="801.994" y="7179.08" width="32" height="32" rotation="-90">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="216" gid="7" x="1031.16" y="6996.43" width="32" height="32" rotation="251.2">
+   <properties>
+    <property name="scroll" value="400"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="217" gid="7" x="-223.444" y="7348.68" width="32" height="32" rotation="762.558">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="263" gid="7" x="-463.856" y="6793.05" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0.5"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
+  <object id="264" gid="7" x="-404.379" y="6761.45" width="32" height="32" rotation="421.358">
+   <properties>
+    <property name="scroll" value="-150"/>
+    <property name="tick" value="0"/>
+    <property name="type" value="line"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="pickups">
-  <object id="94" gid="1" x="265" y="14437" width="32" height="32">
+ <objectgroup name="pickups" visible="0">
+  <object id="141" gid="1" x="398" y="12472" width="32" height="32">
+   <properties>
+    <property name="type" value="circle"/>
+   </properties>
+  </object>
+  <object id="277" gid="1" x="279.5" y="13416.5" width="32" height="32">
+   <properties>
+    <property name="type" value="sides"/>
+   </properties>
+  </object>
+  <object id="278" gid="1" x="264.5" y="14451.5" width="32" height="32">
    <properties>
     <property name="type" value="random_fwd"/>
    </properties>
   </object>
-  <object id="141" gid="1" x="386" y="12702" width="32" height="32">
+  <object id="279" gid="1" x="304" y="10372" width="32" height="32">
    <properties>
-    <property name="type" value="circle"/>
+    <property name="type" value="wreck"/>
+   </properties>
+  </object>
+  <object id="280" gid="1" x="362" y="11494" width="32" height="32">
+   <properties>
+    <property name="type" value="topright"/>
    </properties>
   </object>
  </objectgroup>

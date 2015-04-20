@@ -9,7 +9,7 @@ function   loadbullets()
   bullet_type_images["standard"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_001.png")
   bullet_type_images["standard_enemy"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_yellow1.png")
   bullet_type_images["ion"] =  love.graphics.newImage("assets/entity/bullets/bullet_huge_001.png")
-
+  --\jam\assets\entity\specials
   bullet_type_images["wreck"] =  love.graphics.newImage("assets/entity/specials/wrecking_ball_chainless_001.png")
 
 end
@@ -57,8 +57,7 @@ then
 end
 
 function add_5_spread_bullet(x, y , rotation, side)
-if side == "enemy"
-then3
+if side == "enemy" then
     add_standard_enemy_bullet(x, y , rotation-30, side)
     add_standard_enemy_bullet(x, y , rotation-15, side)
     add_standard_enemy_bullet(x, y , rotation, side)
@@ -141,7 +140,13 @@ then
 end
 
 function add_wreckingball(x,y,rotation,side)
-  local bullet = add_bullet(x, y , rotation, "standard", side)
+  local bullet = add_bullet(x, y , rotation, "wreck", side)
   bullet.damage=10
-
+  bullet.width = 32
+  bullet.height = 32
+  bullet.w = 32
+  bullet.h = 32
+  bullet.img = bullet_type_images["wreck"]
+  bullet.isWrecking = true
+  return bullet
 end

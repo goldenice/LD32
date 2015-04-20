@@ -4,10 +4,10 @@ pickups = {}
 function add_pickups()
   pickups["random_fwd"] = love.graphics.newImage("assets/tiles/random_fwd_chest.png")
   pickups["circle"]  =  love.graphics.newImage("assets/tiles/circle_chest.png")
-  pickups["top_left"]  =  love.graphics.newImage("assets/tiles/top_left_chest.png")
-  pickups["top_right"]  =  love.graphics.newImage("assets/tiles/top_right_chest.png")
-  pickups["sideways"]  =  love.graphics.newImage("assets/tiles/sideways_chest.png")
-  pickups["wreckingball"]  =  love.graphics.newImage("assets/tiles/wreckingball_chest.png")
+  pickups["topleft"]  =  love.graphics.newImage("assets/tiles/top_left_chest.png")
+  pickups["topright"]  =  love.graphics.newImage("assets/tiles/top_right_chest.png")
+  pickups["sides"]  =  love.graphics.newImage("assets/tiles/sideways_chest.png")
+  pickups["wreck"]  =  love.graphics.newImage("assets/tiles/wreckingball_chest.png")
 
 end
 function eat_pickup(pickup)
