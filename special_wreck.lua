@@ -44,7 +44,7 @@ function load_wreckingball_update(dt)
   end
 end
 function charge_wreckingball_update(dt)
-  local actualX, actualY, cols, len = gamestate.world:check(gamestate.special, gamestate.special.x, gamestate.special.y)
+  local actualX, actualY, cols, len = gamestate.world:move(gamestate.special, gamestate.special.xx+gamestate.player.x,  gamestate.special.yy+gamestate.player.y,wreck_box)
   for i=1,len do
     local col = cols[i]
     if cols[i].other.isEnemy then
