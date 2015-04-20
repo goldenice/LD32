@@ -32,3 +32,15 @@ end
   love.graphics.draw(pickups[gamestate.special_attacks[gamestate.n_specials+3]],786,102-gamestate.scroll)
   end
 end
+
+function draw_main()
+
+end
+
+function draw_death()
+
+end
+
+function draw_won()
+
+end
