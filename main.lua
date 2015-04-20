@@ -18,7 +18,7 @@ shadow_y = -16
 require 'gamestate'
 require 'enemy'
 level_width = 640
-debug = true
+debug = false
 local instructions = [[
 Simple game
 ]]

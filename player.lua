@@ -133,15 +133,17 @@ function updatePlayer( dt)
     for i=1, cols_len do
       local col = cols[i]
       if col.other.isEnemy then
-        print("honorable death")
         player_is_hit()
         return
       end
       if col.other.isPart then
         player_is_hit()
       end
+      if col.other.isWall then
+        resetGame()
+
+      end
       if col.other.ctype == "death" then
-        print("stupid death")
         player_is_hit()
         return
       end

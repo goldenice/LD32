@@ -3,7 +3,7 @@ tile_height=32
 local function addBlock(x,y,w,h,gamestate)
   local block = {x=x,y=y,w=w,h=h,ctype="aa"}
   gamestate.n_blocks =gamestate.n_blocks +1
-
+  block.isWall = true
   gamestate.blocks["a"..gamestate.n_blocks] = block
   gamestate.world:add(block, x,y,w,h)
   return block
