@@ -20,7 +20,7 @@ function TEsound.play(sound, tags, volume, pitch, func)
 		sound = sound[math.random(#sound)]
 	end
 	if not (type(sound) == "string" or (type(sound) == "userdata" and sound:type() == "SoundData")) then
-		error("You must specify a sound - a filepath as a string, a SoundData, or a table of them. Not a Source!")
+		error("You must specify a sound - a filepath as a string, a SoundData, or a table of them. Not a Source! your string was"..sound)
 	end
 	
 	table.insert(TEsound.channels, { love.audio.newSource(sound), func, {volume or 1, pitch or 1}, tags=(type(tags) == "table" and tags or {tags}) })

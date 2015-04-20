@@ -182,6 +182,7 @@ function love.update(dt)
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
   end
+  TEsound.cleanup()   --keeps played sounds list clean and handles sound looping DO NOT REMOVE
 end
 
 function love.draw()

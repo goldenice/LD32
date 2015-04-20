@@ -58,6 +58,7 @@ end
 
 function add_5_spread_bullet(x, y , rotation, side)
 if side == "enemy" then
+
     add_standard_enemy_bullet(x, y , rotation-30, side)
     add_standard_enemy_bullet(x, y , rotation-15, side)
     add_standard_enemy_bullet(x, y , rotation, side)
