@@ -35,6 +35,7 @@ function shoot_effect(x,y)
   e.x = x
   e.y = y
   local src = love.audio.newSource(sound_effect_urls["shoot"], "static")
+  src:setVolume(0.15)
   src:play()
   e.life = 1
   return e

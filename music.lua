@@ -1,26 +1,33 @@
 function playtrack(trackid)
-  if trackid == "1"
-  then
-    local soundIntro = "assets/music/boss_intro.wav"
-    local soundLoop = "assets/music/boss_loop.wav"
-    local soundEnd = ""
-  end
+  local soundIntro = ""
+  local soundLoop = ""
+  local soundEnd = ""
 
   if trackid == "boss"
   then
-    local soundIntro = "assets/music/theme_loop.wav"
-    local soundLoop = "assets/music/theme_loop.wav"
-    local soundEnd = ""
+    soundIntro = "assets/music/boss_intro.wav"
+    soundLoop = "assets/music/boss_loop.wav"
+    soundEnd = ""
+    print("1 reached")
   end
 
+  if trackid == "1"
+  then
+    soundIntro = "assets/music/theme_loop.wav"
+    soundLoop = "assets/music/theme_loop.wav"
+    soundEnd = ""
+  end
 
   if playingtrack ~= nil
   then
 
     func = function(d) playtrack(trackid) end
     --[[
+
     funcnext = function(d) playtrack(trackid) end
+
     func = function(d) TEsound.play(soundEnd, tags, volume, pitch, funcnext) end
+
 --]]
 
 
@@ -30,11 +37,11 @@ function playtrack(trackid)
 
   else
 
-    func = function(d) TEsound.playLooping(soundLooping, "music", nil, 1, 1) end
+    func = function(d) TEsound.playLooping(soundLoop, "music", nil, 1, 1) end
 
     TEsound.play(soundIntro, "music", 1, 1, func)
-
-    playingtrack=1
+    --]]
+    playingtrack=trackid
 
 
   end
