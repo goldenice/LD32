@@ -27,7 +27,6 @@ function get_wrecked()
   return wreckingball
 end
 function load_wreckingball_update(dt)
-  print("loading ball")
   gamestate.special.tick = gamestate.special.tick + dt
   gamestate.special.yy = gamestate.special.yy + 100*dt
   gamestate.special.y = gamestate.special.yy +gamestate.player.y
@@ -45,7 +44,6 @@ function load_wreckingball_update(dt)
   end
 end
 function charge_wreckingball_update(dt)
-  print("swinging ball")
   local actualX, actualY, cols, len = gamestate.world:check(gamestate.special, gamestate.special.x, gamestate.special.y)
   for i=1,len do
     local col = cols[i]
@@ -77,10 +75,8 @@ function trigger_wreckingball ()
   end
 end
 function fire_wrecking_ball(dt)
-  print("firing ball"..gamestate.special.charge)
     gamestate.special.tick = 0
     gamestate.special_triggered=false
-    print("end of ball")
     gamestate.world:remove(gamestate.special)
     gamestate.blocks["a"..gamestate.special.block] = nil
     wrecking = add_wreckingball(gamestate.special.x,gamestate.special.y,270+gamestate.special.rotation,player)

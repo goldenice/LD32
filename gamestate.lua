@@ -7,7 +7,6 @@ local sti = require "Simple-Tiled-Implementation"
 
 function resetgamestate(mname)
   local s = {}
-  print(mname)
   s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/2,w=8,h=16,r=0, speed = 250 ,xoffset = 17,yoffset = 5, ctype="player",isPlayer=true}
   s.blocks = {}
   s.score =  0
@@ -40,6 +39,8 @@ function resetgamestate(mname)
   s.effects = {}
   s.n_effects = 0
   s.time_x = 0
+  s.time = 0
+
   s.world = bump.newWorld()
   s.shadowworld = bump.newWorld()
   s.mapname = mname
@@ -58,7 +59,7 @@ function resetgamestate(mname)
   playtrack("boss")
   else
   playtrack("1")
-  
+
   end
   s.bg_image1:setWrap("repeat", "repeat")
   s.bg_quad1 = love.graphics.newQuad(0, 0, love.graphics.getWidth()+64,2*s.map.height*tile_height, s.bg_image1:getWidth(), s.bg_image1:getHeight())
@@ -69,7 +70,6 @@ function resetgamestate(mname)
   return s
 end
 function reload_upon_death()
-  print("your mom")
   local s = resetgamestate(gamestate.mapname)
   s.player.y = s.player.y + s.scroll
   s.scroll = -s.map.height*tile_height +love.graphics.getHeight()*0.5

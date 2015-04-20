@@ -18,7 +18,7 @@ shadow_y = -16
 require 'gamestate'
 require 'enemy'
 level_width = 640
-debug = true
+debug = false
 local instructions = [[
 Simple game
 ]]
@@ -179,6 +179,9 @@ function love.update(dt)
       if gamestate.timed < 0 then
         current_state="W"
       end
+    end
+    if cur == 1 or cur==2 or gamestate.boss_intro then
+      gamestate.time = gamestate.time+ dt
     end
     cols_len = 0
     updatePlayer( dt)

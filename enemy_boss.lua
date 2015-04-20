@@ -141,7 +141,8 @@ function boss_first_stage_start_ai(enemy,dt)
 
     enemy.tick = 0
   end
-  if enemy.first_health < 0 then
+  if enemy.first_health <= 0 then
+    enemy.first_health = 0
     enemy["ai"] = boss_second_stage_start_ai
     enemy["draw"] = boss_enemy_initial_draw
     add_effect("explosion",enemy.shield_left_col.x,enemy.shield_left_col.y)
@@ -189,7 +190,8 @@ function boss_second_stage_start_ai(enemy,dt)
 
     enemy.tick = 0
   end
-  if enemy.right_health < 0 then
+  if enemy.right_health <= 0 then
+    enemy.right_health = 0
     enemy["ai"] = boss_enemy_third_left_stage_ai
     enemy["draw"] = boss_enemy_third_left_stage_draw
     gamestate.world:remove(enemy.right_col)
@@ -198,7 +200,9 @@ function boss_second_stage_start_ai(enemy,dt)
     scroll=-160
 
   end
-  if enemy.left_health < 0 then
+  if enemy.left_health <= 0 then
+    enemy.left_health = 0
+
     enemy["ai"] = boss_enemy_third_right_stage_ai
     enemy["draw"] = boss_enemy_third_right_stage_draw
     gamestate.world:remove(enemy.left_col)

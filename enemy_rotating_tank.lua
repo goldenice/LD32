@@ -2,7 +2,6 @@ function add_rotating_tank_enemy(gamestate,x,y,tick,scroll,rotation)
   local ship =  enemy_parts["turret_base"]
   local still = true
   local e = add_enemy(gamestate,x,y,64,64,0,0,tick,scroll,rotation,still,ship,rotating_tank_draw)
-  print(e.x..e.y)
 
   e.health = 5
   e.img2 =enemy_parts["turret_guns"]
@@ -36,7 +35,6 @@ function rotating_tank_enemy_ai(enemy,dt)
   return 0,0.8*scroll*dt*i
 end
 function rotating_tank_draw( enemy  )
-  print("aiai"..enemy.y..":"..gamestate.scroll..":"..gamestate.player.y)
 
 
     love.graphics.draw(enemy.img, enemy.x+0.5*width-enemy.xoffset,  enemy.y+0.5*height-enemy.yoffset, 0 , 1, 1, width / 2, height / 2)

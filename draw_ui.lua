@@ -1,5 +1,5 @@
 -- ui demensions: x: 320, y: 720
-
+ui_time_per_frame = 2
 function load_ui_elements()
   bg  = love.graphics.newImage("assets/backgrounds/panel_001.png")
   life  = love.graphics.newImage("assets/entity/ships/ship_003.png")
@@ -31,6 +31,35 @@ end
   if gamestate.n_specials+3 <=#gamestate.special_attacks then
   love.graphics.draw(pickups[gamestate.special_attacks[gamestate.n_specials+3]],786,102-gamestate.scroll)
   end
+  if cur == 1 then
+    if gamestate.time < ui_time_per_frame then
+      story_dia("Stores inc. has monopolized by giving away free weapons, but..")
+    elseif gamestate.time < ui_time_per_frame*2 then
+      story_dia("They are giving away shitty weapons...")
+    elseif gamestate.time < ui_time_per_frame*3 then
+      story_dia("and charging people for onetime upgrades")
+    elseif gamestate.time < ui_time_per_frame*4 then
+      story_dia("These Fremium bastards have to be stopped!!")
+    end
+  end
+  if cur == 2 then
+    if gamestate.time < ui_time_per_frame then
+      story_dia("They are getting stronger")
+    elseif gamestate.time < ui_time_per_frame*2 then
+      story_dia("Their executives must be nearby")
+    end
+  end
+  if  gamestate.boss_intro then
+    if gamestate.time < ui_time_per_frame then
+      story_dia("You have found us, but don't smile yet")
+    elseif gamestate.time < ui_time_per_frame*2 then
+      story_dia("Your story ends here, tonight")
+    elseif gamestate.time < ui_time_per_frame*3 then
+      story_dia("We will never be stopped")
+    elseif gamestate.time < ui_time_per_frame*4 then
+      story_dia("Muhahahahahaha")
+    end
+  end
 end
 
 function draw_start()
@@ -61,6 +90,11 @@ function draw_won()
 
   love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
 end
-function story_dia()
+function story_dia(text)
+  love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
 
+  love.graphics.rectangle("fill", 1, 620-gamestate.scroll, 640, 50 )
+
+  love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
+  love.graphics.print(text,11,630-gamestate.scroll)
 end
