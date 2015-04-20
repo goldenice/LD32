@@ -46,7 +46,6 @@ function start_special()
     gamestate.shoot_time = 0
     gamestate.special_loose=false
     gamestate.n_specials = gamestate.n_specials +1
-    print(gamestate.special_attacks[gamestate.n_specials])
     local specialname = gamestate.special_attacks[gamestate.n_specials]
 
     gamestate.special = attacks[specialname]()

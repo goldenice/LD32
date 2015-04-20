@@ -16,7 +16,7 @@
  </layer>
  <layer name="collision" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJztw7EJAAAIA7D6/9MOfcFFSCAJAAAAAAAAAAAAAEDNcQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhoAVdPABU=
+   eJztw7ENAAAMAiD7/9N9wjhBQtJ15QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsPTIvAAV
   </data>
  </layer>
  <layer name="shadow" width="20" height="500">

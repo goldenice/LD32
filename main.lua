@@ -245,7 +245,6 @@ function love.draw()
     drawPickups()
 
     draw_ui()
-    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   elseif current_state== "W" then
     draw_won()
   elseif current_state == "S" then

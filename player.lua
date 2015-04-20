@@ -142,6 +142,8 @@ function updatePlayer( dt)
     gamestate.shadow=false
     if gamestate.playing then
     for i=1, cols_len do
+
+      if not gamestate.boss or gamestate.boss.health > 0 then
       local col = cols[i]
       if col.other.isEnemy then
         player_is_hit()
@@ -164,6 +166,7 @@ function updatePlayer( dt)
       if col.other.isPickup then
         eat_pickup(col.other)
       end
+    end
     end
 
     b,a,cols,cols_len = gamestate.shadowworld:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, playerfilter)

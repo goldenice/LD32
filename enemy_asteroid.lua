@@ -1,8 +1,9 @@
 function add_asteroid_enemy(gamestate,x,y,tick,scroll,rotation)
   local ship =  enemy_parts["asteroid_big"]
   local still = false
-  local e = add_enemy(gamestate,x,y,64,32,0,0,tick,scroll,rotation,still,ship,asteroid_draw)
+  local e = add_enemy(gamestate,x,y,48,32,0,0,tick,scroll,rotation,still,ship,asteroid_draw)
   e.yoffset = 16
+  e.xoffset = 8
   e.health = 3
 
   e.isAsteroid = true

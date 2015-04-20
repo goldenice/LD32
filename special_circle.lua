@@ -16,6 +16,7 @@ function get_circle()
 end
 function update_circle(dt)
   gamestate.special.tick = gamestate.special.tick + dt
+
   if gamestate.special.tick > gamestate.special.timeper then
     gamestate.special.tick = 0
     gamestate.special.firing = true
@@ -23,15 +24,20 @@ function update_circle(dt)
     gamestate.special.bullet_time = 0.05
     gamestate.special.bullets=0
   end
+
+
   if gamestate.special.firing then
   gamestate.special.subbullet = gamestate.special.subbullet + dt
   if gamestate.special.subbullet > gamestate.special.bullet_time then
+    local nbullets_in_time = 40*dt/(0.4)
+    for i=1, math.ceil(nbullets_in_time) do
     gamestate.special.bullets= gamestate.special.bullets + 1
     local rotation = math.random()*360
-
     add_standard_bullet(gamestate.player.x, gamestate.player.y , rotation, "player")
 
-      if gamestate.special.bullets > 80 then
+  end
+
+      if gamestate.special.bullets > 40 then
         gamestate.special.firing = false
         gamestate.special.tock = gamestate.special.tock  + 1
 

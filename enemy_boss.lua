@@ -64,6 +64,8 @@ function reset_timers (gamestate,e)
   e.circle_motion_single_bullet = 0
   e.circle_motion_counter = 0
   e.fwd_gun_timer = 0
+  e.left_active = true
+  e.right_active = true
 end
 function add_enemy_part(gamestate,part,e)
   part.w = part.width

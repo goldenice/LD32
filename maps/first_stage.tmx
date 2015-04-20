@@ -19,17 +19,17 @@
    eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
- <layer name="shadow" width="20" height="500" opacity="0.7">
+ <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
    eJzt2rEKgzAYhVFLIWBdxEX7/i/aBBzC3wzFpEPLOXDBIflWl0wTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN+SBt/R09PT09PT09PT09OrzXmPc6n6Llsa9+dwJoXza97tXKq+y7ZGbw1nUjj/y7097wh7dvQ+mZ6enp7ee693ev291j/x6sq/9D54AAAAAAAAAMB4o94e1ItvGK9sqXoj3khsenp6enp6nT0zM/v/vQCWXxIX
   </data>
  </layer>
  <layer name="endlevel" width="20" height="500" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAIA7C5wL9TNCzh4GiTJgAAAAAAAAAAAAAAAAAAwBdzHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6C1VGwHN
+   eJztwzENAAAIA7C5wL9TTOyCNmkCAAAAAAAAAAAAAAAAwEdTDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHDFAnExAc0=
   </data>
  </layer>
- <objectgroup name="enemies">
+ <objectgroup name="enemies" visible="0">
   <properties>
    <property name="scroll" value="-400"/>
    <property name="type" value="rtank"/>
@@ -785,7 +785,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="pickups">
+ <objectgroup name="pickups" visible="0">
   <object id="141" gid="1" x="398" y="12472" width="32" height="32">
    <properties>
     <property name="type" value="circle"/>
@@ -799,11 +799,6 @@
   <object id="278" gid="1" x="264.5" y="14451.5" width="32" height="32">
    <properties>
     <property name="type" value="random_fwd"/>
-   </properties>
-  </object>
-  <object id="279" gid="1" x="322" y="9262" width="32" height="32">
-   <properties>
-    <property name="type" value="wreck"/>
    </properties>
   </object>
   <object id="280" gid="1" x="362" y="11494" width="32" height="32">

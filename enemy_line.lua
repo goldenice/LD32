@@ -1,7 +1,7 @@
 function add_line_enemy(gamestate,x,y,tick,scroll,rotation)
   local still = true
   local ship =  enemy_parts["line"]
-  local e = add_enemy(gamestate,x,y,32,16,0,0,tick,scroll,rotation,still,ship,std_draw)
+  local e = add_enemy(gamestate,x,y,28,28,0,0,tick,scroll,rotation,still,ship,std_draw)
   e.health = 2
   e["ai"] = line_enemy_ai
   return e
