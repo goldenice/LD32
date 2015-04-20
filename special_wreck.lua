@@ -4,7 +4,7 @@ function get_wrecked()
   wreckingball = {}
   wreckingball.tick = 0
   wreckingball.load_ticks = 1
-  wreckingball.charge_ticks = 6
+  wreckingball.charge_ticks = 5.7
   wreckingball.flying_ticks = 3
   wreckingball.charge=0
   wreckingball.xx = 0
@@ -27,8 +27,8 @@ function get_wrecked()
   return wreckingball
 end
 function load_wreckingball_update(dt)
-  gamestate.special.tick = gamestate.special.tick + dt
-  gamestate.special.yy = gamestate.special.yy + 100*dt
+  gamestate.special.tick = gamestate.special.tick + dt*2
+  gamestate.special.yy = gamestate.special.yy + 100*dt*2
   gamestate.special.y = gamestate.special.yy +gamestate.player.y
   gamestate.special.x = gamestate.special.xx+gamestate.player.x
 

@@ -25,6 +25,21 @@ function trigger_special()
   end
 end
 
+function start_ball()
+
+  if   not gamestate.special_triggered then
+    gamestate.shoot_time = 0
+    gamestate.special_loose=false
+
+    local specialname = gamestate.special_attacks["wreck"]
+
+    gamestate.special = attacks["wreck"]()
+    gamestate.special_triggered = true
+
+    return true
+  end
+  return false
+end
 function start_special()
 
   if gamestate.n_specials+1 <=#gamestate.special_attacks and not gamestate.special_triggered then

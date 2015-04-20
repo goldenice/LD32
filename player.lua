@@ -26,7 +26,13 @@ function updatePlayer( dt)
     if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
       gamestate.shoot_time = 0
       add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
-      shoot_effect(0,0)
+    end
+    if joystick:isDown(2 )  and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
+      if gamestate.special_loose then
+        if start_ball() then
+          gamestate.shoot_time = 0
+        end
+      end
     end
     if joystick:isDown(5 )   then
       if not gamestate.special_triggered then
@@ -55,12 +61,17 @@ function updatePlayer( dt)
     dy = 0.5*dt *1.5*gamestate.player.speed
   end
   if not gamestate.boss_intro then
-  if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout then
+  if love.keyboard.isDown("x")  and gamestate.shoot_time > gamestate.shoot_timeout then
+    if gamestate.special_loose then
+      if start_ball() then
+        gamestate.shoot_time = 0
+      end
+    end
+  end
+  if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
     gamestate.shoot_time = 0
     add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
-    shoot_effect(0,0)
   end
-
   if love.keyboard.isDown("z")   then
        trigger_special()
 
@@ -220,8 +231,11 @@ function player_is_hit ()
   gamestate.retry = gamestate.retry -1
 
   if gamestate.retry == 0 then
+    death_effect(0,0)
     resetGame()
   else
+    hurt_effect(0,0)
+
     gamestate.retry_wait = 0
     gamestate.retry_max_wait = 2
     gamestate.retry_wait_tick = 0

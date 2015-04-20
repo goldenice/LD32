@@ -2,7 +2,7 @@
 effect_table= {}
 sounds = {}
 effects = {images={},animations={}}
-sound_effect_urls = {shoot = "assets/sounds/hit.wav"}
+sound_effect_urls = {shoot = "assets/sounds/explosion.wav",shoot_player =  "assets/sounds/explosion_player.wav",death ="assets/sounds/death.wav" }
 sound_effects = {}
 function fill_effect_table()
   effect_table["explosion"] = explode_small
@@ -23,6 +23,7 @@ function explode_small(x,y)
   local e = {}
   e.x = x
   e.y = y
+  shoot_effect(0,0)
   e.image = effects.images["explosion"]
   local g = effects.animations["explosion"]
   e.animation =  anim8.newAnimation(g('1-8',1), 0.1)
@@ -36,6 +37,26 @@ function shoot_effect(x,y)
   e.y = y
   local src = love.audio.newSource(sound_effect_urls["shoot"], "static")
   src:setVolume(0.15)
+  src:play()
+  e.life = 1
+  return e
+end
+function hurt_effect(x,y)
+  local e = {}
+  e.x = x
+  e.y = y
+  local src = love.audio.newSource(sound_effect_urls["shoot_player"], "static")
+  src:setVolume(0.15)
+  src:play()
+  e.life = 1
+  return e
+end
+function death_effect(x,y)
+  local e = {}
+  e.x = x
+  e.y = y
+  local src = love.audio.newSource(sound_effect_urls["death"], "static")
+  src:setVolume(0.5)
   src:play()
   e.life = 1
   return e

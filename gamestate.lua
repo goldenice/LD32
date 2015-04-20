@@ -21,9 +21,10 @@ function resetgamestate(mname)
   s.shoot_time = 0
   s.special_loose = false
   s.bullets = {}
+  s.main_gun = true
   s.pickups = {}
   s.n_bullets = 0
-  s.retry = 4
+  s.retry = 5
   s.retry_wait = 2
   s.boss_active = false
   s.retry_max_wait = 2
