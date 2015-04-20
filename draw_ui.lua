@@ -31,6 +31,20 @@ end
   if gamestate.n_specials+3 <=#gamestate.special_attacks then
   love.graphics.draw(pickups[gamestate.special_attacks[gamestate.n_specials+3]],786,102-gamestate.scroll)
   end
+  if joystick then
+    love.graphics.print("Left stick for movement",660,200-gamestate.scroll)
+    love.graphics.print("B for shooting",660,220-gamestate.scroll)
+    love.graphics.print("Right Shoulder for special",660,240-gamestate.scroll)
+    love.graphics.print("B to release wreckingball,",660,260-gamestate.scroll)
+    love.graphics.print("if wreckingball active",680,280-gamestate.scroll)
+
+  else
+    love.graphics.print("Arrows for movement",660,200-gamestate.scroll)
+    love.graphics.print("Spacebar for shooting",660,220-gamestate.scroll)
+    love.graphics.print("Shift for special",660,240-gamestate.scroll)
+    love.graphics.print("Z to release wreckingball,",660,260-gamestate.scroll)
+    love.graphics.print("if wreckingball active",680,280-gamestate.scroll)
+  end
   if cur == 1 then
     if gamestate.time < ui_time_per_frame then
       story_dia("Stores inc. has monopolized by giving away free weapons, but..")
@@ -78,7 +92,7 @@ function draw_death()
 
   gamestate.map:setDrawRange(0, 0, w, h)
 
-  love.graphics.print("You are DEAD", 10, 10-gamestate.scroll)
+  love.graphics.print(gamestate.death_text, 10, 10-gamestate.scroll)
 end
 
 function draw_won()
@@ -93,8 +107,12 @@ end
 function story_dia(text)
   love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
 
-  love.graphics.rectangle("fill", 1, 620-gamestate.scroll, 640, 50 )
+  love.graphics.rectangle("fill", 1, 620-gamestate.scroll, 640, 100 )
 
   love.graphics.setColor(255, 255, 255, 255) -- red, green, blue, opacity (this would be white with 20% opacity)
   love.graphics.print(text,11,630-gamestate.scroll)
 end
+death_texts = {
+  "You are Dead Dead Dead Dead Dead, questions?",
+  "I hope you have a good insurance package"
+}

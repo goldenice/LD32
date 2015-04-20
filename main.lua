@@ -193,16 +193,25 @@ function love.update(dt)
   else
     if joystick then
       if joystick:isDown(1) then
+        if not gamestate.death_wait then
         cur = 1
         loadmap(levels[cur])
         current_state="G"
         collectgarbage("collect")
       end
+      else
+        gamestate.death_wait = false
+      end
     elseif  love.keyboard.isDown( " " ) then
-    cur = 1
-    loadmap(levels[cur])
-    current_state="G"
-    collectgarbage("collect")
+      if not gamestate.death_wait then
+
+      cur = 1
+      loadmap(levels[cur])
+      current_state="G"
+      collectgarbage("collect")
+    end
+    else
+      gamestate.death_wait = false
     end
   end
   TEsound.cleanup()   --keeps played sounds list clean and handles sound looping DO NOT REMOVE

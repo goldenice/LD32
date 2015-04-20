@@ -11,7 +11,8 @@ function resetgamestate(mname)
   s.blocks = {}
   s.score =  0
   scroll= -180
-
+  s.death_wait = true
+  s.death_text = death_texts[ math.random( #death_texts ) ]
   s.special_attack = nil
   s.special_triggered = false
   s.n_specials = 0
