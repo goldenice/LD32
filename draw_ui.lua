@@ -15,7 +15,6 @@ function draw_ui()
 end
   love.graphics.print("Score:   "..gamestate.score,720, 60-gamestate.scroll)
 
-  love.graphics.print("Score:   "..  gamestate.boss.y + gamestate.scroll,720, 80-gamestate.scroll)
   if gamestate.boss_active then
     love.graphics.print("Boss Hull:   "..  gamestate.boss.health,720, 120-gamestate.scroll)
     love.graphics.print("Boss Left:   "..  gamestate.boss.left_health,730, 140-gamestate.scroll)

@@ -14,6 +14,15 @@ function boss_ion_cannon(gamestate,dt)
     add_ion_enemy_bullet(e.x+16, e.y+80 , math.rad(180)+auto_aim(e.x,e.y,gamestate), "enemy")
   end
 end
+function boss_fwd_gun(gamestate,dt)
+  local e = gamestate.boss
+  dt = dt * e.timer_multiplier
+  e.fwd_gun_timer = e.fwd_gun_timer+dt
+  if e.fwd_gun_timer > 2 then
+    e.fwd_gun_timer = 0
+    add_standard_enemy_bullet(e.x+16, e.y+80 , math.rad(180)+auto_aim(e.x,e.y,gamestate), "enemy")
+  end
+end
 function boss_left_cannon(gamestate,dt)
   local e = gamestate.boss
   dt = dt * e.timer_multiplier

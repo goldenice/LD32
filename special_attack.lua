@@ -1,8 +1,10 @@
 require 'special_wreck'
 require 'spread_gun'
+require 'special_circle'
 attacks = {
   wreck = get_wrecked,
-  random_fwd = get_spread
+  random_fwd = get_spread,
+  circle = get_circle
 
 }
 function draw_special()
@@ -17,6 +19,7 @@ function start_special()
     gamestate.shoot_time = 0
     gamestate.special_loose=false
     gamestate.n_specials = gamestate.n_specials +1
+    print(gamestate.special_attacks[gamestate.n_specials])
     local specialname = gamestate.special_attacks[gamestate.n_specials]
 
     gamestate.special = attacks[specialname]()
