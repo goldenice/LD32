@@ -66,11 +66,11 @@ function updatePlayer( dt)
         gamestate.shoot_time = 0
       end
     end
-  end
-  elseif not gamestate.special_triggered then
+    elseif not gamestate.special_triggered then
     gamestate.special_loose=true
   end
-end
+  end
+  end
   moved = true
   if dy > 0 then
     dy = dy -scroll * dt
@@ -143,6 +143,9 @@ end
       if col.other.ctype == "end" then
         nextLevel()
       end
+      if col.other.isPickup then
+        eat_pickup(col.other)
+      end
     end
 
     b,a,cols,cols_len = gamestate.shadowworld:move(gamestate.player, gamestate.player.x + dx, gamestate.player.y + dy, playerfilter)
@@ -166,7 +169,7 @@ function playerfilter(item, other)
   if     other.isBullet   then return 'cross'
   elseif     other.isShadow   then return 'cross'
   elseif other.isWall   then return 'slide'
-  elseif other.isUpgrade   then return 'cross'
+  elseif other.isPickup   then return 'cross'
   elseif other.isSpring then return 'bounce'
   else return 'slide'
   end

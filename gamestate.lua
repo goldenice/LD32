@@ -14,11 +14,12 @@ function resetgamestate(mname)
   s.special_attack = nil
   s.special_triggered = false
   s.n_specials = 0
-  s.special_attacks = {"spread","spread"}
+  s.special_attacks = {"random_fwd","random_fwd"}
   s.shoot_timeout = 1/8
   s.shoot_time = 0
   s.special_loose = false
   s.bullets = {}
+  s.pickups = {}
   s.n_bullets = 0
   s.retry = 3
   s.retry_wait = 2
@@ -31,6 +32,7 @@ function resetgamestate(mname)
   s.timed = 5
   s.retry_shown = false
   s.n_blocks = 0
+  s.n_pickups = 0
   s.n_enemies = 0
   s.shadow=false
   s.effects = {}
@@ -44,6 +46,7 @@ function resetgamestate(mname)
   s.startscroll = s.scroll
   s.player.y = s.player.y - s.scroll
   s.enemies = {}
+  findPickups(s)
   findEnemies(s)
   s.endStates = findEndLevelTiles(s)
   s.shadows = findShadowTiles(s)

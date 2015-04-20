@@ -4,10 +4,13 @@ bullet_types = {}
 function   loadbullets()
   bullet_types["standard"] = add_standard_bullet
   bullet_types["wreck"] = add_standard_bullet
+  bullet_types["ion"] = add_ion_bullet
+
   bullet_type_images["standard"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_001.png")
   bullet_type_images["standard_enemy"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_yellow1.png")
+  bullet_type_images["ion"] =  love.graphics.newImage("assets/entity/bullets/bullet_huge_001.png")
 
-  bullet_type_images["wreck"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_yellow1.png")
+  bullet_type_images["wreck"] =  love.graphics.newImage("assets/entity/bullets/bullet_huge_001.png")
 
 end
 
@@ -24,6 +27,18 @@ function add_standard_enemy_bullet(x, y , rotation, side)
     bullet.damage=1
     bullet.img = bullet_type_images["standard_enemy"]
     bullet.speed = 250
+end
+function add_ion_enemy_bullet(x, y , rotation, side)
+  local bullet = add_bullet(x, y , rotation, "standard", side)
+
+  bullet.damage=1
+  bullet.img = bullet_type_images["ion"]
+  bullet.width = 32
+  bullet.height = 32
+  bullet.w = bullet.width
+  bullet.h = bullet.height
+  bullet.speed = 250
+
 end
 
 function add_3_spread_bullet(x, y , rotation, side)

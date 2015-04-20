@@ -4,6 +4,7 @@ local sti = require "Simple-Tiled-Implementation"
 require 'TEsounds/TEsound'
 require 'music'
 require 'bullet'
+require 'pickups'
 require 'player'
 require 'effect'
 require 'draw_ui'
@@ -131,6 +132,7 @@ end
 -- Main LÖVE functions
 
 function love.load()
+  add_pickups()
   math.randomseed(os.time())
   bw_shader = love.graphics.newShader[[
   vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords )
@@ -208,7 +210,7 @@ function love.draw()
       drawBlocks()
     end
     draw_ui()
-
+    drawPickups()
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   else
     local w = windowWith

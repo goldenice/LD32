@@ -1,4 +1,3 @@
-
 return {
   version = "1.1",
   luaversion = "5.1",
@@ -8,7 +7,7 @@ return {
   height = 500,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 94,
+  nextobjectid = 95,
   properties = {},
   tilesets = {
     {
@@ -3067,6 +3066,31 @@ return {
             ["scroll"] = "200",
             ["tick"] = "0",
             ["type"] = "boss"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pickups",
+      visible = true,
+      opacity = 1,
+      properties = {},
+      objects = {
+        {
+          id = 94,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 53,
+          y = 13989,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["type"] = "random_fwd"
           }
         }
       }

@@ -2,7 +2,7 @@ require 'special_wreck'
 require 'spread_gun'
 attacks = {
   wreck = get_wrecked,
-  spread = get_spread
+  random_fwd = get_spread
 
 }
 function draw_special()
