@@ -27,9 +27,9 @@ levels = {"maps/first_stage","maps/second_stage","maps/final_stage"}
 if debug then
   levels = {"maps/final_stage","maps/final_stage","maps/final_stage"}
 end
-background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
+background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
 background_1 = {}
-background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
+background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
 background_2 = {}
 add_scroll_1 = 0.1
 add_scroll_2 = 0.65
@@ -192,14 +192,12 @@ function love.update(dt)
         cur = 1
         loadmap(levels[cur])
         current_state="G"
-        print("resetting game")
         collectgarbage("collect")
       end
     elseif  love.keyboard.isDown( " " ) then
     cur = 1
     loadmap(levels[cur])
     current_state="G"
-    print("resetting game")
     collectgarbage("collect")
     end
   end
