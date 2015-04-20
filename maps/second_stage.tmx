@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Tilelaag 1" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJztzrENwCAQBEEwRO6/YHfwSEcC8oz0GbeiNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAu8zF7bx/g/9Umx70qo2enp6enl6yeYJetdE7qzeCXrIBAAAA+JMPHFkAnQ==
+   eJztzMEJgDAABMEYxYD9F2wH9zhE8pj5744BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPCf++PmKn6peYpfao7ilxo/Pz8/P7+mmcUvNX57/c7il5pV/JoGAAAAYGcvhDEAfw==
   </data>
  </layer>
  <layer name="collision" width="20" height="500">
@@ -21,7 +21,7 @@
  </layer>
  <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJzt18EKgkAUhlFFuGBuxI31/i+agovhMivLtDoHfjCa+ZaRTQMAAAAAAAAAAAAAAAAAAAAAAAAAAADAUeLNd/T09PT09PT09PR+uQcAAPApV38/0tPT09PT09PT09PT09PTO6fXL7tti+J53VC536czkc6Py9ptUTyvmyq9MZ2JdF5PT09PT0/v+3vzsvu2KJ7XPSq9OZ2JdL4rFulzV+nl7/Od0hX/r+n9T4/ztQcsv0Pt2VD08m/unk16enp6enov9szM7Pf3BMQfFlk=
+   eJzt2ttqwkAUBVBF0bE+RHyI7f//aCMIMxyGHJhq6WUt2GBIZsN+kaa42QAAAAAAAAAAAAAAAAAAAAAAAAAAAADwKocnnykDfWtnpoG+tTPzQN/aGXtz9lb25uyt7M3ZW9mbs7eyN/ede48DfSNnAACA38f/73PeLyt7c/ZW9ubsrezN2VvZm7O3sjdnb2Vvzt7qGXsPTaZw3Xv3jvfjmX2TOVzvO33xfjxzWvL2SGk+33Pu9J3CMyU8f1myfWRqPt9z7fRdwjNTeL69Pw/0zSt9ZaCvrPTZa6+99tprr739vbcl74+U5vM9H52+W3imhOd3TaZwvev0xfvxzLHJHK57v62K9+OZlr+fc/ZWP33vf/h94vYFie9QIzk3ffE7dyRXffr06dOn74t9IiLy9/MJ3B0gYw==
   </data>
  </layer>
  <layer name="endlevel" width="20" height="500" visible="0">

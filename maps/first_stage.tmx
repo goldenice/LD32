@@ -21,7 +21,7 @@
  </layer>
  <layer name="shadow" width="20" height="500" opacity="0.7">
   <data encoding="base64" compression="zlib">
-   eJzt2rEKgzAYhVFLIWBdxEX7/i/aBBzC3wzFpEPLOXDBIflWl0wTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN+SBt/R09PT09PT09PT09OrzXmPc6n6Llsa9+dwJoXza97tXKq+y7ZGbw1nUjj/y7097wh7dvQ+mZ6enp7ee693ev291j/x6sq/9D54AAAAAAAAAMB4o94e1ItvGK9sqXoj3khsenp6enp6nT0zM/v/vQCWXxIX
+   eJzt2rEKwjAABFBF0KhDxaHq//+oLQgJoSQ1jYu8BweFJgc3deluBwAAAAAAAAAAAAAAAAAAAAAAAAAAAMCvHDvfCQ19pTtDQ1/pztjQV7pjb529kb119kb21tkb2Vtnb2Rvnb1Rj73nKZdPQvI857pw/5ydCdn525T9J0PyPOe+0HfLzgzZ+fT92NA3FvpCQ18o9OV7H1OeWV4b9q7JN3vX5Ju9a2Kvvfbau2bvqaHvVOjbGn3b+5a+ia2Zv6WHzgEAAAAAAAAA+uv170Ga/B/GllyTvh7/SNz16dOnT5++jX0iIvL/eQP7VRZR
   </data>
  </layer>
  <layer name="endlevel" width="20" height="500" visible="0">
