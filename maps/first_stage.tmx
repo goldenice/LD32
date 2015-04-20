@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Tilelaag 1" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJztzLENACAMBLGnZf+Bs0EKlBRIdn+XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC7O9ych1/X+Pn5+fn5TTYAAAAAAAAAAAAAALCtAAfvAD8=
+   eJzt2bERADAIAzFos//A7MCRg0Lq/Qs4AgAAAAAAAAAAAAAAAAAAAAAAgCve8CYbvc4GAAAAAAAA2Hf9b9TT09PT05vcAAAAAAAAAAAAAADAbwUUlABV
   </data>
  </layer>
  <layer name="collision" width="20" height="500">
@@ -21,7 +21,7 @@
  </layer>
  <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJzt2rEKgzAYhVFLIWBdxEX7/i/aBBzC3wzFpEPLOXDBIflWl0wTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN+SBt/R09PT09PT09PT09OrzXmPc6n6Llsa9+dwJoXza97tXKq+y7ZGbw1nUjj/y7097wh7dvQ+mZ6enp7ee693ev291j/x6sq/9D54AAAAAAAAAMB4o94e1ItvGK9sqXoj3khsenp6enp6nT0zM/v/vQCWXxIX
+   eJzt2t1Kw0AYBNCIP7QWSelFtO//oibYsssS9ks2AdGeAwMFs0PnquCm6wAAAAAAAAAAAAAAAAB4dG87nzk09NXO9A19tTNDQ1/tjL0xexN7Y/Ym9sbsTeyN2ZvYG7M3sTdmb2JvzN7E3pi9ySPtPXY/3/005mNh8jOl85iXMZcV36125nPM15jrir7amdcsS/fmZwAAAODO+y+xv/r/kom9MXsTe2P2JvbG7E3sjdmb2BuzN9lj73Rn+H7LkH2eMnePeCyeGYrnpzvDp1sO2ecpc/eI5+KZQ/F8/ve+oa+v9A0NfUOlr9x7v+/Mc92wd0nW7F2SNXuXxF577bX3N/Zujb7tfXO/ia2Zfkufdw4AAAAAAAAAsL+93j3IU77D2JJT1rfHOxIXffr06dOnb2OfiIj8/3wDHzkgMQ==
   </data>
  </layer>
  <layer name="endlevel" width="20" height="500" visible="0">
@@ -552,7 +552,7 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="131" gid="22" x="65.3333" y="10932.3" width="32" height="32">
+  <object id="131" gid="22" x="82.6666" y="10932.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -560,7 +560,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="138" gid="22" x="481" y="10929.7" width="32" height="32">
+  <object id="138" gid="22" x="495.667" y="10931" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -568,7 +568,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="139" gid="22" x="65.6667" y="11110.3" width="32" height="32">
+  <object id="139" gid="22" x="79" y="11109" width="32" height="32">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -576,7 +576,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="140" gid="22" x="493.534" y="11103.4" width="32" height="32" rotation="-36.1887">
+  <object id="140" gid="22" x="501.534" y="11103.4" width="32" height="32" rotation="-36.1887">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -682,7 +682,7 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="190" gid="22" x="105.9" y="7392.3" width="32" height="32">
+  <object id="190" gid="22" x="83.2333" y="7392.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -690,7 +690,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="191" gid="22" x="534.1" y="7563.4" width="32" height="32" rotation="-36.1887">
+  <object id="191" gid="22" x="502.1" y="7563.4" width="32" height="32" rotation="-36.1887">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -698,7 +698,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="192" gid="22" x="106.233" y="7570.3" width="32" height="32">
+  <object id="192" gid="22" x="82.233" y="7571.63" width="32" height="32">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -706,7 +706,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="193" gid="22" x="521.566" y="7389.7" width="32" height="32">
+  <object id="193" gid="22" x="496.233" y="7392.37" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>

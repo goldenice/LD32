@@ -11,7 +11,7 @@
  </tileset>
  <layer name="Tilelaag 1" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJztzrENwCAQBEEwRO6/YHfwSEcC8oz0GbeiNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAu8zF7bx/g/9Umx70qo2enp6enl6yeYJetdE7qzeCXrIBAAAA+JMPHFkAnQ==
+   eJzt1ssKgCAQQFEN2kT9/++2CkJ66FgQdA64cZiLS1MCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAzPbyTD+6W4tTs1MwiO3p6em2zuTi9vTt6z/fyxay2l4u7nOK9cvet9w2B3pDO3xft7RtHs0ivdfbV3t3/4Ko3NryrZwcAAADgT1bOpgEH
   </data>
  </layer>
  <layer name="collision" width="20" height="500">
@@ -21,7 +21,7 @@
  </layer>
  <layer name="shadow" width="20" height="500">
   <data encoding="base64" compression="zlib">
-   eJzt18EKgkAUhlFFuGBuxI31/i+agovhMivLtDoHfjCa+ZaRTQMAAAAAAAAAAAAAAAAAAAAAAAAAAADAUeLNd/T09PT09PT09PR+uQcAAPApV38/0tPT09PT09PT09PT09PTO6fXL7tti+J53VC536czkc6Py9ptUTyvmyq9MZ2JdF5PT09PT0/v+3vzsvu2KJ7XPSq9OZ2JdL4rFulzV+nl7/Od0hX/r+n9T4/ztQcsv0Pt2VD08m/unk16enp6enov9szM7Pf3BMQfFlk=
+   eJzt2eFqwjAUBlBluunciPijbu//olMwJITSkKiw2nPgQoe5H35sTK2rFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8MreH7yz68ib2gkdeVM7Q0fe1M4z+n43ztz7ttI30bdu7n2/GmfufVvpmyyxb+vr5dz7ttI30bduauejI69nB+BeS7y/0fp+aM6vR0t7/dW3Tt9E3zp9E33r9E3m0Lf1/unc+7bSN9G3Tt9E37ql991f5vM2Ibu+zmFkf1+cCcX542XWtxmy6+ucRvKOxZmhOJ8/vuvI203khY68MJGnr7766vvf+749oO9blhe/5+7tG3djXnzO9/QNWV6879zbN+7GvE323Ht/v5vVMv+ez5f5uU3Irq/zO5J3Ls6E4vw2m6H4eTuSVz5e7uS8n6zz/T6vbP2EKT9D9cwhyyv/5/bMSZ48efLkybszzxhjzOvPH6oBIrs=
   </data>
  </layer>
  <layer name="endlevel" width="20" height="500" visible="0">
@@ -181,7 +181,7 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="131" gid="22" x="65.3333" y="10932.3" width="32" height="32">
+  <object id="131" gid="22" x="79.3333" y="10935.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -189,7 +189,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="138" gid="22" x="481" y="10929.7" width="32" height="32">
+  <object id="138" gid="22" x="496" y="10933.7" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -197,7 +197,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="139" gid="22" x="65.6667" y="11110.3" width="32" height="32">
+  <object id="139" gid="22" x="80.6667" y="11107.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -205,7 +205,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="140" gid="22" x="493.534" y="11103.4" width="32" height="32" rotation="-36.1887">
+  <object id="140" gid="22" x="499.534" y="11107.4" width="32" height="32" rotation="-36.1887">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -381,7 +381,7 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="190" gid="22" x="97.8997" y="14232.3" width="32" height="32">
+  <object id="190" gid="22" x="81.8997" y="14230.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -389,7 +389,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="191" gid="22" x="526.1" y="14403.4" width="32" height="32" rotation="-36.1887">
+  <object id="191" gid="22" x="504.1" y="14402.7" width="32" height="32" rotation="-36.1887">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -397,7 +397,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="192" gid="22" x="98.2331" y="14410.3" width="32" height="32">
+  <object id="192" gid="22" x="79.2331" y="14408.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -405,7 +405,7 @@
     <property name="type" value="rtank"/>
    </properties>
   </object>
-  <object id="193" gid="22" x="513.566" y="14229.7" width="32" height="32">
+  <object id="193" gid="22" x="498.566" y="14229.7" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -490,7 +490,7 @@
     <property name="type" value="line"/>
    </properties>
   </object>
-  <object id="281" gid="22" x="522.1" y="12903.4" width="32" height="32" rotation="-36.1887">
+  <object id="281" gid="22" x="502.1" y="12903.4" width="32" height="32" rotation="-36.1887">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -498,7 +498,7 @@
     <property name="type" value="tank"/>
    </properties>
   </object>
-  <object id="282" gid="22" x="502.899" y="12665.7" width="32" height="32">
+  <object id="282" gid="22" x="497.899" y="12665.7" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
@@ -506,7 +506,7 @@
     <property name="type" value="tank"/>
    </properties>
   </object>
-  <object id="283" gid="22" x="94.2332" y="12910.3" width="32" height="32">
+  <object id="283" gid="22" x="81.2332" y="12908.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="200"/>
     <property name="scroll" value="200"/>
@@ -514,7 +514,7 @@
     <property name="type" value="tank"/>
    </properties>
   </object>
-  <object id="284" gid="22" x="99.2332" y="12664.3" width="32" height="32">
+  <object id="284" gid="22" x="83.2332" y="12662.3" width="32" height="32">
    <properties>
     <property name="ascroll" value="10"/>
     <property name="scroll" value="100"/>
