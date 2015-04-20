@@ -16,8 +16,8 @@ function add_boss_enemy(gamestate,x,y,tick,scroll,rotation)
   local still = true
   local ship =  nil
   local e = add_enemy(gamestate,x,y,64,32,0,0,tick,scroll,rotation,still,ship,boss_enemy_initial_draw)
-  e.health = 90
-  e.first_health = 30
+  e.health = 50
+  e.first_health = 20
   e.left_health = 30
   e.yoffset = 0
   e.xoffset = 32
@@ -74,13 +74,12 @@ function add_enemy_part(gamestate,part,e)
   gamestate.world:add(part,part.x,part.y,part.width,part.height)
   gamestate.n_blocks = gamestate.n_blocks + 1
   gamestate.blocks["a"..gamestate.n_blocks] = part
-  gamestate.boss_intro = true
   part.block =gamestate.n_blocks
 
 
 end
 function strafe(enemy,dt)
-  local velocity = 120
+  local velocity = 60
 
   local ddx = enemy.ydirection *velocity* dt
   enemy.time_x = enemy.time_x + dt
@@ -99,12 +98,14 @@ end
 function boss_enemy_phase_in_ai(enemy,dt)
   local velocity = 50
   scroll=-80
+  gamestate.boss_intro = true
 
   dy = -0.2*scroll*dt
   if gamestate.boss.y + gamestate.scroll > 100 then
     enemy["ai"] = boss_first_stage_start_ai
     enemy["draw"] = boss_enemy_first_stage_draw
     gamestate.boss_active = true
+    scroll=-120
     gamestate.boss_intro = false
   end
   return 0,0
@@ -147,7 +148,7 @@ function boss_first_stage_start_ai(enemy,dt)
     add_effect("explosion",enemy.shield_left_col.x,enemy.shield_left_col.y)
     add_effect("explosion",enemy.shield_right_col.x,enemy.shield_right_col.y)
     add_effect("explosion",enemy.front_col.x,enemy.front_col.y)
-
+    scroll=-140
     gamestate.world:remove(enemy.shield_left_col)
     gamestate.world:remove(enemy.shield_right_col)
 
@@ -195,6 +196,7 @@ function boss_second_stage_start_ai(enemy,dt)
     gamestate.world:remove(enemy.right_col)
     gamestate.blocks["a"..enemy.right_col.block] = nil
     add_effect("explosion",enemy.right_col.x,enemy.right_col.y)
+    scroll=-160
 
   end
   if enemy.left_health < 0 then
@@ -203,6 +205,8 @@ function boss_second_stage_start_ai(enemy,dt)
     gamestate.world:remove(enemy.left_col)
     gamestate.blocks["a"..enemy.left_col.block] = nil
     add_effect("explosion",enemy.left_col.x,enemy.left_col.y)
+    scroll=-160
+
   end
   return 0,0
 end
@@ -235,6 +239,7 @@ function boss_enemy_third_right_stage_ai(enemy,dt)
     gamestate.world:remove(enemy.right_col)
     gamestate.blocks["a"..enemy.right_col.block] = nil
     add_effect("explosion",enemy.right_col.x,enemy.right_col.y)
+    scroll=-180
 
   end
   return 0,0
@@ -266,6 +271,7 @@ function boss_enemy_third_left_stage_ai(enemy,dt)
   end
   if enemy.left_health < 0 then
     add_effect("explosion",enemy.left_col.x,enemy.left_col.y)
+    scroll=-180
 
     enemy["ai"] = boss_enemy_third_final_stage_ai
     enemy["draw"] = boss_enemy_final_stage_draw

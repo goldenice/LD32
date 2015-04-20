@@ -10,7 +10,7 @@ function draw_ui()
   love.graphics.draw(bg,640,-gamestate.scroll,0,1,1)
   love.graphics.setFont(mainFont)
   love.graphics.print("Lives",660, 10-gamestate.scroll)
-  for i=1, gamestate.retry do
+  for i=1, gamestate.retry-1 do
   love.graphics.draw(life,700+i*64,10-gamestate.scroll,0,1,1)
 end
   love.graphics.print("Score:   "..gamestate.score,720, 60-gamestate.scroll)

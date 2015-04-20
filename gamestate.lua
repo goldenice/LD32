@@ -23,7 +23,7 @@ function resetgamestate(mname)
   s.bullets = {}
   s.pickups = {}
   s.n_bullets = 0
-  s.retry = 3
+  s.retry = 4
   s.retry_wait = 2
   s.boss_active = false
   s.retry_max_wait = 2
@@ -45,7 +45,7 @@ function resetgamestate(mname)
   s.mapname = mname
   s.map = sti.new(mname)
   s.collisiontiles = findSolidTiles(s)
-  s.scroll = -s.map.height*tile_height +love.graphics.getHeight()*1.5
+  s.scroll = -s.map.height*tile_height +love.graphics.getHeight()*1
   s.startscroll = s.scroll
   s.player.y = s.player.y - s.scroll
   s.enemies = {}

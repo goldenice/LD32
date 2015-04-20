@@ -10,7 +10,7 @@ require 'effect'
 require 'draw_ui'
 require 'special_attack'
 anim8 = require 'anim8'
-loop_around = true
+loop_around = false
 scroll= -180
 zoom = 1
 shadow_x = -16
@@ -18,10 +18,15 @@ shadow_y = -16
 require 'gamestate'
 require 'enemy'
 level_width = 640
+debug = true
 local instructions = [[
 Simple game
 ]]
+
 levels = {"maps/first_stage","maps/second_stage","maps/final_stage"}
+if debug then
+  levels = {"maps/final_stage","maps/final_stage","maps/final_stage"}
+end
 background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
 background_1 = {}
 background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
