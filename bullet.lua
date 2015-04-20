@@ -27,7 +27,7 @@ function add_bullet(x, y , rotation, type, side)
   gamestate.n_blocks = gamestate.n_blocks + 1
   w,h = bullet_type_images["standard"]:getDimensions()
 
-  bullet = {x=x,y=y,w=w,h=h,rotation=rotation,type=type,side=side,isBullet=true, life=2}
+  bullet = {x=x,y=y,w=w,h=h,rotation=rotation,type=type,side=side,isBullet=true, life=3}
 
   bullet.speed=500
   bullet.damage = 1
