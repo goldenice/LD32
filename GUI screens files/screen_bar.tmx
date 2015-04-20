@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="23" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="hangar_tiles" tilewidth="32" tileheight="32">
+  <image source="../assets/tiles/hangar_tiles.png" width="255" height="255"/>
+ </tileset>
+ <layer name="Tilelaag 1" width="30" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAAfgbaA2x2iNHBXmx2cNDBXmx2jIYz9cFgD2dpHJhcgM0OFjzqcdmPzQ341CLbwTRAmHEU0wWzDhCGAWYG2gNsdoyWV9QHI6FeUETC/EhsGKBFOCuiYTEs9tIynGF2cWCxl97hDABu1wfL
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="23" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="space_002" tilewidth="32" tileheight="32">
+  <image source="../assets/backgrounds/space_002.png" width="255" height="255"/>
+ </tileset>
+ <layer name="Tilelaag 1" width="30" height="23">
+  <data encoding="base64" compression="zlib">
+   eJy11bUSQzEMRFGHX5iZmen/fy63TJHZybPs4oyLVSVbVuKcK6OCKmqoo4HEmKmaJlpoo4MueugHyFTNAEOMMMYEU8wCZKpmjgWWWGGNDbYBMlWzwx4HHHHCGZcAmaq54oY7HnjihXeATNVkkEUOeRRQROnrVDW+mXrroeYp7RyFmqe0c2SdJ9Vn9dat86T6rN66dZ5Un9Vbt86T7x1YM987sGa+d2DN/vmvYvZb/Vcx+63+q5j9Vv9VzP2v9n7M/a/2fsz9r/Z+zP3/K/sArP9AwA==
+  </data>
+ </layer>
+</map>
