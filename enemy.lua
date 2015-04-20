@@ -87,7 +87,7 @@ end
 function aienemy(dt)
   remove = {}
   for i,enemy in pairs(gamestate.enemies) do
-    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
+    if enemy.y+gamestate.scroll < 0 + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
 
       local dx,dy = enemy["ai"](enemy,dt)
       if not enemy.isBoss then
@@ -109,7 +109,7 @@ end
 
 function drawEnemies()
   for _, enemy in pairs(gamestate.enemies) do
-    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
+    if enemy.y+gamestate.scroll < 0 + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
 
     enemy["draw"](enemy)
   end

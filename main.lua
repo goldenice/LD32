@@ -10,7 +10,7 @@ require 'effect'
 require 'draw_ui'
 require 'special_attack'
 anim8 = require 'anim8'
-loop_around = true
+loop_around = false
 scroll= -180
 zoom = 1
 shadow_x = -16
@@ -18,10 +18,15 @@ shadow_y = -16
 require 'gamestate'
 require 'enemy'
 level_width = 640
+debug = false
 local instructions = [[
 Simple game
 ]]
+
 levels = {"maps/first_stage","maps/second_stage","maps/final_stage"}
+if debug then
+  levels = {"maps/final_stage","maps/final_stage","maps/final_stage"}
+end
 background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
 background_1 = {}
 background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
@@ -34,7 +39,8 @@ local cols_len = 0 -- how many collisions are happening
 
 -- World creation
 gamestate = {}
-current_state = "G"
+current_state = "S"
+-- S: start, G: Game, D: Death, W: win
 
 -- Message/debug functions
 local function drawMessage()
@@ -99,10 +105,9 @@ function reset_local()
 
 end
 function resetGame()
-  gamestate = reload_upon_death()
-  reset_local()
-  print("resetting game")
-  collectgarbage("collect")
+  --gamestate = reload_upon_death()
+  current_state="D"
+
 end
 function nextLevel()
   if not loop_around then
@@ -177,7 +182,7 @@ function love.update(dt)
     if gamestate.finished then
       gamestate.timed = gamestate.timed - dt
       if gamestate.timed < 0 then
-        current_state="X"
+        current_state="W"
       end
     end
     cols_len = 0
@@ -187,6 +192,22 @@ function love.update(dt)
     update_special(dt)
     aienemy(dt)
     gamestate.scroll = gamestate.scroll   - dt*scroll
+  else
+    if joystick then
+      if joystick:isDown(1) then
+        cur = 1
+        loadmap(levels[cur])
+        current_state="G"
+        print("resetting game")
+        collectgarbage("collect")
+      end
+    elseif  love.keyboard.isDown( " " ) then
+    cur = 1
+    loadmap(levels[cur])
+    current_state="G"
+    print("resetting game")
+    collectgarbage("collect")
+    end
   end
   TEsound.cleanup()   --keeps played sounds list clean and handles sound looping DO NOT REMOVE
 end
@@ -220,15 +241,14 @@ function love.draw()
 
     draw_ui()
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
-  else
-    local w = windowWith
-    local h = windowHeight
-    love.graphics.translate(tx, ty)
-
-    gamestate.map:setDrawRange(0, 0, w, h)
-
-    love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
-
+  elseif current_state== "W" then
+    draw_won()
+  elseif current_state == "S" then
+   -- start
+   draw_start()
+  elseif current_state == "D" then
+    --death
+    draw_death()
   end
 end
 

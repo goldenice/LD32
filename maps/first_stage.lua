@@ -2097,7 +2097,7 @@ return {
     {
       type = "objectgroup",
       name = "enemies",
-      visible = false,
+      visible = true,
       opacity = 1,
       properties = {
         ["scroll"] = "-400",
@@ -3369,8 +3369,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1018.08,
-          y = 12044.3,
+          x = 1046.08,
+          y = 12114.3,
           width = 32,
           height = 32,
           rotation = 305.017,
@@ -3387,8 +3387,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 897.997,
-          y = 11960.7,
+          x = 925.997,
+          y = 12030.7,
           width = 32,
           height = 32,
           rotation = 305.017,
@@ -3405,8 +3405,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1072.79,
-          y = 12083.6,
+          x = 1100.79,
+          y = 12153.6,
           width = 32,
           height = 32,
           rotation = 305.017,
@@ -3423,8 +3423,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 952.775,
-          y = 11999.8,
+          x = 980.775,
+          y = 12069.8,
           width = 32,
           height = 32,
           rotation = 305.017,
@@ -3513,29 +3513,11 @@ return {
           }
         },
         {
-          id = 166,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -275.442,
-          y = 8966.68,
-          width = 32,
-          height = 32,
-          rotation = 762.558,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 167,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 749.996,
+          x = 885.996,
           y = 8797.08,
           width = 32,
           height = 32,
@@ -3567,78 +3549,6 @@ return {
           }
         },
         {
-          id = 169,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1035.13,
-          y = 8613.39,
-          width = 32,
-          height = 32,
-          rotation = 251.2,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 170,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 963.656,
-          y = 8797.48,
-          width = 32,
-          height = 32,
-          rotation = -90,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 171,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -519.126,
-          y = 8779.98,
-          width = 32,
-          height = 32,
-          rotation = 421.358,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 172,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 971.166,
-          y = 8634.43,
-          width = 32,
-          height = 32,
-          rotation = 251.2,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 173,
           name = "",
           type = "",
@@ -3661,7 +3571,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 896.736,
+          x = 1032.74,
           y = 8660.93,
           width = 32,
           height = 32,
@@ -3679,7 +3589,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 832.733,
+          x = 968.733,
           y = 8681.87,
           width = 32,
           height = 32,
@@ -3747,47 +3657,11 @@ return {
           }
         },
         {
-          id = 179,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 920.696,
-          y = 8457.34,
-          width = 32,
-          height = 32,
-          rotation = 646.217,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 180,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 905.616,
-          y = 8612.88,
-          width = 32,
-          height = 32,
-          rotation = 305.017,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 181,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 817.328,
+          x = 953.328,
           y = 8797.88,
           width = 32,
           height = 32,
@@ -3796,42 +3670,6 @@ return {
           visible = true,
           properties = {
             ["scroll"] = "400",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 182,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -328.074,
-          y = 9025.58,
-          width = 32,
-          height = 32,
-          rotation = 762.558,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 183,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 856.236,
-          y = 8437.77,
-          width = 32,
-          height = 32,
-          rotation = 646.217,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
             ["tick"] = "0",
             ["type"] = "line"
           }
@@ -3873,29 +3711,11 @@ return {
           }
         },
         {
-          id = 186,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -374.195,
-          y = 9074.67,
-          width = 32,
-          height = 32,
-          rotation = 762.558,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 187,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 896.326,
+          x = 1032.33,
           y = 8796.78,
           width = 32,
           height = 32,
@@ -4075,114 +3895,6 @@ return {
           }
         },
         {
-          id = 199,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 869.326,
-          y = 7179.88,
-          width = 32,
-          height = 32,
-          rotation = -90,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 201,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -279.416,
-          y = 7059.88,
-          width = 32,
-          height = 32,
-          rotation = 421.358,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 202,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -338.845,
-          y = 7091.58,
-          width = 32,
-          height = 32,
-          rotation = 421.358,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 203,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -177.401,
-          y = 7299.52,
-          width = 32,
-          height = 32,
-          rotation = 762.558,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 205,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 965.614,
-          y = 6974.88,
-          width = 32,
-          height = 32,
-          rotation = 305.017,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 207,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 884.731,
-          y = 7063.87,
-          width = 32,
-          height = 32,
-          rotation = 251.2,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 208,
           name = "",
           type = "",
@@ -4215,24 +3927,6 @@ return {
           properties = {
             ["scroll"] = "400",
             ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 210,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 948.734,
-          y = 7042.93,
-          width = 32,
-          height = 32,
-          rotation = 251.2,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0",
             ["type"] = "line"
           }
         },
@@ -4273,42 +3967,6 @@ return {
           }
         },
         {
-          id = 213,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 910.907,
-          y = 6935.58,
-          width = 32,
-          height = 32,
-          rotation = 305.017,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
-            ["tick"] = "0",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 214,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 801.994,
-          y = 7179.08,
-          width = 32,
-          height = 32,
-          rotation = -90,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "400",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
           id = 216,
           name = "",
           type = "",
@@ -4322,24 +3980,6 @@ return {
           visible = true,
           properties = {
             ["scroll"] = "400",
-            ["tick"] = "0.5",
-            ["type"] = "line"
-          }
-        },
-        {
-          id = 217,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -223.444,
-          y = 7348.68,
-          width = 32,
-          height = 32,
-          rotation = 762.558,
-          gid = 7,
-          visible = true,
-          properties = {
-            ["scroll"] = "-150",
             ["tick"] = "0.5",
             ["type"] = "line"
           }
@@ -4385,7 +4025,7 @@ return {
     {
       type = "objectgroup",
       name = "pickups",
-      visible = false,
+      visible = true,
       opacity = 1,
       properties = {},
       objects = {
@@ -4442,8 +4082,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 304,
-          y = 10372,
+          x = 322,
+          y = 9262,
           width = 32,
           height = 32,
           rotation = 0,
