@@ -21,7 +21,7 @@ level_width = 640
 local instructions = [[
 Simple game
 ]]
-levels = {"maps/testmap2","maps/testmap2"}
+levels = {"maps/first_stage","maps/second_stage","maps/final_stage"}
 background1_url = {"assets/backgrounds/space_002.png", "assets/backgrounds/space_002.png"}
 background_1 = {}
 background2_url = {"assets/backgrounds/space_001.png", "assets/backgrounds/space_001.png"}
@@ -209,8 +209,9 @@ function love.draw()
     if shouldDrawDebug then
       drawBlocks()
     end
-    draw_ui()
     drawPickups()
+
+    draw_ui()
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )).."sc:"..gamestate.scroll, 10, 10-gamestate.scroll)
   else
     local w = windowWith

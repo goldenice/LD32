@@ -10,7 +10,7 @@ function   loadbullets()
   bullet_type_images["standard_enemy"] =  love.graphics.newImage("assets/entity/bullets/bullet_round_yellow1.png")
   bullet_type_images["ion"] =  love.graphics.newImage("assets/entity/bullets/bullet_huge_001.png")
 
-  bullet_type_images["wreck"] =  love.graphics.newImage("assets/entity/bullets/bullet_huge_001.png")
+  bullet_type_images["wreck"] =  love.graphics.newImage("assets/entity/specials/wrecking_ball_chainless_001.png")
 
 end
 
@@ -27,10 +27,11 @@ function add_standard_enemy_bullet(x, y , rotation, side)
     bullet.damage=1
     bullet.img = bullet_type_images["standard_enemy"]
     bullet.speed = 250
+    bullet.life= 4
 end
 function add_ion_enemy_bullet(x, y , rotation, side)
   local bullet = add_bullet(x, y , rotation, "standard", side)
-
+  bullet.life= 4
   bullet.damage=1
   bullet.img = bullet_type_images["ion"]
   bullet.width = 32

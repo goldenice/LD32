@@ -16,7 +16,7 @@ function add_boss_enemy(gamestate,x,y,tick,scroll,rotation)
   local still = true
   local ship =  nil
   local e = add_enemy(gamestate,x,y,64,32,0,0,tick,scroll,rotation,still,ship,boss_enemy_initial_draw)
-  e.health = 60
+  e.health = 90
   e.first_health = 30
   e.left_health = 30
   e.yoffset = 0
@@ -26,7 +26,10 @@ function add_boss_enemy(gamestate,x,y,tick,scroll,rotation)
   e.front_col = {x = 0, y=64,width=64,height=16}
   e.front_col.isPart = true
   e.front_col.part = "front"
-
+  e.ydirection = 1
+  e.cy = 0
+  e.time_x = 0
+  e.y_timer=0
   e.shield_left_col = {x = -32, y=72,width=48,height=16}
   e.shield_right_col = {x = 48, y=72,width=48,height=16}
   e.shield_left_col.isShield = true
@@ -61,6 +64,7 @@ function reset_timers (gamestate,e)
   e.circle_motion_timer = 2
   e.circle_motion_single_bullet = 0
   e.circle_motion_counter = 0
+  e.fwd_gun_timer = 0
 end
 function add_enemy_part(gamestate,part,e)
   part.w = part.width
@@ -74,6 +78,19 @@ function add_enemy_part(gamestate,part,e)
   part.block =gamestate.n_blocks
 
 
+end
+function strafe(enemy,dt)
+  local velocity = 120
+
+  local ddx = enemy.ydirection *velocity* dt
+  enemy.time_x = enemy.time_x + dt
+  if enemy.time_x > 1 then
+    enemy.ydirection = -enemy.ydirection
+    enemy.time_x = 0
+  end
+
+
+  return ddx
 end
 -- initial / loading stage
 --
@@ -110,6 +127,7 @@ function boss_first_stage_start_ai(enemy,dt)
     dx =  velocity * dt
   end
   local dy = scroll*dt
+  dx = dx + strafe(enemy,dt)
   enemy.dx = dx
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
   enemy.front_col.x, enemy.front_col.y, cols, cols_len =gamestate.world:move(enemy.front_col, enemy.front_col.x + dx, enemy.front_col.y + dy,enemyfilter)
@@ -160,6 +178,8 @@ function boss_second_stage_start_ai(enemy,dt)
     else
       dx =  velocity * dt
     end
+    enemy.dx = dx
+
   local dy = scroll*dt
   enemy.left_col.x, enemy.left_col.y, cols, cols_len =gamestate.world:move(enemy.left_col, enemy.left_col.x + dx, enemy.left_col.y + dy,enemyfilter)
   enemy.right_col.x, enemy.right_col.y, cols, cols_len =gamestate.world:move(enemy.right_col, enemy.right_col.x + dx, enemy.right_col.y + dy,enemyfilter)
@@ -189,16 +209,18 @@ end
 -- no left
 function boss_enemy_third_right_stage_ai(enemy,dt)
   local velocity = 150
-  local dx = 0
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_right_cannon(gamestate,dt)
+  local dx = 0
 
   if enemy.x > gamestate.player.x-32 then
     dx =  -velocity * dt
   else
     dx =  velocity * dt
   end
+  enemy.dx = dx
+
   local dy = scroll*dt
   enemy.right_col.x, enemy.right_col.y, cols, cols_len =gamestate.world:move(enemy.right_col, enemy.right_col.x + dx, enemy.right_col.y + dy,enemyfilter)
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
@@ -222,16 +244,18 @@ end
 -- no right
 function boss_enemy_third_left_stage_ai(enemy,dt)
   local velocity = 150
-  local dx = 0
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
   boss_left_cannon(gamestate,dt)
+  local dx = 0
 
   if enemy.x > gamestate.player.x-32 then
     local dx =  -velocity * dt
   else
     local dx =  velocity * dt
   end
+  enemy.dx = dx
+
   local dy = scroll*dt
   enemy.left_col.x, enemy.left_col.y, cols, cols_len =gamestate.world:move(enemy.left_col, enemy.left_col.x + dx, enemy.left_col.y + dy,enemyfilter)
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
@@ -254,15 +278,20 @@ end
 -- final
 function boss_enemy_third_final_stage_ai(enemy,dt)
   local velocity = 200
-  enemy.timer_multiplier = enemy.timer_multiplier +0.1*dt
-  local dx = 0
+  enemy.timer_multiplier = 5
   boss_circle_cannon(gamestate,dt)
   circle_motion_timer(gamestate,dt)
+  boss_fwd_gun(gamestate,dt)
+  local dx = 0
+
   if enemy.x > gamestate.player.x-32 then
     local dx =  -velocity * dt
   else
     local dx =  velocity * dt
   end
+  dx = dx + strafe(enemy,dt)
+  enemy.dx = dx
+
   local dy = scroll*dt
   enemy.x, enemy.y, cols, cols_len =gamestate.world:move(enemy, enemy.x + dx, enemy.y + dy,enemyfilter)
   if  tonumber(enemy.tick) > 0.5 then

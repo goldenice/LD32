@@ -1,5 +1,7 @@
+local wreckingball = {}
+
 function get_wrecked()
-  local wreckingball = {}
+  wreckingball = {}
   wreckingball.tick = 0
   wreckingball.load_ticks = 1
   wreckingball.charge_ticks = 6

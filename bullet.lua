@@ -43,9 +43,10 @@ function move_bullets(dt)
 
   for q,bullet in pairs(gamestate.bullets) do
     bullet.life=bullet.life-dt
-    if bullet.life < 0 then
+    if bullet.life < 0 or bullet.y+gamestate.scroll < 0 or bullet.y+gamestate.scroll > windowHeight then
       delete_bullet(bullet)
     else
+
       local r = math.rad(bullet.rotation)
       local dx = math.sin(r)* bullet.speed * dt
       local dy = -math.cos(r)*bullet.speed*dt

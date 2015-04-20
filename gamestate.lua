@@ -8,13 +8,15 @@ local sti = require "Simple-Tiled-Implementation"
 function resetgamestate(mname)
   local s = {}
   print(mname)
-  s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 450,xoffset = 17,yoffset = 5, ctype="player",isPlayer=true}
+  s.player = { x=love.graphics.getWidth()/4,y=love.graphics.getHeight()/3,w=8,h=16,r=0, speed = 250 ,xoffset = 17,yoffset = 5, ctype="player",isPlayer=true}
   s.blocks = {}
   s.score =  0
+  scroll= -180
+
   s.special_attack = nil
   s.special_triggered = false
   s.n_specials = 0
-  s.special_attacks = {"random_fwd","random_fwd"}
+  s.special_attacks = {"circle","random_fwd"}
   s.shoot_timeout = 1/8
   s.shoot_time = 0
   s.special_loose = false
@@ -37,6 +39,7 @@ function resetgamestate(mname)
   s.shadow=false
   s.effects = {}
   s.n_effects = 0
+  s.time_x = 0
   s.world = bump.newWorld()
   s.shadowworld = bump.newWorld()
   s.mapname = mname

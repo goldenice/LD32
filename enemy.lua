@@ -60,7 +60,8 @@ function findEnemies(gamestate)
         add_suicide_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
       end
       if v.properties.type == "rtank" then
-        add_rotating_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+        local e = add_rotating_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
+        e.ascroll = v.properties.ascroll
       end
       if v.properties.type == "tank" then
         add_tank_enemy(gamestate,v.x,v.y,v.properties.tick, v.properties.scroll,v.rotation, v.properties.still)
@@ -86,7 +87,7 @@ end
 function aienemy(dt)
   remove = {}
   for i,enemy in pairs(gamestate.enemies) do
-    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  0   then
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
 
       local dx,dy = enemy["ai"](enemy,dt)
       if not enemy.isBoss then
@@ -108,7 +109,7 @@ end
 
 function drawEnemies()
   for _, enemy in pairs(gamestate.enemies) do
-    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight   then
+    if enemy.y+gamestate.scroll < tonumber(enemy.scroll) + windowHeight and enemy.y+gamestate.scroll >  -windowHeight-tonumber(enemy.scroll)   then
 
     enemy["draw"](enemy)
   end
