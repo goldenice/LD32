@@ -16,10 +16,10 @@ end
   love.graphics.print("Score:   "..gamestate.score,720, 60-gamestate.scroll)
 
   if gamestate.boss_active then
-    love.graphics.print("Boss Hull:   "..  gamestate.boss.health,720, 120-gamestate.scroll)
-    love.graphics.print("Boss Left:   "..  gamestate.boss.left_health,730, 140-gamestate.scroll)
-    love.graphics.print("Boss Right:   "..  gamestate.boss.right_health,740, 160-gamestate.scroll)
-    love.graphics.print("Boss Center:   "..  gamestate.boss.first_health,750, 180-gamestate.scroll)
+    love.graphics.print("Boss Hull:   "..  gamestate.boss.health,730, 120-gamestate.scroll)
+    love.graphics.print("Boss Left:   "..  gamestate.boss.left_health,740, 140-gamestate.scroll)
+    love.graphics.print("Boss Right:   "..  gamestate.boss.right_health,750, 160-gamestate.scroll)
+    love.graphics.print("Boss Center:   "..  gamestate.boss.first_health,760, 180-gamestate.scroll)
   end
   love.graphics.draw(pickup_bg,720,100-gamestate.scroll)
   if gamestate.n_specials+1 <=#gamestate.special_attacks then
@@ -33,14 +33,34 @@ end
   end
 end
 
-function draw_main()
+function draw_start()
+  local w = windowWith
+  local h = windowHeight
 
+
+
+  love.graphics.print("Welcome to this game", 10, 10)
 end
 
 function draw_death()
+  local w = windowWith
+  local h = windowHeight
+  love.graphics.translate(tx, ty)
 
+  gamestate.map:setDrawRange(0, 0, w, h)
+
+  love.graphics.print("You are DEAD", 10, 10-gamestate.scroll)
 end
 
 function draw_won()
+  local w = windowWith
+  local h = windowHeight
+  love.graphics.translate(tx, ty)
+
+  gamestate.map:setDrawRange(0, 0, w, h)
+
+  love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
+end
+function story_dia()
 
 end
