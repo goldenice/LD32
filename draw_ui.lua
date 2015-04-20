@@ -3,7 +3,12 @@ ui_time_per_frame = 2
 function load_ui_elements()
   bg  = love.graphics.newImage("assets/backgrounds/panel_001.png")
   life  = love.graphics.newImage("assets/entity/ships/ship_003.png")
-  mainFont = love.graphics.newFont( 20);
+  mainFont = love.graphics.newFont( 20)
+  text_sub = love.graphics.newFont( 35)
+
+  start_screen =  love.graphics.newImage("GUI screens files/main_splash.png")
+  death_screen =  love.graphics.newImage("GUI screens files/screen_bar.png")
+  win_screen =  love.graphics.newImage("GUI screens files/screen_bar.png")
   pickup_bg = love.graphics.newImage("assets/tiles/gui_slots.png")
 end
 function draw_ui()
@@ -79,10 +84,8 @@ end
 function draw_start()
   local w = windowWith
   local h = windowHeight
+  love.graphics.draw(start_screen,0,-16)
 
-
-
-  love.graphics.print("Welcome to this game", 10, 10)
 end
 
 function draw_death()
@@ -91,8 +94,12 @@ function draw_death()
   love.graphics.translate(tx, ty)
 
   gamestate.map:setDrawRange(0, 0, w, h)
+  love.graphics.draw(death_screen,0,-16-gamestate.scroll)
+  love.graphics.setFont(text_sub)
 
-  love.graphics.print(gamestate.death_text, 10, 10-gamestate.scroll)
+  love.graphics.print(gamestate.death_text, 30, 350-gamestate.scroll)
+  love.graphics.setFont(mainFont)
+
 end
 
 function draw_won()
@@ -101,8 +108,11 @@ function draw_won()
   love.graphics.translate(tx, ty)
 
   gamestate.map:setDrawRange(0, 0, w, h)
+  love.graphics.draw(win_screen,0,-16-gamestate.scroll)
+  love.graphics.setFont(text_sub)
 
-  love.graphics.print("You are a winner, congrats", 10, 10-gamestate.scroll)
+  love.graphics.print("You are Winner", 30, 350-gamestate.scroll)
+  love.graphics.setFont(mainFont)
 end
 function story_dia(text)
   love.graphics.setColor(255, 255, 255, 50) -- red, green, blue, opacity (this would be white with 20% opacity
@@ -114,5 +124,11 @@ function story_dia(text)
 end
 death_texts = {
   "You are Dead Dead Dead Dead Dead, questions?",
-  "I hope you have a good insurance package"
+  "I hope you have a good insurance package",
+  "T is but a scratch",
+  "No, mr player guy, I expect you to die",
+  "Why won't you let me DIE",
+  "You do better if you don't get hit",
+  "You lost the game",
+  "You don't pass start and don't collect $100"
 }
