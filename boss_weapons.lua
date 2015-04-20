@@ -1,6 +1,6 @@
 function auto_aim(x,y,gamestate)
-  local dx = gamestate.player.x - x
-  local dy = gamestate.player.y - y
+  local dx = gamestate.player.x - x-16
+  local dy = gamestate.player.y - y-80
 
 
   return math.deg(math.atan2(dx,-dy))
