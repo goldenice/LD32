@@ -40,10 +40,12 @@ end
     love.graphics.print("left stick for movement",660,200-gamestate.scroll)
     love.graphics.print("A to shoot",660,220-gamestate.scroll)
 
-    love.graphics.print("Right shoulder for special",660,240-gamestate.scroll)
-    love.graphics.print("Left Shoulder to charge wreckingball",660,260-gamestate.scroll)
-    love.graphics.print("Z to release wreckingball,",660,280-gamestate.scroll)
+    love.graphics.print("B for special",660,240-gamestate.scroll)
+    love.graphics.print("right shoulder wreckingball",660,260-gamestate.scroll)
+    love.graphics.print("left shoulder to release wreckingball,",660,280-gamestate.scroll)
     love.graphics.print("if wreckingball active",680,300-gamestate.scroll)
+    love.graphics.print("Esc to RAGEQUIT",660,320-gamestate.scroll)
+
   else
     love.graphics.print("Arrows for movement",660,200-gamestate.scroll)
     love.graphics.print("Spacebar to shoot",660,220-gamestate.scroll)
@@ -52,7 +54,9 @@ end
     love.graphics.print("X to charge wreckingball",660,260-gamestate.scroll)
     love.graphics.print("Z to release wreckingball,",660,280-gamestate.scroll)
     love.graphics.print("if wreckingball active",680,300-gamestate.scroll)
-    
+    love.graphics.print("Esc to RAGEQUIT",660,320-gamestate.scroll)
+
+
   end
   if cur == 1 then
     if gamestate.time < ui_time_per_frame then
@@ -90,7 +94,11 @@ function draw_start()
   local w = windowWith
   local h = windowHeight
   love.graphics.draw(start_screen,0,-16)
-
+  if joystick then
+    love.graphics.print("Press A on joystick 1 to start", 10,120)
+  else
+    love.graphics.print("Press Spacebar to start", 10,120)
+  end
 end
 
 function draw_death()

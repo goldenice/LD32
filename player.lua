@@ -22,31 +22,31 @@ function updatePlayer( dt)
   dy = 0
   gamestate.shoot_time =     gamestate.shoot_time + dt
   if joystick then
-    if not gamestate.boss_intro then
-    if joystick:isDown(1 )  and gamestate.shoot_time > gamestate.shoot_timeout then
-      gamestate.shoot_time = 0
-      add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
-    end
-    if joystick:isDown(2 )  and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
+    if joystick:isDown(6)  and gamestate.shoot_time > gamestate.shoot_timeout then
       if gamestate.special_loose then
         if start_ball() then
           gamestate.shoot_time = 0
         end
       end
     end
-    if joystick:isDown(5 )   then
-      if not gamestate.special_triggered then
-        if trigger_special() then
-        end
-      end
+    if joystick:isDown(1)  and gamestate.shoot_time > gamestate.shoot_timeout then
+      gamestate.shoot_time = 0
+      add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
     end
-    if joystick:isDown(6 )   then
-      trigger_special()
+    if joystick:isDown(5)  and gamestate.shoot_time > gamestate.shoot_timeout then
+         trigger_special()
 
     end
-    elseif not gamestate.special_triggered then
+    if joystick:isDown(2)  and gamestate.shoot_time > gamestate.shoot_timeout then
+      if gamestate.special_loose then
+        if start_special() then
+          gamestate.shoot_time = 0
+        end
+      end
+      elseif not gamestate.special_triggered then
       gamestate.special_loose=true
     end
+
     dx = joystick:getGamepadAxis("leftx") * dt * gamestate.player.speed
     dy = joystick:getGamepadAxis("lefty") * dt * gamestate.player.speed*1.5
   else
@@ -68,7 +68,7 @@ function updatePlayer( dt)
       end
     end
   end
-  if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
+  if (love.keyboard.isDown(" ")  or love.keyboard.isDown("c")) and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
     gamestate.shoot_time = 0
     add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
   end
