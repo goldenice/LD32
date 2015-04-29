@@ -68,7 +68,7 @@ function updatePlayer( dt)
       end
     end
   end
-  if love.keyboard.isDown(" ")  and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
+  if (love.keyboard.isDown(" ")  or love.keyboard.isDown("c")) and gamestate.shoot_time > gamestate.shoot_timeout and gamestate.main_gun then
     gamestate.shoot_time = 0
     add_standard_bullet(gamestate.player.x, gamestate.player.y ,0, "player")
   end
